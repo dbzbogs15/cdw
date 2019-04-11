@@ -175,6 +175,4 @@
 
     ga('create', 'UA-56977516-1', 'auto');
     ga('send', 'pageview');
-
-
 </script>

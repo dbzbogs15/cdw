@@ -21,8 +21,6 @@
 <%--<script type="text/javascript" src="/resources/layouts/system/js/jquery-1.8.2.min.js"></script>--%>
 <script type="text/javascript" src="/resources/layouts/system/js/common.js"></script>
 <script type='text/javascript' src='/resources/layouts/system/js/jquery.boxy.js'></script>
-<script type="text/javascript">var app = '';</script>
-<link href="/resources/layouts/fontpage/css/home.css" type="text/css" rel="stylesheet"/>
 
 <!--[if IE]>
 <link rel="stylesheet" href="/resources/layouts/fontpage/css/styles.ie.css" type="text/css"/>
