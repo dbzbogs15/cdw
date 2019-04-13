@@ -30,7 +30,7 @@
                         </tr>
                     </table>
                 </form>
-                <div class="autocomplete" id="autocomplete"></div>
+                <div style="height: 420px; overflow: scroll" class="autocomplete" id="autocomplete"></div>
                 <script>
                     function checksearch() {
                         var kw = gde("keyword");
