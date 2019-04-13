@@ -30,7 +30,7 @@
                         </tr>
                     </table>
                 </form>
-                <div style="height: 420px; overflow: scroll" class="autocomplete" id="autocomplete"></div>
+                <div class="autocomplete" id="autocomplete"></div>
                 <script>
                     function checksearch() {
                         var kw = gde("keyword");
@@ -119,6 +119,14 @@
                                 return false;
                             },
                             success: function (result) {
+                                if(result.length >= 5) {
+                                    $("#autocomplete").css('overflow', 'scroll');
+                                    $("#autocomplete").css('height', '420px');
+                                }
+                                if(result.length < 5) {
+                                    $("#autocomplete").css('overflow', '');
+                                    $("#autocomplete").css('height', '');
+                                }
                                 if (result) {
                                     $("#autocomplete").empty();
                                     $.each(result, function (index, data) {
