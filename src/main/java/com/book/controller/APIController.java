@@ -3,8 +3,11 @@ package com.book.controller;
 import com.book.model.Book;
 import com.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,14 +19,28 @@ public class APIController {
     BookService bookService;
 
     @RequestMapping("/api/newbook")
-    public StringBuilder getNewBook(@RequestParam int page) {
-        System.out.println(page-1);
-        StringBuilder str = new StringBuilder();
+    public ResponseEntity<List<Book>> getNewBook(@RequestParam int page) {
         List<Book> list = bookService.getNewBook(page-1).getContent();
-
-        renderBook(str, list);
-        return str;
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
+    @RequestMapping("/search/autocomplete")
+    public ResponseEntity<List<Book>> searchBook(@RequestParam String keywords) {
+        List<Book> list = bookService.getBookByName(keywords);
+        if(keywords.length() == 0) {
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+//    @RequestMapping("/api/newbook")
+//    public StringBuilder getNewBook(@RequestParam int page) {
+//        System.out.println(page-1);
+//        StringBuilder str = new StringBuilder();
+//        List<Book> list = bookService.getNewBook(page-1).getContent();
+//
+//        renderBook(str, list);
+//        return str;
+//    }
 
     private void renderBook(StringBuilder str, List<Book> list) {
         for(Book book : list) {

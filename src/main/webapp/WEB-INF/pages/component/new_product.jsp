@@ -9,35 +9,35 @@
     <div style="position:relative; padding:0 20px; overflow:hidden; height:340px;">
         <div id="ajaxncontainer">
             <c:forEach var="newBook" items="${newBook}">
-            <div class="product_contener">
-                <div class="products">
-                    <div class="image">
-                        <a href="/product?bookid=${newBook.id}"
-                           title="HÔM NAY ĂN GÌ? - PHIÊN BẢN THÚ CƯNG">
-                            <img src="/resources/${newBook.image}"
-                                 alt="${newBook.name}"
-                                 title="${newBook.name}"/>
-                        </a>
-                        <span class="saleprice">-${newBook.saleoff}%</span>
-                    </div>
-                    <div class="productname">
-                        <a href="/product?bookid=${newBook.id}"
-                           title="${newBook.name}">
-                            ${newBook.name}
-                        </a>
-                    </div>
-                    <div class="fields">
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="image">
+                            <a href="/product?bookid=${newBook.id}"
+                               title="${newBook.name}">
+                                <img src="/resources/${newBook.image}"
+                                     alt="${newBook.name}"
+                                     title="${newBook.name}"/>
+                            </a>
+                            <span class="saleprice">-${newBook.saleoff}%</span>
+                        </div>
+                        <div class="productname">
+                            <a href="/product?bookid=${newBook.id}"
+                               title="${newBook.name}">
+                                    ${newBook.name}
+                            </a>
+                        </div>
+                        <div class="fields">
                                         <span>
                                         <a href="/product?bookid=${newBook.id}"
                                            title="${newBook.author}">${newBook.author}
                                         </a>
                                         </span>
-                    </div>
+                        </div>
 
-                    <div class="prices">${newBook.priceNew} ₫</div>
-                    <div class="rootprice">${newBook.priceOld} ₫</div>
+                        <div class="prices">${newBook.priceNew} ₫</div>
+                        <div class="rootprice">${newBook.priceOld} ₫</div>
+                    </div>
                 </div>
-            </div>
             </c:forEach>
         </div>
         <div class="clear"></div>
@@ -80,24 +80,46 @@
         address = addQuery(address, 'page=' + pagen);
         $.ajax({
             url: address,
-            dataType: "html",
+            dataType: "json",
             type: "GET",
             cache: false,
             error: function (e) {
                 Boxy.alert('Lỗi ajax', null, {title: 'Lỗi'});
                 return false;
             },
-            success: function (data) {
+            success: function (result) {
                 $("#ajaxncontainer").empty();
-                $("#ajaxncontainer").append(data);
+                //render sách mới
+                $.each(result, function (index, data) {
+                    $("#ajaxncontainer").append(
+                        '<div class="product_contener">' +
+                        '<div class="products hide">' +
+                        '<div class="image">' +
+                        '<a href="/product?bookid='+data.id+'" title="' + data.name + '">' +
+                        '<img src="/resources/' + data.image + '" alt="' + data.name + '" title="' + data.name + '" />' +
+                        '</a>' +
+                        '<span class="saleprice">-' + data.saleoff + '%</span>' +
+                        '</div>' +
+                        '<div class="productname">' +
+                        '<a href="" title="' + data.name + '">' + data.name + '</a>' +
+                        '</div>' +
+                        '<div class="fields">' +
+                        '<span><a href="" title="' + data.author + '">' + data.author + '</a></span>' +
+                        '</div>' +
+                        '<div class="prices">' + data.priceNew + ' ₫</div>' +
+                        '<span class="rootprice">' + data.priceOld + ' ₫</span>' +
+                        '</div>' +
+                        '</div>'
+                    );
+                })
                 i = 0;
                 if (step == 1) {
-                    $(".hide").each(function (index) {
+                    $(".hide").each(function () {
                         $(this).delay(50 * i).fadeIn(100);
                         i++;
                     });
                 } else {
-                    $($(".hide").get().reverse()).each(function (index) {
+                    $($(".hide").get().reverse()).each(function () {
                         $(this).delay(50 * i).fadeIn(100);
                         i++;
                     });

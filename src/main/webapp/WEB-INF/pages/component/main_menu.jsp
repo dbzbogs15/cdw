@@ -4,10 +4,10 @@
     <div class="mainmenu">
         <span class="while"></span>
         <span>
-                            <h2>
-                                <i class="fa fa-bars"></i>Danh mục sản phẩm
-                            </h2>
-                        </span>
+            <h2>
+                <i class="fa fa-bars"></i>Danh mục sản phẩm
+            </h2>
+        </span>
         <ul class="submenu0" id="submenu0">
             <li class="group">
                 <a href="javascript:" class="havechild" 4>
@@ -36,211 +36,24 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="/danh-muc/1/sach-kinh-te.html" class="havechild" 8 target="_self">
-                    Sách kinh tế
-                </a>
-                <ul class="submenu1" id="submenu1">
-                    <li>
-                        <a href="/danh-muc/18/tai-chinh-ke-toan.html" target="_self">
-                            Tài chính - Kế toán
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/17/quan-tri-lanh-dao.html" target="_self">
-                            Quản trị - Lãnh đạo
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/16/marketing-ban-hang.html" target="_self">
-                            Marketing - Bán hàng
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/15/ky-nang-lam-viec.html" target="_self">
-                            Kỹ năng làm việc
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/13/kinh-te-hoc.html" target="_self">
-                            Kinh tế học
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/12/khoi-nghiep.html" target="_self">
-                            Khởi nghiệp
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/11/doanh-nhan-tap-doan.html" target="_self">
-                            Doanh nhân - Tập đoàn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/10/bai-hoc-kinh-doanh.html" target="_self">
-                            Bài học kinh doanh
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="/danh-muc/2/van-hoc-nuoc-ngoai.html" class="havechild" 9 target="_self">
-                    Văn học nước ngoài
-                </a>
-                <ul class="submenu1" id="submenu1">
-                    <li>
-                        <a href="/danh-muc/25/tieu-su-hoi-ky.html" target="_self">
-                            Tiểu sử - Hồi ký
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/24/truyen-lich-su-kiem-hiep.html" target="_self">
-                            Truyện lịch sử - Kiếm hiệp
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/23/truyen-ngan-tan-van.html" target="_self">
-                            Truyện ngắn - Tản văn
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/22/tac-pham-kinh-dien.html" target="_self">
-                            Tác phẩm kinh điển</a></li>
-                    <li>
-                        <a href="/danh-muc/21/huyen-bi-gia-tuong.html" target="_self">
-                            Huyền bí - Giả tưởng
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/20/truyen-trinh-tham-kinh-di.html" target="_self">Truyện
-                            trinh thám - Kinh dị
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/19/tieu-thuyet-tinh-cam-lang-man.html" target="_self">Tiểu
-                            thuyết tình cảm - Lãng mạn
-                        </a>
-                        /li>
-                    <li>
-                        <a href="/danh-muc/14/tieu-thuyet-dam-my.html" target="_self">Tiểu thuyết đam
-                            mỹ
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/danh-muc/68/bach-hop.html" target="_self">
-                            Bách Hợp
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/3/van-hoc-trong-nuoc.html" class="havechild" 6 target="_self">Văn học
-                trong nước</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/26/tieu-thuyet.html" target="_self">Tiểu thuyết</a></li>
-                    <li><a href="/danh-muc/27/truyen-ngan-tan-van.html" target="_self">Truyện ngắn - Tản
-                        văn</a></li>
-                    <li><a href="/danh-muc/57/huyen-bi-gia-tuong.html" target="_self">Huyền bí - Giả
-                        tưởng</a></li>
-                    <li><a href="/danh-muc/58/phong-su-ky-su.html" target="_self">Phóng sự - Ký sự</a>
-                    </li>
-                    <li><a href="/danh-muc/3/trinh-tham-kinh-di.html" target="_self">Trinh thám - Kinh
-                        dị</a></li>
-                    <li><a href="/danh-muc/3/tieu-su-hoi-ky.html" target="_self">Tiểu sử - Hồi Ký</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/4/sach-ki-nang-song.html" class="havechild" 2 target="_self">Sách kĩ
-                năng sống</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/41/ky-nang-song.html" target="_self">Kỹ năng sống</a></li>
-                    <li><a href="/danh-muc/56/nghe-thuat-song-dep.html" target="_self">Nghệ thuật sống
-                        đẹp</a></li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/5/sach-tuoi-teen.html" class="havechild" 4 target="_self">Sách tuổi
-                teen</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/30/van-hoc-teen.html" target="_self">Văn học teen</a></li>
-                    <li><a href="/danh-muc/29/huong-nghiep-ky-nang.html" target="_self">Hướng nghiệp -
-                        kỹ năng</a></li>
-                    <li><a href="/danh-muc/64/light-novel.html" target="_self">Light Novel</a></li>
-                    <li><a href="/danh-muc/69/truyen-tranh-comic.html" target="_self">Truyện tranh,
-                        Comic</a></li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/6/hoc-ngoai-ngu.html" class="havechild" 4 target="_self">Học ngoại
-                ngữ</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/47/tu-dien.html" target="_self">Từ điển</a></li>
-                    <li><a href="/danh-muc/48/sach-hoc-tieng-anh.html" target="_self">Sách học tiếng
-                        Anh</a></li>
-                    <li><a href="/danh-muc/50/sach-hoc-tieng-hoa.html" target="_self">Sách học tiếng
-                        Hoa</a></li>
-                    <li><a href="/danh-muc/49/sach-hoc-tieng-nhat.html" target="_self">Sách học tiếng
-                        Nhật</a></li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/7/sach-thieu-nhi.html" class="havechild" 5 target="_self">Sách thiếu
-                nhi</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/31/truyen-co-tich-than-thoai.html" target="_self">Truyện cổ
-                        tích - Thần thoại</a></li>
-                    <li><a href="/danh-muc/33/vua-hoc-vua-choi.html" target="_self">Vừa học vừa chơi</a>
-                    </li>
-                    <li><a href="/danh-muc/32/kien-thuc-ki-nang.html" target="_self">Kiến thức - Kĩ
-                        năng</a></li>
-                    <li><a href="/danh-muc/7/van-hoc.html" target="_self">Văn học</a></li>
-                    <li><a href="/truyen-ke-cho-be.html" target="">Truyện kể cho bé</a></li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/8/thuong-thuc-doi-song.html" class="havechild" 5 target="_self">Thương
-                thức đời sống</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/53/van-hoa-du-lich.html" target="_self">Văn hóa - Du lịch</a>
-                    </li>
-                    <li><a href="/danh-muc/42/cham-soc-suc-khoe.html" target="_self">Chăm sóc sức
-                        khỏe</a></li>
-                    <li><a href="/danh-muc/45/phong-thuy-nha-cua.html" target="_self">Phong thủy - Nhà
-                        cửa</a></li>
-                    <li><a href="/danh-muc/43/nau-an.html" target="_self">Nấu ăn</a></li>
-                    <li><a href="/danh-muc/55/the-thao-giai-tri.html" target="_self">Thể thao - Giải
-                        trí</a></li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/9/sach-chuyen-nganh.html" class="havechild" 10 target="_self">Sách
-                chuyên ngành</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/36/giao-duc.html" target="_self">Giáo dục</a></li>
-                    <li><a href="/danh-muc/35/cong-nghe-thong-tin.html" target="_self">Công nghệ thông
-                        tin</a></li>
-                    <li><a href="/danh-muc/38/lich-su-dia-ly.html" target="_self">Lịch sử - Địa lý</a>
-                    </li>
-                    <li><a href="/danh-muc/37/khoa-hoc-tu-nhien.html" target="_self">Khoa học tự
-                        nhiên</a></li>
-                    <li><a href="/danh-muc/39/my-thuat-kien-truc.html" target="_self">Mỹ thuật - Kiến
-                        trúc</a></li>
-                    <li><a href="/danh-muc/34/chinh-tri-triet-hoc.html" target="_self">Chính trị - Triết
-                        học</a></li>
-                    <li><a href="/danh-muc/9/danh-nhan-nguoi-noi-tieng.html" target="_self">Danh nhân -
-                        Người nổi tiếng</a></li>
-                    <li><a href="/danh-muc/9/tam-linh-ton-giao.html" target="_self">Tâm linh - Tôn
-                        giáo</a></li>
-                    <li><a href="/danh-muc/40/y-duoc.html" target="_self">Y dược</a></li>
-                    <li><a href="/danh-muc/9/khoa-hoc-xa-hoi.html" target="_self">Khoa học xã hội</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="/danh-muc/51/van-phong-pham-qua-tang.html" class="havechild" 3 target="_self">Văn
-                Phòng Phẩm - Quà Tặng</a>
-                <ul class="submenu1" id="submenu1">
-                    <li><a href="/danh-muc/70/bop-viet-hop-but.html" target="_self">Bóp Viết - Hộp
-                        Bút</a></li>
-                    <li><a href="/danh-muc/71/binh-nuoc-binh-giu-nhiet.html" target="_self">Bình Nước,
-                        Bình Giữ Nhiệt</a></li>
-                    <li><a href="/danh-muc/72/phu-kien-qua-tang.html" target="_self">Phụ Kiện, Quà
-                        Tặng</a></li>
-                </ul>
-            </li>
+
+            <c:forEach var="parent" items="${parent}">
+                <li>
+                    <a href="#" class="havechild" 8 target="_self">
+                            ${parent.name}
+                    </a>
+                    <ul class="submenu1" id="submenu1">
+                        <c:forEach var="cate" items="${parent.categories}">
+                            <li>
+                                <a href="#" target="_self">
+                                        ${cate.name}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </li>
+            </c:forEach>
+
             <li class="-bold"><a href="/Cong-ty-phat-hanh.html" class="havechild" 0 target="_self">Công
                 ty phát hành</a>
                 <ul class="submenubig" id="submenu1" style="columns: 2">

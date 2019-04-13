@@ -35,4 +35,8 @@ public class Book {
     @Column(name = "employee_id")
     private Integer employeeId;
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", updatable = false, insertable = false)
+    private Category category;
 }
