@@ -119,6 +119,7 @@
                                 return false;
                             },
                             success: function (result) {
+                                console.log(result)
                                 if(result.length >= 5) {
                                     $("#autocomplete").css('overflow', 'scroll');
                                     $("#autocomplete").css('height', '420px');
