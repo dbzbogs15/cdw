@@ -37,4 +37,10 @@ public class BookService {
     public List<Book> getBookByName(String name) {
         return bookRepository.findByNameContainingIgnoreCase(name);
     }
+    public List<Book> getBookByParent(int id) {
+        return bookRepository.findAllByCategoryParentCategoryId(id);
+    }
+    public List<Book> getBookByCategory(int id) {
+        return bookRepository.findAllByCategoryId(id);
+    }
 }

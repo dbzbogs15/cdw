@@ -38,8 +38,14 @@
             </li>
 
             <c:forEach var="parent" items="${parent}">
-                <li>
-                    <a href="#" class="havechild" 8 target="_self">
+                <li
+                    <c:if test="${book ne null}">
+                        <c:if test="${book.category.parentCategory.id == parent.id}">
+                            class="active"
+                        </c:if>
+                    </c:if>
+                >
+                    <a href="/category/${parent.id}" class="havechild" 8 target="_self">
                             ${parent.name}
                     </a>
                     <ul class="submenu1" id="submenu1">

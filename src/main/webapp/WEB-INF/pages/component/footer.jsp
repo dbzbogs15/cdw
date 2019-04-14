@@ -105,6 +105,17 @@
 </div>
 <div id='bttop' class="bttop"><i class="fa fa-arrow-up"></i></div>
 <script language="javascript" type="text/javascript">
+
+    <%--if(localStorage.getItem('book')!==null) {--%>
+    <%--    var arr = localStorage.getItem('book');--%>
+    <%--    var list = []--%>
+    <%--    list.push(arr);--%>
+    <%--    list.push(JSON.stringify(${hos}))--%>
+    <%--    console.log(list)--%>
+    <%--    localStorage.setItem('book', list.toString());--%>
+    <%--} else {--%>
+    <%--    localStorage.setItem('book', JSON.stringify(${hos}));--%>
+    <%--}--%>
     $(function () {
         $(window).scroll(function () {
             if ($(this).scrollTop() != 0) {
@@ -160,19 +171,4 @@
         }
         previousScroll = currentScroll;
     });
-
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-56977516-1', 'auto');
-    ga('send', 'pageview');
 </script>

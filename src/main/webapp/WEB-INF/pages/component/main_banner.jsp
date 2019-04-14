@@ -3,6 +3,11 @@
 <div class="mainbaner">
     <link rel="stylesheet" href="/resources/layouts/fontpage/css/jquery.bxslider.css" type="text/css"/>
     <script type="text/javascript" src="/resources/layouts/fontpage/js/jquery.bxslider.js"></script>
+    <style>
+        .bx-wrapper .bx-controls-direction a {
+            z-index: 1;
+        }
+    </style>
     <div id="slider-wrapper">
         <ul class="bxslider">
             <li>
@@ -55,6 +60,7 @@
         $(document).ready(function(){
             $('.bxslider').bxSlider({
                 auto: true,
+                mode: 'fade',
                 infiniteLoop: true
             });
         });

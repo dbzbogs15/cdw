@@ -16,6 +16,14 @@ public class MainController {
     ParentCategoryService parentCategoryService;
     @RequestMapping("/")
     public String index(ModelMap mm) {
+//        List<ParentCategory> parentCategory = parentCategoryService.getAll();
+//        ObjectMapper mapper = new ObjectMapper();
+//        try {
+//            String arr = mapper.writeValueAsString(parentCategory);
+//            System.out.println(arr);
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        }
         mm.addAttribute("parent", parentCategoryService.getAll());
         mm.addAttribute("newBook", bookService.getNewBook(0).getContent());
         return "index";

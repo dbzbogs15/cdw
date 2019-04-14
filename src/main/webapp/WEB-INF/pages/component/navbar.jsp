@@ -133,7 +133,7 @@
                                     $.each(result, function (index, data) {
                                             $("#autocomplete").append(
                                                 '<div class="vsmall_products" id="' + data.id + '">' +
-                                                '<a href="#" title="' + data.name + '">' +
+                                                '<a href="/product?bookid='+data.id+'" title="' + data.name + '">' +
                                                 '<div class="image">' +
                                                 '<img width="40" src="/resources/' + data.image + '" alt="' + data.name + '" title="' + data.name + '">' +
                                                 '</div>' +

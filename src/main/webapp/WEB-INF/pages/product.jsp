@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,11 +20,15 @@
         <div class="pathway">
             <ul>
                 <li><a href="http://nobita.vn" title="Trang chủ">Trang chủ</a></li>
-                <li><a href="/danh-muc/2/van-hoc-nuoc-ngoai.html" title="Văn học nước ngoài">Văn học nước ngoài</a>
+                <li>
+                    <a href="#" title="${book.category.parentCategory.name}">
+                        ${book.category.parentCategory.name}
+                    </a>
                 </li>
-                <li><a href="/danh-muc/14/tieu-thuyet-dam-my.html" title="Tiểu thuyết đam mỹ">Tiểu thuyết đam mỹ</a>
+                <li>
+                    <a href="#" title="${book.category.name}">${book.category.name}</a>
                 </li>
-                <li>${book.name}</li>
+                <li>${fn:toUpperCase(book.name)}</li>
             </ul>
         </div>
     </div>
@@ -32,7 +38,8 @@
             <div class="product_view_contener">
                 <div class="showleft">
                     <div class="product_info">
-                        <h1>${book.name}
+                        <h1>
+                            ${fn:toUpperCase(book.name)}
                         </h1>
                         <div class="groups">
                             <div class="viewfields">
@@ -44,7 +51,7 @@
                             <div class="booktype_contener">
                                 <div class="booktype_left">Hình thức:</div>
                                 <div class="booktype  first">
-                                    <a href="/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html?fid=1867"
+                                    <a href="#"
                                        title="Bìa mềm">Bìa mềm</a>
                                 </div>
                                 <div class="clear"></div>
@@ -58,7 +65,7 @@
                             </div>
                             <div class="add_wishlist">
                                 <a
-                                        href="/orders/addwishlist/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html"><i
+                                        href="#"><i
                                         class="fa fa-star"></i> Thêm vào yêu thích</a>
                             </div>
                             <div class="clear"></div>
@@ -67,10 +74,19 @@
                         <div class="prices_contener">
                             <div class="prices">
                                 <div class="saleprice">
-                                    <span id="saleprice">${book.priceNew} ₫</span>
+                                    <span id="saleprice">
+                                       <fmt:formatNumber pattern="###,###" value="${book.priceNew}"/> ₫
+                                    </span>
                                 </div>
-                                <div class="vrootprice" id="rootprice">Giá bìa: <span>${book.priceOld} ₫</span></div>
-                                <div class="yousave" id="yousave">Tiết kiệm: <span>19.580 ₫ (-22%)</span></div>
+                                <div class="vrootprice" id="rootprice">
+                                    Giá bìa: <span><fmt:formatNumber pattern="###,###"
+                                                                     value="${book.priceOld}"/> ₫</span>
+                                </div>
+                                <div class="yousave" id="yousave">
+                                    Tiết kiệm: <span>
+                                    <fmt:formatNumber pattern="###,###" value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
+                                </span>
+                                </div>
                             </div>
                             <div class="goshop">
                                 <a href="javascript:" onclick="addCart();">Mua ngay</a>
@@ -191,7 +207,9 @@
                     if (contentid.hasClass('collapse')) {
                         contentid.removeClass('collapse');
                         $('#viewmore span').empty();
-                        $('#viewmore span').append('Thu gọn <i class="fa fa-sort-asc"></i>');
+                        $('#viewmore span').append(
+                            'Thu gọn <i class="fa fa-sort-asc"></i>'
+                        );
                     } else {
                         contentid.addClass('collapse');
                         $('#viewmore span').empty();
@@ -286,28 +304,28 @@
                 <div class="blockcontent">
                     <div style="position:relative; padding:0 0; overflow:hidden; height:320px;">
                         <c:forEach items="${quanTam}" var="item">
-                        <div class="product_contener">
-                            <div class="products">
-                                <div class="image"><a
-                                        href="/2355/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-1-tai-ban-.html"
-                                        title="${item.name}"><img
-                                        src="/resources/${item.image}"
-                                        alt="${item.name}"
-                                        title="${item.name}"/></a>
-                                    <span class="saleprice">-${item.saleoff}%</span>
-                                </div>
-                                <div class="productname">
-                                    <a href="/2355/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-1-tai-ban-.html"
-                                       title="${item.name}">${item.name}</a>
-                                </div>
-                                <div class="fields"> <span><a href="/thuong-hieu/983/doi.html"
-                                                              title="${item.author}">${item.author}</a></span></div>
+                            <div class="product_contener">
+                                <div class="products">
+                                    <div class="image"><a
+                                            href="#"
+                                            title="${item.name}"><img
+                                            src="/resources/${item.image}"
+                                            alt="${item.name}"
+                                            title="${item.name}"/></a>
+                                        <span class="saleprice">-${item.saleoff}%</span>
+                                    </div>
+                                    <div class="productname">
+                                        <a href="#"
+                                           title="${item.name}">${item.name}</a>
+                                    </div>
+                                    <div class="fields"> <span><a href="/thuong-hieu/983/doi.html"
+                                                                  title="${item.author}">${item.author}</a></span></div>
 
 
-                                <div class="prices">${item.priceNew} ₫</div>
-                                <div class="rootprice">${item.priceOld} ₫</div>
+                                    <div class="prices">${item.priceNew} ₫</div>
+                                    <div class="rootprice">${item.priceOld} ₫</div>
+                                </div>
                             </div>
-                        </div>
                         </c:forEach>
                     </div>
                 </div>
@@ -319,7 +337,7 @@
                         <c:forEach var="item" items="${quanTam}">
                             <div class="product_contener">
                                 <div class="products">
-                                    <div class="image"><a href="/1152/nua-kiep-hong-tran-mot-khuc-du-ca.html"
+                                    <div class="image"><a href="#"
                                                           title="${item.name}"><img
                                             src="/resources/${item.image}"
                                             alt="${item.name}"
@@ -327,16 +345,16 @@
                                         <span class="saleprice">-${item.saleoff}%</span>
                                     </div>
                                     <div class="productname">
-                                        <a href="/1152/nua-kiep-hong-tran-mot-khuc-du-ca.html"
+                                        <a href="#"
                                            title="${item.name}">
                                                 ${item.name}
                                         </a>
                                     </div>
                                     <div class="fields">
                                     <span>
-                                        <a href="/thuong-hieu/1/diep-lac-vo-tam.html" title="${item.author}">
-                                                              ${item.author}
-                                                              </a>
+                                        <a href="#" title="${item.author}">
+                                                ${item.author}
+                                        </a>
                                                               </span>
                                     </div>
 
@@ -351,13 +369,13 @@
                 </div>
             </div>
             <div class="block" id="module_Comments">
-                <script src="http://nobita.vn/layouts/fontpage/js/jquery.elastic.source.js"
+                <script src="/resources/layouts/fontpage/js/jquery.elastic.source.js"
                         charset="utf-8"></script>
                 <h3>Gửi nhật xét của bạn</h3>
                 <div class="comment_form">
                     <div>
                         Vui lòng <a
-                            href='/users/login/index.html?redirect=%2F1848%2Fdoc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html'
+                            href='#'
                             title='đăng nhập'>đăng nhập</a> để viết nhận xét
                     </div>
                 </div>
@@ -367,8 +385,8 @@
                             hàng</a></li>
                         <li><a href="javascript:" id="tab1" onclick="ShowTab(1)"><i
                                 class="fa fa-facebook-square"></i> Thảo luận(<fb:comments-count
-                                href= http://nobita.vn/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html>
-                            </fb:comments-count>) </a></li>
+                                href="http://nobita.vn/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html">
+                        </fb:comments-count>) </a></li>
                     </ul>
                 </h3>
                 <a name="comment"></a>

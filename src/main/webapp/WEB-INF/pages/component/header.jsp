@@ -28,4 +28,3 @@
 <!-- Facebook Pixel Code -->
 
 <!-- End Facebook Pixel Code -->
-<script src='https://www.google.com/recaptcha/api.js'></script>
