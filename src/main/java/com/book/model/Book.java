@@ -10,6 +10,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 @Entity
 @Table(name = "book")
@@ -34,7 +36,8 @@ public class Book implements Serializable {
     private Integer categoryId;
     @Column(name = "publisher_id")
     private Integer publisherId;
-    private LocalDateTime created;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
     private Integer quantity;
     @Column(name = "employee_id")
     private Integer employeeId;

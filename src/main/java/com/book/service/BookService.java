@@ -43,4 +43,7 @@ public class BookService {
     public List<Book> getBookByCategory(int id) {
         return bookRepository.findAllByCategoryId(id);
     }
+    public Book addBook(Book book) {
+        return bookRepository.save(book);
+    }
 }

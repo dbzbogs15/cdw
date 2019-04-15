@@ -15,4 +15,8 @@ public class CategoryService {
     public List<Category> getAllCategory() {
         return categoryRepository.findAll();
     }
+
+    public List<Category> getAllByParentId(int id) {
+        return categoryRepository.findAllByParentId(id);
+    }
 }

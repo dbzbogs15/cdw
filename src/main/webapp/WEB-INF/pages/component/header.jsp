@@ -11,7 +11,6 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript"/>
 <meta http-equiv="Content-Style-Type" content="text/css"/>
 <meta name="Copyright" content="Design A web.">
-<link rel="shortcut icon" href="/resources/layouts/fontpage/images/favicon.ico"/>
 <link type="text/css" href="/resources/layouts/fontpage/css/styles.css" rel="stylesheet"/>
 <link type="text/css" href="/resources/layouts/fontpage/css/font-awesome.min.css" rel="stylesheet"/>
 <link type="text/css" href="/resources/layouts/fontpage/css/styles.resolution.css" rel="stylesheet"/>
@@ -21,7 +20,7 @@
 <%--<script type="text/javascript" src="/resources/layouts/system/js/jquery-1.8.2.min.js"></script>--%>
 <script type="text/javascript" src="/resources/layouts/system/js/common.js"></script>
 <script type='text/javascript' src='/resources/layouts/system/js/jquery.boxy.js'></script>
-
+<link rel="shortcut icon" type="image/png" href="/resources/stores/uploads/v/doc-gia-tap-2__26886_thum_135.jpg"/>
 <!--[if IE]>
 <link rel="stylesheet" href="/resources/layouts/fontpage/css/styles.ie.css" type="text/css"/>
 <![endif]-->
