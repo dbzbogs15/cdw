@@ -2,8 +2,6 @@ package com.book.service;
 
 import com.book.model.Book;
 import com.book.repository.BookRepository;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

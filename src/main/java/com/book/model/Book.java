@@ -1,16 +1,11 @@
 package com.book.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -20,10 +15,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@ToString
 public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String image;
     private String author;
@@ -42,8 +38,20 @@ public class Book implements Serializable {
     @Column(name = "employee_id")
     private Integer employeeId;
     private String description;
+    @Column(name = "number_page")
+    private Integer numberPage;
+    private String size;
+    private Integer weight;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    @Column(name = "published_date")
+    private Date publishedDate;
 
     @ManyToOne
     @JoinColumn(name = "category_id", updatable = false, insertable = false)
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "publisher_id", updatable = false, insertable = false)
+    private Publisher publisher;
 }
