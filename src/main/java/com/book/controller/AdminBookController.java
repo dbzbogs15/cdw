@@ -18,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletContext;
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -44,7 +46,7 @@ public class AdminBookController {
     @ResponseBody
     public ResponseEntity<Map<String, String>> addBookProc(WebRequest wr,
                                                            MultipartHttpServletRequest req
-    ) {
+    ) throws ParseException {
         MultipartFile mpf = req.getFile("image");
         System.out.println(mpf.getOriginalFilename());
         Map<String, String> errors = new HashMap<>();
@@ -109,11 +111,15 @@ public class AdminBookController {
         book.setPriceNew(priceNew);
         book.setPriceOld(priceOld);
         book.setSaleoff(saleoff);
-        book.setPublishedDate(new Date());
+        System.out.println(publishedDate);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date d1 = formatter.parse(publishedDate);
+        book.setPublishedDate(d1);
         book.setQuantity(quantity);
         book.setWeight(weight);
         book.setPublisherId(publishiedId);
         book.setName(name);
+        book.setSize(size);
         bookService.addBook(book);
 
         //Upload

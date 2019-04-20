@@ -42,7 +42,7 @@ public class Book implements Serializable {
     private Integer numberPage;
     private String size;
     private Integer weight;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Temporal(TemporalType.DATE)
     @Column(name = "published_date")
     private Date publishedDate;

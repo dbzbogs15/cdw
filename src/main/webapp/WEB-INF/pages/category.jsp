@@ -438,7 +438,9 @@
                                             ${book.name}
                                     </a>
                                 </div>
-                                <div class="fields"></div>
+                                <div class="fields">
+                                    <span><a href="#" title="${book.author}">${book.author}</a></span>
+                                </div>
                                 <div class="prices">
                                     <fmt:formatNumber pattern="###,###" value="${book.priceNew}"/> ₫
                                 </div>

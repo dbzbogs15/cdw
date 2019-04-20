@@ -21,12 +21,12 @@
             <ul>
                 <li><a href="http://nobita.vn" title="Trang chủ">Trang chủ</a></li>
                 <li>
-                    <a href="#" title="${book.category.parentCategory.name}">
+                    <a href="/category/${book.category.parentCategory.id}" title="${book.category.parentCategory.name}">
                         ${book.category.parentCategory.name}
                     </a>
                 </li>
                 <li>
-                    <a href="#" title="${book.category.name}">${book.category.name}</a>
+                    <a href="/category/${book.category.parentCategory.id}/sub/${book.category.id}" title="${book.category.name}">${book.category.name}</a>
                 </li>
                 <li>${fn:toUpperCase(book.name)}</li>
             </ul>
@@ -43,34 +43,13 @@
                         </h1>
                         <div class="groups">
                             <div class="viewfields">
-                                <span>Tác giả: <a href="/thuong-hieu/983/doi.html"
+                                <span>Tác giả: <a href="#"
                                                   title="${book.author}">${book.author}</a></span>
-                                <span>Phát hành: <a href="/thuong-hieu/35/owlbooks.html"
-                                                    title="Owlbooks">Owlbooks</a></span>
-                            </div>
-                            <div class="booktype_contener">
-                                <div class="booktype_left">Hình thức:</div>
-                                <div class="booktype  first">
-                                    <a href="#"
-                                       title="Bìa mềm">Bìa mềm</a>
-                                </div>
-                                <div class="clear"></div>
+                                <span>Phát hành: <a href="#"
+                                                    title="${book.publisher.name}">${book.publisher.name}</a></span>
                             </div>
                             <div class="clear"></div>
                         </div>
-                        <div class="groups">
-
-                            <div class="write_comment">
-                                <a href="#comment"><i class="fa fa-pencil"></i> Gửi nhật xét của bạn</a>
-                            </div>
-                            <div class="add_wishlist">
-                                <a
-                                        href="#"><i
-                                        class="fa fa-star"></i> Thêm vào yêu thích</a>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-
                         <div class="prices_contener">
                             <div class="prices">
                                 <div class="saleprice">
@@ -84,7 +63,8 @@
                                 </div>
                                 <div class="yousave" id="yousave">
                                     Tiết kiệm: <span>
-                                    <fmt:formatNumber pattern="###,###" value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
+                                    <fmt:formatNumber pattern="###,###"
+                                                      value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
                                 </span>
                                 </div>
                             </div>
@@ -143,53 +123,7 @@
             <div class="block" id="module_ProductDetail">
                 <h3>Giới thiệu sách</h3>
                 <div class="intro" id="contentid">
-                    <p style="text-align: justify;">
-							<span style="color:#ff0000;"><span style="font-size:16px;"><strong>
-                                ${book.name}
-                            </strong></span></span></p>
-                    <p style="text-align: justify;">
-							<span style="font-size:14px;"><span style="color:#008000;"><strong>Qu&agrave; tặng: 01
-										Bookmark xinh xắn d&agrave;nh cho 1000 đơn h&agrave;ng đầu
-										ti&ecirc;n</strong></span></span></p>
-                    <p style="text-align: center;">
-							<span style="font-size:14px;"><span style="color:#008000;"><strong><img alt=""
-                                                                                                    src="/stores/images/doc-gia-tap-2-full.jpg"
-                                                                                                    style="width: 960px; height: 720px;"/></strong></span></span>
-                    </p>
-                    <p style="text-align: justify;">
-                        Anti fan mang theo cốt truyện, xuy&ecirc;n kh&ocirc;ng tới.</p>
-                    <p style="text-align: justify;">
-                        Nh&acirc;n vật ch&iacute;nh hắc h&oacute;a ta mạnh nhất!</p>
-                    <p style="text-align: justify;">
-                        T&aacute;n đổ c&aacute;c em g&aacute;i kh&ocirc;ng th&agrave;nh vấn đề&hellip; Từ từ!</p>
-                    <p style="text-align: justify;">
-                        Tại sao hai chị em Ma tộc đ&atilde; thầm coi bọn họ l&agrave; một đ&ocirc;i b&aacute;ch hợp
-                        một đ&ocirc;i gay?</p>
-                    <p style="text-align: justify;">
-                        Đừng lo, bẻ cong th&agrave;nh thẳng vẫn c&ograve;n c&oacute; đường.</p>
-                    <p style="text-align: justify;">
-                        Em g&aacute;i Mị ma xinh đẹp chặn cửa ư? L&agrave;m sao để đẩy ng&atilde;? B&aacute;n nhan
-                        sắc nh&acirc;n vật ch&iacute;nh!</p>
-                    <p style="text-align: justify;">
-                        Tu vừa bị b&aacute;n liền liếc mắt nh&igrave;n qua, khiến Đỗ trạch nuốt trọn t&igrave;nh
-                        tiết cốt truyện xuống.</p>
-                    <p style="text-align: justify;">
-                        Hiến kế tặng nhẫn để cứu v&atilde;n d&agrave;n hậu cung, rốt cuộc người n&agrave;o sẽ chui
-                        v&agrave;o tr&ograve;ng?</p>
-                    <p style="text-align: justify;">
-                        Tay phải si&ecirc;u cấp tiếp ba chi&ecirc;u từ thục (hủ) nữ, nhưng cơ thể lại bị phản
-                        đ&ograve;n.</p>
-                    <p style="text-align: justify;">
-                        Nh&acirc;n vật ch&iacute;nh phạm quy cực kỳ, l&agrave;m kh&oacute; tiểu sinh qu&aacute;!</p>
-                    <p style="text-align: justify;">
-                        Muốn ng&acirc;m suối nước n&oacute;ng b&agrave;n chuyện nh&acirc;n sinh? Muốn b&aacute;n
-                        nh&acirc;n vật ch&iacute;nh h&ograve;ng dễ bề rời s&acirc;n khấu ư?</p>
-                    <p style="text-align: justify;">
-                        Đỗ Trạch đang l&agrave;m, Tu đang nh&igrave;n đ&oacute;.</p>
-                    <p style="text-align: justify;">
-                        Nh&acirc;n vật ch&iacute;nh &ldquo;Hỗn Huyết&rdquo; b&agrave;y sẵn t&acirc;m l&yacute;
-                        chiến, chờ t&ecirc;n ngốc độc giả rơi xuống hố!</p>
-
+                    ${book.description}
                 </div>
                 <div class="viewmore" id="viewmore"><span>Xem thêm nội dung <i class="fa fa-sort-desc"></i></span>
                 </div>
@@ -223,26 +157,18 @@
                 <table class="fields" cellpadding="0" cellspacing="0" width="100%">
                     <tr class="field_view_contenner row0">
                         <td class="title">
-                            <a href="/products/groupfield/1/tac-gia.html" title="Tác giả">Tác giả</a>
+                            <a href="#" title="Tác giả">Tác giả</a>
                         </td>
                         <td class="values">
-                            <a href="/thuong-hieu/983/doi.html" title="Đồi">Đồi</a>
+                            <a href="#" title="${book.author}">${book.author}</a>
                         </td>
                     </tr>
                     <tr class="field_view_contenner row1">
                         <td class="title">
-                            <a href="/products/groupfield/2/phat-hanh.html" title="Phát hành">Phát hành</a>
+                            <a href="#" title="NXB">NXB</a>
                         </td>
                         <td class="values">
-                            <a href="/thuong-hieu/35/owlbooks.html" title="Owlbooks">Owlbooks</a>
-                        </td>
-                    </tr>
-                    <tr class="field_view_contenner row0">
-                        <td class="title">
-                            <a href="/products/groupfield/4/nxb.html" title="NXB">NXB</a>
-                        </td>
-                        <td class="values">
-                            Dân Trí
+                            <a href="#" title="${book.publisher.name}">${book.publisher.name}</a>
                         </td>
                     </tr>
                     <tr class="field_view_contenner row1">
@@ -250,7 +176,7 @@
                             Số trang
                         </td>
                         <td class="values">
-                            288
+                            ${book.numberPage}
                         </td>
                     </tr>
                     <tr class="field_view_contenner row0">
@@ -258,7 +184,7 @@
                             Kích thước
                         </td>
                         <td class="values">
-                            13.5 x 20.5 cm
+                            ${book.size}
                         </td>
                     </tr>
                     <tr class="field_view_contenner row1">
@@ -266,15 +192,7 @@
                             Trọng lượng
                         </td>
                         <td class="values">
-                            320
-                        </td>
-                    </tr>
-                    <tr class="field_view_contenner row0">
-                        <td class="title">
-                            Lượt xem
-                        </td>
-                        <td class="values">
-                            8219
+                            ${book.weight}
                         </td>
                     </tr>
                     <tr class="field_view_contenner row1">
@@ -282,7 +200,7 @@
                             Ngày phát hành
                         </td>
                         <td class="values">
-                            17/11/2016
+                            ${book.publishedDate}
                         </td>
                     </tr>
                     <tr class="field_view_contenner row0">
@@ -290,8 +208,9 @@
                             Danh mục
                         </td>
                         <td class="values">
-                            <a href="/danh-muc/14/tieu-thuyet-dam-my.html" title="Tiểu thuyết đam mỹ">Tiểu thuyết
-                                đam mỹ</a>
+                            <a href="#" title="${book.category.name}">
+                                ${book.category.name}
+                            </a>
                         </td>
                     </tr>
                 </table>

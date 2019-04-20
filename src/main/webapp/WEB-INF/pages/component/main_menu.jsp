@@ -51,7 +51,7 @@
                     <ul class="submenu1" id="submenu1">
                         <c:forEach var="cate" items="${parent.categories}">
                             <li>
-                                <a href="#" target="_self">
+                                <a href="/category/${parent.id}/sub/${cate.id}/" target="_self">
                                         ${cate.name}
                                 </a>
                             </li>

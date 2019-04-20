@@ -11,7 +11,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html"
+                            href="#"
                             title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) "><img
                             src="/resources/stores/uploads/v/doc-gia-tap-2__26886_thum_135.jpg"
                             alt="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) "
@@ -19,11 +19,11 @@
                         <span class="saleprice">-22%</span>
                     </div>
                     <div class="productname">
-                        <a href="/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html"
+                        <a href="#"
                            title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) ">Độc
                             Giả Và Nhân Vật Chính Đích Thị...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/983/doi.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Đồi">Đồi</a></span></div>
 
 
@@ -34,19 +34,19 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2820/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-3-4-5-tang-kem-7-bookmak-.html"
+                            href="#"
                             title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, "><img
-                            src="/resources/stores/uploads/d/cover-03-01__28952_image2_800_thum.jpg"
+                            src="#"
                             alt="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, "
                             title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, "/></a>
                         <span class="saleprice">-25%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2820/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-3-4-5-tang-kem-7-bookmak-.html"
+                        <a href="#"
                            title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, ">Độc
                             Giả Và Nhân Vật Chính Đích Thị...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/983/doi.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Đồi">Đồi</a></span></div>
                     <div class="stars">
                         <div class="starsvote" style="width:95%"></div>
@@ -61,7 +61,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2822/[tron-bo]-doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-5tap-tang-kem-9-bookmak.html"
+                            href="#"
                             title="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,"><img
                             src="/resources/stores/uploads/i/doc-gia-full__22843_image2_800_thum.jpg"
                             alt="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,"
@@ -69,11 +69,11 @@
                         <span class="saleprice">-22%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2822/[tron-bo]-doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-5tap-tang-kem-9-bookmak.html"
+                        <a href="#"
                            title="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,">[Trọn
                             Bộ] Độc Giả và Nhân vật Chính...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/983/doi.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Đồi">Đồi</a></span></div>
                     <div class="stars">
                         <div class="starsvote" style="width:80%"></div>
@@ -88,7 +88,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2875/[-ban-thuong]-amagi-cong-vien-ruc-ro-tap-2-tang-3bookmak-chibi.html"
+                            href="#"
                             title="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi"><img
                             src="/resources/stores/uploads/b/amagi-cong-vien-ruc-ro-2-cover__43670_image2_800_thum.jpg"
                             alt="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi"
@@ -96,11 +96,11 @@
                         <span class="saleprice">-20%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2875/[-ban-thuong]-amagi-cong-vien-ruc-ro-tap-2-tang-3bookmak-chibi.html"
+                        <a href="#"
                            title="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi">[
                             Bản thường] AMAGI CÔNG VIÊN RỰC RỠ...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/1507/gatou-shouji-.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Gatou shouji ">Gatou shouji </a></span></div>
 
 
@@ -111,7 +111,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2876/bay-ngay-dem-nguoc-tang-kem-bo-the-uoc-nguyen-7-ngay-so-luong-co-han-.html"
+                            href="#"
                             title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"><img
                             src="/resources/stores/uploads/c/bay-ngay-dem-nguoc-bia_1_1__38490_thum_135.jpg"
                             alt="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"
@@ -119,11 +119,11 @@
                         <span class="saleprice">-20%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2876/bay-ngay-dem-nguoc-tang-kem-bo-the-uoc-nguyen-7-ngay-so-luong-co-han-.html"
+                        <a href="#"
                            title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)">BẢY
                             NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/1551/cat-boc-lac.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Cát Bốc Lặc">Cát Bốc Lặc</a></span></div>
 
 
