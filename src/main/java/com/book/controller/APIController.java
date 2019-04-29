@@ -39,5 +39,4 @@ public class APIController {
         List<Category> categories = categoryService.getAllByParentId(parentid);
         return new ResponseEntity<>(categories, HttpStatus.OK);
     }
-
 }

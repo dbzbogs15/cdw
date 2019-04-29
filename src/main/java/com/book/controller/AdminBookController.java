@@ -35,6 +35,14 @@ public class AdminBookController {
     @Autowired
     ServletContext context;
 
+    @GetMapping("/add")
+    public String add(ModelMap mm) {
+        mm.addAttribute("publisher", publisherService.getAll());
+        mm.addAttribute("parent", parentCategoryService.getAll());
+        return "/admin/add_book";
+    }
+
+
     @GetMapping("/add-book")
     public String addBook(ModelMap mm) {
         mm.addAttribute("publisher", publisherService.getAll());

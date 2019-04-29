@@ -5,8 +5,12 @@
 <html>
 <head>
     <%@include file="component/header.jsp" %>
-    <link href="/resources/admin/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="/resources/admin/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        .parsley-errors-list {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <!-- Begin page -->
@@ -51,7 +55,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="p-20">
-                                        <form action="/admin/book-manager/add-book" method="post"
+                                        <form action="/admin/book-manager/add" method="post"
                                               class="form-horizontal row"
                                               enctype="multipart/form-data"
                                               id="fileUpload"
@@ -107,7 +111,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-2 col-form-label">Số lượng</label>
                                                     <div class="col-10">
-                                                        <input type="number"
+                                                        <input type="text"
                                                                id="quantity"
                                                                class="form-control"
                                                                name="quantity"
@@ -119,7 +123,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-2 col-form-label">Giá gốc</label>
                                                     <div class="col-10">
-                                                        <input type="number"
+                                                        <input type="text"
                                                                class="form-control"
                                                                name="priceOld"
                                                                id="priceOld"
@@ -143,7 +147,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-2 col-form-label">Giá mới</label>
                                                     <div class="col-10">
-                                                        <input type="number"
+                                                        <input type="text"
                                                                class="form-control"
                                                                name="priceNew"
                                                                id="priceNew"
@@ -378,11 +382,12 @@
         $('#customFile').change(function (event) {
             if ($('#customFile').val().length > 0) {
                 file = event.target.files[0];
-                forms.set('image', file);
+                forms.set('imagefile', file);
             }
         })
         $('#sendData ').click(function () {
             if ($('#customFile').val().length > 0) {
+                var image = $('#customFile').val();
                 var name = $('#name').val();
                 var author = $('#author').val();
                 var quantity = $('#quantity').val();
@@ -410,102 +415,77 @@
                 forms.set("description", description);
                 forms.set("saleoff", saleoff);
                 $.ajax({
-                    url: '/admin/book-manager/add-book',
+                    url: '/formsubmit',
                     type: 'POST',
                     data: forms,
                     processData: false,
                     contentType: false,
                     enctype: "multipart/form-data",
                     success: function (result) {
+                        console.log(result)
                         if (result.none == null) {
                             if (result.name) {
-                                $('#error_name').empty().html(
-                                    '<li class="parsley-required">' + result.name + '</li>'
-                                );
+                                $('#error_name').empty().html(result.name);
                             } else {
                                 $('#error_name').empty();
                             }
                             if (result.author) {
-                                $('#error_author').empty().html(
-                                    '<li class="parsley-required">' + result.author + '</li>'
-                                );
+                                $('#error_author').empty().html(result.author );
                             } else {
                                 $('#error_author').empty();
                             }
                             if (result.priceNew) {
-                                $('#error_priceNew').empty().html(
-                                    '<li class="parsley-required">' + result.priceNew + '</li>'
-                                );
+                                $('#error_priceNew').empty().html(result.priceNew);
                             } else {
                                 $('#error_priceNew').empty();
                             }
                             if (result.priceOld) {
-                                $('#error_priceOld').empty().html(
-                                    '<li class="parsley-required">' + result.priceOld + '</li>'
-                                );
+                                $('#error_priceOld').empty().html(result.priceOld);
                             } else {
                                 $('#error_priceOld').empty();
                             }
                             if (result.description) {
-                                $('#error_description').empty().html(
-                                    '<li class="parsley-required">' + result.description + '</li>'
-                                );
+                                $('#error_description').empty().html(result.description);
                             } else {
                                 $('#error_description').empty();
                             }
                             if (result.quantity) {
-                                $('#error_quantity').empty().html(
-                                    '<li class="parsley-required">' + result.quantity + '</li>'
-                                );
+                                $('#error_quantity').empty().html(result.quantity);
                             } else {
                                 $('#error_quantity').empty();
                             }
                             if (result.size) {
-                                $('#error_size').empty().html(
-                                    '<li class="parsley-required">' + result.size + '</li>'
-                                );
+                                $('#error_size').empty().html(result.size);
                             } else {
                                 $('#error_size').empty();
                             }
                             if (result.weight) {
-                                $('#error_weight').empty().html(
-                                    '<li class="parsley-required">' + result.weight + '</li>'
-                                );
+                                $('#error_weight').empty().html(result.weight);
                             } else {
                                 $('#error_weight').empty();
                             }
                             if (result.category_id) {
-                                $('#error_category_id').empty().html(
-                                    '<li class="parsley-required">' + result.category_id + '</li>'
-                                );
+                                $('#error_category_id').empty().html(result.category_id);
                             } else {
                                 $('#error_category_id').empty();
                             }
                             if (result.published_date) {
-                                $('#error_published_date').empty().html(
-                                    '<li class="parsley-required">' + result.published_date + '</li>'
-                                );
+                                $('#error_published_date').empty().html(result.published_date);
                             } else {
                                 $('#error_published_date').empty();
                             }
                             if (result.saleoff) {
-                                $('#error_saleoff').empty().html(
-                                    '<li class="parsley-required">' + result.saleoff + '</li>'
-                                );
+                                $('#error_saleoff').empty().html(result.saleoff);
                             } else {
                                 $('#error_saleoff').empty();
                             }
                             if (result.number_page) {
-                                $('#error_number_page').empty().html(
-                                    '<li class="parsley-required">' + result.number_page + '</li>'
-                                );
+                                $('#error_number_page').empty().html(result.number_page);
                             } else {
                                 $('#error_number_page').empty();
                             }
                             if (result.image) {
-                                $('#error_image').empty().html(
-                                    '<li class="parsley-required">' + result.image + '</li>'
-                                );
+                                $('#error_image').empty().html(result.image);
                             } else {
                                 $('#error_image').empty();
                             }
@@ -519,6 +499,125 @@
                 swal({
                     title: 'Vui lòng chọn hình ảnh'
                 })
+            }
+        })
+    })
+    $('#name').change(function () {
+        var name = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                name: name
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_name').html(result).show();
+                } else {
+                    $('#error_name').hide();
+                }
+            }
+        })
+    })
+    $('#author').change(function () {
+        var author = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                author: author
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_author').html(result).show();
+                } else {
+                    $('#error_author').hide();
+                }
+            }
+        })
+    })
+    $('#priceOld').change(function () {
+        var priceOld = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                priceOld: priceOld
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_priceOld').html(result).show();
+                } else {
+                    $('#error_priceOld').hide();
+                }
+            }
+        })
+    })
+    $('#priceNew').change(function () {
+        var priceNew = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                priceNew: priceNew
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_priceNew').html(result).show();
+                } else {
+                    $('#error_priceNew').hide();
+                }
+            }
+        })
+    })
+    $('#quantity').change(function () {
+        var quantity = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                quantity: quantity
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_quantity').html(result).show();
+                } else {
+                    $('#error_quantity').hide();
+                }
+            }
+        })
+    })
+    $('#saleoff').change(function () {
+        var saleoff = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                saleoff: saleoff
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_saleoff').html(result).show();
+                } else {
+                    $('#error_saleoff').hide();
+                }
+            }
+        })
+    })
+    $('#number_page').change(function () {
+        var number_page = $(this).val();
+        $.ajax({
+            url: '/bookValidateName',
+            data: {
+                number_page: number_page
+            },
+            type: 'POST',
+            success: function (result) {
+                if(result.length>0) {
+                    $('#error_number_page').html(result).show();
+                } else {
+                    $('#error_number_page').hide();
+                }
             }
         })
     })

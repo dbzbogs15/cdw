@@ -4,3 +4,8 @@
 #layoutGroup4 .product_contener {
     width: 19.6% !important;
 }
+.products .productname a {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+}

@@ -168,7 +168,7 @@
                                     <a href="javascript:" class="btn_face" onclick="checkLoginState();"></a>
                                 </div>
                                 <div>
-                                    <a class="btn_login" href="/users/login/index.html">
+                                    <a class="btn_login" href="/login">
                                         Đăng nhập
                                     </a>
                                 </div>
@@ -222,6 +222,7 @@
                         <div class="subcontent">
                             <h3>Giỏ hàng</h3>
                             <div id="cartslist">
+
                             </div>
                             <div class="buttom" id="showcartlink">
                                 <a class="cartlink" href="/orders/carts/gio-hang.html" title="GIỎ HÀNG CỦA TÔI">

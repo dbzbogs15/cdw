@@ -67,9 +67,13 @@
                                                       value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
                                 </span>
                                 </div>
+                                <div class="yousave" id="yousave">
+                                    <span>Số lượng:</span> <span>
+                                    <input id="quantity" type="text" value="1"></span>
+                                </div>
                             </div>
                             <div class="goshop">
-                                <a href="javascript:" onclick="addCart();">Mua ngay</a>
+                                <a onclick="addCart(${book.id})">Mua ngay</a>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -323,177 +327,16 @@
                              data-width="100%" data-numposts="5" data-colorscheme="light"></div>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    function rate(rid) {
-                        var w = rid * 30;
-                        gde('rate').style.width = w + 'px';
-                        gde('comrating').value = rid;
-                    }
-
-                    function check_comment_form() {
-                        var comrating = gde("comrating");
-                        var title = gde("title");
-                        var commenttext = gde("commenttext");
-
-                        if (comrating.value == 0) {
-                            Boxy.alert('Vui lòng cho đánh giá sản phẩm', null, {title: 'Thông báo'});
-                            return false;
-                        }
-
-                        if (title.value == "") {
-                            Boxy.alert('Vui lòng nhập tiêu đề', null, {title: 'Thông báo'});
-                            return false;
-                        }
-
-                        if (commenttext.value.length < 100) {
-                            Boxy.alert('Nội dung nhận xét tối thiểu là 100 từ, tối đa là 2000 từ', null, {title: 'Thông báo'});
-                            return false;
-                        }
-                    }
-
-                    function postreply(commentid) {
-                        var textarea = gde("textarea" + commentid);
-
-                        if (textarea.value == "") {
-                            return false;
-                        }
-
-                        var formdata = $("#frcm" + commentid).serialize();
-                        address = '/products/postreply/index.html';
-                        $.ajax({
-                            type: "POST",
-                            dataType: "html",
-                            url: address,
-                            data: formdata,
-                            cache: false,
-                            error: function (e) {
-                                Boxy.alert('Lỗi ajax', null, {title: 'Thông báo'});
-                            },
-                            success: function (data) {
-                                if (data != '') {
-                                    $("#commentryply" + commentid).prepend(data);
-                                    textarea.value = "";
-                                } else {
-                                    Boxy.alert('Lỗi ajax', null, {title: 'Thông báo'});
-                                }
-                            }
-                        });
-                    }
-
-                    function getmorereply(commentid, from) {
-                        address = addQuery('/products/morereply/index.html', 'parentid=' + commentid);
-                        address = addQuery(address, 'from=' + from);
-                        $.ajax({
-                            type: "GET",
-                            dataType: "html",
-                            url: address,
-                            cache: false,
-                            error: function (e) {
-                                Boxy.alert('Lỗi ajax', null, {title: 'Thông báo'});
-                            },
-                            success: function (data) {
-                                if (data != '') {
-                                    $("#getreply" + commentid).remove();
-                                    $("#commentryply" + commentid).append(data);
-                                }
-                            }
-                        });
-                    }
-
-                    function helpful(url, commentid, type) {
-                        $.ajax({
-                            type: "GET",
-                            dataType: "html",
-                            url: url,
-                            cache: false,
-                            error: function (e) {
-                                Boxy.alert('Lỗi ajax', null, {title: 'Thông báo'});
-                            },
-                            success: function (data) {
-                                if (data != '') {
-                                    if (type == 1) {
-                                        $("#helpfulyes" + commentid).empty();
-                                        $("#helpfulyes" + commentid).append(data);
-                                    } else {
-                                        $("#helpfulno" + commentid).empty();
-                                        $("#helpfulno" + commentid).append(data);
-                                    }
-                                }
-                            }
-                        });
-                    }
-
-                    function morecom(from) {
-                        address = addQuery('/products/comments/1848/index.html', 'from=' + from);
-                        $.ajax({
-                            type: "GET",
-                            dataType: "html",
-                            url: address,
-                            cache: false,
-                            error: function (e) {
-                                Boxy.alert('Lỗi ajax', null, {title: 'Thông báo'});
-                            },
-                            success: function (data) {
-                                if (data != '') {
-                                    $("#morecom").remove();
-                                    $("#comment_contener").append(data);
-                                }
-                            }
-                        });
-                    }
-
-                    function ShowTab(T) {
-                        i = 0;
-                        while (gde("tab" + i) != null) {
-                            gde("div" + i).style.display = "none";
-                            gde("tab" + i).className = "";
-                            i++;
-                        }
-
-                        gde("div" + T).style.display = "";
-                        gde("tab" + T).className = "active";
-
-                    }
-
-                    $(document).ready(function () {
-                        $('.elastic').elastic();
-                        ShowTab(1);
-                    });
-                </script>
             </div>
         </div>
     </div>
     <div class="clear"></div>
-    <div id="container">
-
-    </div>
-    <script type="text/javascript">
-        function showelevate() {
-            $("#mainimage").elevateZoom({
-                gallery: 'gallery_01',
-                cursor: 'pointer',
-                galleryActiveClass: "active",
-                imageCrossfade: true,
-                loadingIcon: 'http://nobita.vn/layouts/fontpage/images/spinner.gif'
-            });
-
-            $("#mainimage").bind("click", function (e) {
-                var ez = $('#mainimage').data('elevateZoom');
-                ez.closeAll();
-                $.fancybox(ez.getGalleryList());
-                return false;
-            });
-        }
-
-        $(document).ready(function () {
-            showelevate();
-        });
-
-        $(function () {
-            $('.boxy').boxy({ovlay: true, unloadOnHide: true});
-        });
-    </script>
     <div id="footer">
         <%@include file="component/footer.jsp" %>
     </div>
+    <script type="text/javascript">
+        function addCart(id) {
+            Boxy.load('/cart/addCart?id='+id+'', {title: 'Giỏ hàng của tôi'})
+        }
+    </script>
 </div>
