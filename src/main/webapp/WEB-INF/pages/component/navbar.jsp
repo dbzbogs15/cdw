@@ -1,3 +1,4 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <div class="top_header">
@@ -120,11 +121,11 @@
                             },
                             success: function (result) {
                                 console.log(result)
-                                if(result.length >= 5) {
+                                if (result.length >= 5) {
                                     $("#autocomplete").css('overflow', 'scroll');
                                     $("#autocomplete").css('height', '420px');
                                 }
-                                if(result.length < 5) {
+                                if (result.length < 5) {
                                     $("#autocomplete").css('overflow', '');
                                     $("#autocomplete").css('height', '');
                                 }
@@ -133,7 +134,7 @@
                                     $.each(result, function (index, data) {
                                             $("#autocomplete").append(
                                                 '<div class="vsmall_products" id="' + data.id + '">' +
-                                                '<a href="/product?bookid='+data.id+'" title="' + data.name + '">' +
+                                                '<a href="/product?bookid=' + data.id + '" title="' + data.name + '">' +
                                                 '<div class="image">' +
                                                 '<img width="40" src="/resources/' + data.image + '" alt="' + data.name + '" title="' + data.name + '">' +
                                                 '</div>' +
@@ -221,11 +222,9 @@
                         </div>
                         <div class="subcontent">
                             <h3>Giỏ hàng</h3>
-                            <div id="cartslist">
-
-                            </div>
+                            <div id="cartslist"></div>
                             <div class="buttom" id="showcartlink">
-                                <a class="cartlink" href="/orders/carts/gio-hang.html" title="GIỎ HÀNG CỦA TÔI">
+                                <a class="cartlink" href="/cart" title="GIỎ HÀNG CỦA TÔI">
                                     Xem giỏ hàng<i class="fa fa-play"></i></a>
                             </div>
                         </div>
@@ -233,6 +232,46 @@
                 </ul>
             </div>
         </div>
+        <script>
+            function loadCart() {
+                $.ajax({
+                    url: '/cart/getCart',
+                    dataType: 'text',
+                    success: function (result) {
+                        if (result.length != 0) {
+                            result = JSON.parse(result);
+                            $('.shownumber').html(result.length);
+                            $('#cartslist').empty()
+                            $.each(result, function (index, data) {
+                                console.log("Chạy lần 1")
+                                $('#cartslist').append(
+                                    '<div class="small_products" id="ca178374">' +
+                                    '<a href="/product?bookid=' + data.book.id + '" title="RỒI MỘT NGÀY TIM ĐẬP...">' +
+                                    '<div class="image">' +
+                                    '<img width="30" src="/' + data.book.image + '" alt="RỒI MỘT NGÀY TIM ĐẬP..." title="RỒI MỘT NGÀY TIM ĐẬP...">' +
+                                    '</div>' +
+                                    '<div class="info">' +
+                                    '<div class="title">' +
+                                    '' + data.book.name + '' +
+                                    '</div>' +
+                                    '<div class="prices">' +
+                                    '116.450 ₫' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '<div class="clear"></div>' +
+                                    '</a>' +
+                                    '</div>')
+                            })
+                        } else {
+                            $('.shownumber').html(0);
+                            $('#cartslist').empty()
+                        }
+                    }
+                })
+            }
+
+            loadCart()
+        </script>
         <div class="clear"></div>
     </div>
 </div>

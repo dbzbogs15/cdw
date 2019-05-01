@@ -2,8 +2,8 @@
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html">
+<html">
 <head>
     <%@include file="component/header.jsp" %>
     <script type="text/javascript" src="/resources/layouts/fontpage/js/jquery.elevatezoom.js"></script>
@@ -18,7 +18,7 @@
         <div class="pathway">
             <ul>
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-                <li>Đăng nhập</li>
+                <li>Giỏ hàng</li>
             </ul>
         </div>
     </div>
@@ -41,44 +41,56 @@
                                     </tr>
                                 </table>
                                 <c:choose>
-                                    <c:when test="${sessionScope.cart == null}">
+                                    <c:when test="${cart == null}">
                                         <span>Không có sản phẩm nào trong giỏ hàng</span>
                                     </c:when>
                                     <c:otherwise>
                                         <div class="showboxcart" id="contentcart">
                                             <table cellpadding="2" cellspacing="0" width="100%" class="productscart">
-                                                <c:forEach items="${sessionScope.cart}" var="cart">
-                                                <tr>
-                                                    <td>
-                                                        <img src="/${cart.book.image}"
-                                                             width="40" height="50"
-                                                             alt="${cart.book.name}"/>
-                                                    </td>
-                                                    <td>
-                                                        <div class="productname">
-                                                            <a href="/product?bookid=${cart.book.id}"
-                                                               title="${cart.book.name}">
-                                                                ${cart.book.name}
-                                                            </a>
+                                                <c:forEach items="${cart}" var="cart">
+                                                    <tr id="list${cart.book.id}">
+                                                        <td>
+                                                            <img src="/${cart.book.image}"
+                                                                 width="40" height="50"
+                                                                 alt="${cart.book.name}"/>
+                                                        </td>
+                                                        <td>
+                                                            <div class="productname">
+                                                                <a href="/product?bookid=${cart.book.id}"
+                                                                   title="${cart.book.name}">
+                                                                        ${cart.book.name}
+                                                                </a>
 
-                                                        </div>
-                                                    </td>
-                                                    <td align="right" width="20%">
-                                                        <div class="sprice" id="price2898">
-                                                            <fmt:formatNumber pattern="###,###" value="${cart.book.priceNew}"/>
-                                                            ₫</div>
-                                                    </td>
-                                                    <td class="quantity" align="right" width="20%">
-                                                        <div class="sprice" id="price2898">
-                                                            ${cart.quantity}
-                                                        </div>
-                                                    </td>
-                                                    <td align="right" width="20%">
-                                                        <span id="cart-intoMoney178202">
-                                                            ${cart.book.priceNew * cart.quantity}
-                                                            ₫</span>
-                                                    </td>
-                                                </tr>
+                                                            </div>
+                                                        </td>
+                                                        <td align="right" width="20%">
+                                                            <div class="sprice" id="price2898">
+                                                                <fmt:formatNumber pattern="###,###"
+                                                                                  value="${cart.book.priceNew}"/>
+                                                                ₫
+                                                            </div>
+                                                        </td>
+                                                        <td class="quantity" align="right" width="20%">
+                                                            <input name="quantity2897"
+                                                                   onkeydown="validateUserInput();"
+                                                                   type="text" size="3" maxlength="3" class="small"
+                                                                   value="${cart.quantity}"
+                                                                   onkeyup="changequantity(1, ${cart.book.id}, this.value);"
+                                                                   onblur="changequantity(2, ${cart.book.id}, this.value);"
+                                                                   autocomplete="off">
+                                                            <div style="padding-right:15px">
+                                                                <a href="javascript:"
+                                                                   onclick="changequantity(2, 2897, 0, 178374);">Xóa</a>
+                                                            </div>
+                                                        </td>
+
+                                                        <td align="right" width="20%">
+                                                        <span id="cart-intoMoney${cart.book.id}">
+                                                            <fmt:formatNumber pattern="###,###"
+                                                                              value="${cart.book.priceNew * cart.quantity}"/>
+                                                            </span> ₫
+                                                        </td>
+                                                    </tr>
                                                 </c:forEach>
                                             </table>
                                         </div>
@@ -93,7 +105,10 @@
                                                         <tr>
                                                             <td class="cardtool"><b>Tổng tiền:</b></td>
                                                             <td class="cart-subtotal cardtool">
-                                                                <span id="cart-subtotal">105.000 ₫</span>
+                                                                <span id="cart-subtotal">
+                                                                    <fmt:formatNumber pattern="###,###"
+                                                                                      value="${total}"/>
+                                                                </span> ₫
                                                             </td>
                                                         </tr>
                                                         <tr id="couponvalue" style="display:none">
@@ -112,7 +127,10 @@
                                                                 <b>Thành tiền:</b>
                                                             </td>
                                                             <td class="cart-subtotal cardtool">
-                                                                <span id="cart-total"><b>105.000 ₫</b></span>
+                                                                <span id="cart-total"><b>
+                                                                    <fmt:formatNumber pattern="###,###"
+                                                                                      value="${total}"/>
+                                                                </b></span> ₫
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -120,8 +138,7 @@
                                             </tr>
                                             <tr class="actions">
                                                 <td>
-                                                    <a href="javascript:" class="continue"
-                                                       onclick="Boxy.get(this).hide();">
+                                                    <a href="/" class="continue">
                                                         <i class="fa fa-play"></i> Thêm sản phẩm khác vào giỏ hàng</a>
                                                 </td>
                                                 <td align="right" style="padding-top:10px;">
@@ -133,7 +150,6 @@
                                         </table>
                                     </c:otherwise>
                                 </c:choose>
-
                             </td>
                         </tr>
                     </table>
@@ -148,5 +164,39 @@
     <%@include file="component/footer.jsp" %>
 </div>
 </div>
+<script type="text/javascript">
+    function validateUserInput() {
+        var code = this.event.keyCode;
+        if ((code < 48 || (code > 57 && code < 96) || code > 105) && code !== 46 && code !== 8 && code !== 37 && code !== 39) {
+            this.event.preventDefault();
+        }
+
+    }
+
+    function changequantity(type, id, value) {
+        $.ajax({
+            url: '/cart/changeCart',
+            data: {
+                type: type,
+                id: id,
+                value: value
+            },
+            datatype: 'json',
+            success: function (result) {
+                console.log(result.del)
+                if (result.del != 1) {
+                    $('#cart-subtotal').html(result.total.toLocaleString().replace(",", "."));
+                    $('#cart-total').html(result.total.toLocaleString().replace(",", "."));
+                    $('#cart-intoMoney' + id + '').html((result.subtotal).toLocaleString().replace(",", "."));
+                } else {
+                    $('#list' + id + '').remove();
+                    $('#cart-subtotal').html(result.total.toLocaleString().replace(",", "."));
+                    $('#cart-total').html(result.total.toLocaleString().replace(",", "."));
+                }
+                loadCart();
+            }
+        })
+    }
+</script>
 </body>
 </html>

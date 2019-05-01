@@ -3,15 +3,14 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <%@include file="component/header.jsp" %>
     <link href="/resources/layouts/fontpage/css/product.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="/resources/layouts/fontpage/js/jquery.elevatezoom.js"></script>
     <script type="text/javascript" src="/resources//layouts/fontpage/js/gohome.js"></script>
     <link href="/resources/layouts/fontpage/css/draggable.css" type="text/css" rel="stylesheet"/>
-
 </head>
 <body>
 <div id="main_contener">
@@ -26,7 +25,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/category/${book.category.parentCategory.id}/sub/${book.category.id}" title="${book.category.name}">${book.category.name}</a>
+                    <a href="/category/${book.category.parentCategory.id}/sub/${book.category.id}"
+                       title="${book.category.name}">${book.category.name}</a>
                 </li>
                 <li>${fn:toUpperCase(book.name)}</li>
             </ul>
@@ -66,10 +66,6 @@
                                     <fmt:formatNumber pattern="###,###"
                                                       value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
                                 </span>
-                                </div>
-                                <div class="yousave" id="yousave">
-                                    <span>Số lượng:</span> <span>
-                                    <input id="quantity" type="text" value="1"></span>
                                 </div>
                             </div>
                             <div class="goshop">
@@ -336,7 +332,49 @@
     </div>
     <script type="text/javascript">
         function addCart(id) {
-            Boxy.load('/cart/addCart?id='+id+'', {title: 'Giỏ hàng của tôi'})
+            $.ajax({
+                url: '/cart/addCart',
+                data: {
+                    id: id
+                },
+                success: function (result) {
+                    if (result != null) {
+                        swal({
+                            title: result.name,
+                            text: 'Đã được thêm vào giỏ hàng',
+                            confirmButtonText: 'OK!'
+                        }).catch(swal.noop);
+                        $.ajax({
+                            url: '/cart/getCart',
+                            dataType: 'json',
+                            success: function (result) {
+                                console.log(result.length)
+                                $('.shownumber').html(result.length);
+                                $('#cartslist').empty()
+                                $.each(result, function (index, data) {
+                                    $('#cartslist').append(
+                                        '<div class="small_products" id="ca178374">' +
+                                        '<a href="/product?bookid=' + data.book.id + '" title="RỒI MỘT NGÀY TIM ĐẬP...">' +
+                                        '<div class="image">' +
+                                        '<img width="30" src="/' + data.book.image + '" alt="RỒI MỘT NGÀY TIM ĐẬP..." title="RỒI MỘT NGÀY TIM ĐẬP...">' +
+                                        '</div>' +
+                                        '<div class="info">' +
+                                        '<div class="title">' +
+                                        '' + data.book.name + '' +
+                                        '</div>' +
+                                        '<div class="prices">' +
+                                        '116.450 ₫' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="clear"></div>' +
+                                        '</a>' +
+                                        '</div>')
+                                })
+                            }
+                        })
+                    }
+                }
+            })
         }
     </script>
 </div>

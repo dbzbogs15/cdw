@@ -15,12 +15,14 @@
 <link type="text/css" href="/resources/layouts/fontpage/css/font-awesome.min.css" rel="stylesheet"/>
 <link type="text/css" href="/resources/layouts/fontpage/css/styles.resolution.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/resources/layouts/system/css/boxy.css" type="text/css"/>
-<link rel="stylesheet" href="/resources/css/springbook.css" />
 <script type="text/javascript" src="/resources/js/jquery-3.3.1.min.js"></script>
 <%--<script type="text/javascript" src="/resources/layouts/system/js/jquery-1.8.2.min.js"></script>--%>
 <script type="text/javascript" src="/resources/layouts/system/js/common.js"></script>
 <script type='text/javascript' src='/resources/layouts/system/js/jquery.boxy.js'></script>
 <link rel="shortcut icon" type="image/png" href="/resources/stores/uploads/v/doc-gia-tap-2__26886_thum_135.jpg"/>
+<link rel="stylesheet" href="/resources/sweet-alert/sweetalert2.css">
+<script src="/resources/sweet-alert/sweetalert2.js"></script>
+<link rel="stylesheet" href="/resources/css/springbook.css" />
 <!--[if IE]>
 <link rel="stylesheet" href="/resources/layouts/fontpage/css/styles.ie.css" type="text/css"/>
 <![endif]-->
