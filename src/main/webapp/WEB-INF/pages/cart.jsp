@@ -142,7 +142,7 @@
                                                         <i class="fa fa-play"></i> Thêm sản phẩm khác vào giỏ hàng</a>
                                                 </td>
                                                 <td align="right" style="padding-top:10px;">
-                                                    <a href="/orders/checkout/index.html" class="redbuttom">Thực hiện
+                                                    <a href="/order" class="redbuttom">Thực hiện
                                                         thanh
                                                         toán</a>
                                                 </td>

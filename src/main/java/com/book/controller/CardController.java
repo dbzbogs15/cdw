@@ -101,6 +101,12 @@ public class CardController {
         return data;
     }
 
+    @RequestMapping("/total")
+    @ResponseBody
+    public int totalAmount() {
+        return amountTotal();
+    }
+
     public int exists(int id, List<Item> cart) {
         for (int i = 0; i < cart.size(); i++) {
             if (cart.get(i).getBook().getId() == id) {
