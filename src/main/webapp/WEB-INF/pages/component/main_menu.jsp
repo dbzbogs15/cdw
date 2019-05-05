@@ -36,30 +36,30 @@
                     </li>
                 </ul>
             </li>
-
-            <c:forEach var="parent" items="${parent}">
-                <li
-                    <c:if test="${book ne null}">
-                        <c:if test="${book.category.parentCategory.id == parent.id}">
-                            class="active"
-                        </c:if>
-                    </c:if>
-                >
-                    <a href="/category/${parent.id}" class="havechild" 8 target="_self">
-                            ${parent.name}
-                    </a>
-                    <ul class="submenu1" id="submenu1">
-                        <c:forEach var="cate" items="${parent.categories}">
-                            <li>
-                                <a href="/category/${parent.id}/sub/${cate.id}/" target="_self">
-                                        ${cate.name}
-                                </a>
-                            </li>
-                        </c:forEach>
-                    </ul>
-                </li>
-            </c:forEach>
-
+            <div id="loadCategory">
+                <c:forEach var="parent" items="${parent}">
+                    <li
+                            <c:if test="${book ne null}">
+                                <c:if test="${book.category.parentCategory.id == parent.id}">
+                                    class="active"
+                                </c:if>
+                            </c:if>
+                    >
+                        <a href="/category/${parent.id}" class="havechild" target="_self">
+                                ${parent.name}
+                        </a>
+                        <ul class="submenu1" id="submenu1">
+                            <c:forEach var="cate" items="${parent.categories}">
+                                <li>
+                                    <a href="/category/${parent.id}/sub/${cate.id}/" target="_self">
+                                            ${cate.name}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                    </li>
+                </c:forEach>
+            </div>
             <li class="-bold"><a href="/Cong-ty-phat-hanh.html" class="havechild" 0 target="_self">Công
                 ty phát hành</a>
                 <ul class="submenubig" id="submenu1" style="columns: 2">

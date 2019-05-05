@@ -21,7 +21,7 @@ public class ParentCategory {
     private Integer id;
     private String name;
 
-    @JsonIgnore
+//    @JsonIgnore
     @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL)
     private List<Category> categories;
 }

@@ -29,6 +29,7 @@
                 <div id="showempty"></div>
                 <div class="blockcontent" id="showcart">
                     <hr style="border-top: 1px solid #999"/>
+                    <h2 style="color: red">${message}</h2>
                     <table cellpadding="0" cellspacing="0" width="100%">
                         <tr>
                             <td colspan="2">
@@ -42,7 +43,7 @@
                                 </table>
                                 <c:choose>
                                     <c:when test="${cart == null}">
-                                        <span>Không có sản phẩm nào trong giỏ hàng</span>
+                                        <h2>Không có sản phẩm nào trong giỏ hàng</h2>
                                     </c:when>
                                     <c:otherwise>
                                         <div class="showboxcart" id="contentcart">
@@ -183,8 +184,9 @@
             },
             datatype: 'json',
             success: function (result) {
-                console.log(result.del)
+                console.log(result)
                 if (result.del != 1) {
+                    console.log("làm làm")
                     $('#cart-subtotal').html(result.total.toLocaleString().replace(",", "."));
                     $('#cart-total').html(result.total.toLocaleString().replace(",", "."));
                     $('#cart-intoMoney' + id + '').html((result.subtotal).toLocaleString().replace(",", "."));

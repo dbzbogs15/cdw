@@ -243,12 +243,11 @@
                             $('.shownumber').html(result.length);
                             $('#cartslist').empty()
                             $.each(result, function (index, data) {
-                                console.log("Chạy lần 1")
                                 $('#cartslist').append(
-                                    '<div class="small_products" id="ca178374">' +
-                                    '<a href="/product?bookid=' + data.book.id + '" title="RỒI MỘT NGÀY TIM ĐẬP...">' +
+                                    '<div class="small_products">' +
+                                    '<a href="/product?bookid=' + data.book.id + '" title="'+data.book.name+'">' +
                                     '<div class="image">' +
-                                    '<img width="30" src="/' + data.book.image + '" alt="RỒI MỘT NGÀY TIM ĐẬP..." title="RỒI MỘT NGÀY TIM ĐẬP...">' +
+                                    '<img width="30" src="/' + data.book.image + '" alt="'+data.book.name+'" title="'+data.book.name+'">' +
                                     '</div>' +
                                     '<div class="info">' +
                                     '<div class="title">' +

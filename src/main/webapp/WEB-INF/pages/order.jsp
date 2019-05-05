@@ -31,99 +31,69 @@
                     <h4>Địa chỉ giao hàng</h4>
                     <div class="blockcontent">
                         <div class="notlogin">
-                            <div class="addresscontain" style="display:none">
-                                <div class="addressintro">Sử dụng địa chỉ có sẵn bên dưới</div>
-                                <form method="post" name="rgt" id="rgt" action="/orders/checkout/index.html">
-
-                                    <div class="field">
-                                        <div class="textlabel">
-                                            &nbsp;
-                                        </div>
-                                        <input type="submit" class="bluebuttom Field250" value="Tiếp tục"/>
-                                        <input type="hidden" name="C90df69402a9ed906b90736a0a55adb52" value="1"/>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="orther" style="display:none">
-                                Bạn muốn giao đến địa chỉ khác?
-                                <a href="javarscript:" onclick="showform()">Thêm địa chỉ giao hàng mới</a>
-                            </div>
                             <div class="addform" id="addform">
-                                <form method="post" name="rgt" id="rgt" action="/orders/checkout/index.html"
-                                      onSubmit="return ValidateForm(CheckForm);">
+                                <form method="post" name="rgt" id="rgt" action="/order/checkout"
+<%--                                      onSubmit="return ValidateForm(CheckForm);"--%>
+                                >
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="fullname">Họ và tên</label> <span class="Required">*</span>:
+                                            <label>Họ và tên</label> <span class="Required">*</span>:
                                         </div>
-                                        <input onfocus="showhelp(5)" onblur="fonblur(5)" autocomplete="off"
-                                               id="telephone" type="text" name="telephone" value=""/>
+                                        <input autocomplete="off"
+                                               id="fullname" type="text" name="fullname"/>
                                         <span class="help" id="help5"></span>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="telephone">Điện thoại</label> <span
+                                            <label for="phone">Điện thoại</label> <span
                                                 class="Required">*</span>:
                                         </div>
-                                        <input onfocus="showhelp(5)" onblur="fonblur(5)" autocomplete="off"
-                                               id="telephone" type="text" name="telephone" value=""/>
+                                        <input autocomplete="off"
+                                               id="phone" type="text" name="phone"/>
                                         <span class="help" id="help5"></span>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="stateid">Tỉnh/Thành</label> <span class="Required">*</span>:
+                                            <label>Tỉnh/Thành</label> <span class="Required">*</span>:
                                         </div>
-                                        <select id="province" name="province" onfocus="showhelp(8)"
-                                                onblur="fonblur(8)" class="selectfield Field260"
+                                        <select id="province" name="province" class="selectfield Field260"
                                                 onchange="checkdistrict(this.value);">
-                                            <option value="0">Chọn tỉnh thành</option>
+                                            <option value="">Chọn tỉnh thành</option>
                                         </select>
                                         <div class="help" id="help8"></div>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="districtid">Quận huyện</label> <span
+                                            <label>Quận huyện</label> <span
                                                 class="Required">*</span>:
                                         </div>
-                                        <select id="districts" name="districts" onfocus="showhelp(9)"
-                                                onblur="fonblur(9)" class="selectfield Field260"
+                                        <select id="districts" name="districts" class="selectfield Field260"
                                                 onchange="checklocation(this.value);">
-
                                         </select>
                                         <div class="help" id="help9"></div>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="warid">Phường xã</label> <span class="Required">*</span>:
+                                            <label>Phường xã</label> <span class="Required">*</span>:
                                         </div>
-                                        <select id="wardid" name="wardid" onfocus="showhelp(10)"
-                                                onblur="fonblur(10)" class="selectfield Field260">
+                                        <select id="wardid" name="wardid" class="selectfield Field260">
 
                                         </select>
                                         <div class="help" id="help10"></div>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="street">Địa chỉ</label> <span class="Required">*</span>:
+                                            <label>Địa chỉ</label> <span class="Required">*</span>:
                                         </div>
                                         <textarea placeholder='Số nhà, tòa nhà (nếu có), tên đường…'
-                                                  onfocus="showhelp(6)" onblur="fonblur(6)" name="street" id="street"
+                                                  name="address" id="address"
                                                   rows="5"></textarea>
                                         <span class="help" id="help6"></span>
                                     </div>
-                                    <div class="field" style="display:none">
-                                        <div class="textlabel">
-                                            &nbsp;
-                                        </div>
-                                        <input type="checkbox" value="1" name="isdefault" id="isdefault"/>
-                                        <label for="isdefault">Địa chỉ giao hàng mặc định</label>
-                                    </div>
                                     <div class="field">
-                                        <div class="textlabel">
-                                            &nbsp;
+                                        <div class="textlabel">&nbsp;
                                         </div>
                                         <input type="submit" class="bluebuttom Field250" value="Tiếp tục"/>
-                                        <input type="hidden" id="countryid" name="countryid" value="1"/>
-                                        <input type="hidden" name="C90df69402a9ed906b90736a0a55adb52" value="1"/>
                                     </div>
                                 </form>
                             </div>
@@ -200,6 +170,7 @@
 <div id="footer">
     <%@include file="component/footer.jsp" %>
 </div>
+<script src="/resources/js/dist/jquery.validate.js"></script>
 <script>
     //load Province
     $.ajax({
@@ -208,7 +179,7 @@
         success: function (province) {
             $.each(province, function (index, data) {
                 $('#province').append(
-                    '<option value="'+data.provinceid+'">'+data.name+'</option>'
+                    '<option value="' + data.provinceid + '">' + data.name + '</option>'
                 )
             })
         }
@@ -219,13 +190,13 @@
         $('#districts').empty();
         $('#wardid').empty();
         $.ajax({
-            url: '/address/'+districtid+'',
+            url: '/address/' + districtid + '',
             dataType: 'json',
             success: function (district) {
                 $('#districts').empty();
                 $.each(district, function (index, data) {
                     $('#districts').append(
-                        '<option value="'+data.districtid+'">'+data.name+'</option>'
+                        '<option value="' + data.districtid + '">' + data.name + '</option>'
                     )
                 })
             }
@@ -235,13 +206,13 @@
     function checklocation(wardid) {
         console.log(wardid)
         $.ajax({
-            url: '/address/district/'+wardid+'',
+            url: '/address/district/' + wardid + '',
             dataType: 'json',
             success: function (ward) {
                 $('#wardid').empty();
                 $.each(ward, function (index, data) {
                     $('#wardid').append(
-                        '<option value="'+data.wardid+'">'+data.name+'</option>'
+                        '<option value="' + data.wardid + '">' + data.name + '</option>'
                     )
                 })
             }
@@ -252,8 +223,36 @@
         url: '/cart/total',
         dataType: 'json',
         success: function (total) {
-            $('#subtotalvl').html(total.toLocaleString().replace(",",".") + ' ₫');
-            $('#totalcacul').html(total.toLocaleString().replace(",",".") + ' ₫');
+            $('#subtotalvl').html(total.toLocaleString().replace(",", ".") + ' ₫');
+            $('#totalcacul').html(total.toLocaleString().replace(",", ".") + ' ₫');
+        }
+    })
+    $('#rgt').validate({
+        rules: {
+            fullname: "required",
+            phone: {
+                required: true,
+                number: true,
+                minlength: 10,
+                maxlength: 11
+            },
+            province: "required",
+            districts: "required",
+            wardid: "required",
+            address: "required"
+        },
+        messages: {
+            fullname: 'Vui lòng nhập vào họ tên',
+            phone: {
+                required: 'Vui lòng nhập số điện thoại',
+                number: 'Số điện thoại không hợp lệ',
+                maxlength: 'Số điện thoại không hợp lệ',
+                minlength: 'Số điện thoại không hợp lệ',
+            },
+            province: 'Vui lòng chọn Tỉnh/Thành',
+            districts: 'Vui lòng chọn Quận Huyện',
+            wardid: 'Vui lòng chọn Phường xã',
+            address: 'Vui lòng nhập địa chỉ nhận hàng'
         }
     })
 </script>

@@ -13,7 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,24 +25,26 @@ public class CardController {
     @Autowired
     ParentCategoryService parentCategoryService;
 
-    List<Item> cart = new ArrayList<>();
-
     @RequestMapping("")
-    public String cart(ModelMap mm, @SessionAttribute(required = false) List<Item> cart) {
-        mm.addAttribute("cart", cart);
-        mm.addAttribute("total", this.amountTotal());
+    public String cart(ModelMap mm, HttpSession session) {
+        Cart cart = (Cart) session.getAttribute("cart");
+        if(cart == null) {
+            mm.addAttribute("cart", null);
+        } else {
+            mm.addAttribute("cart", cart.getItems());
+            mm.addAttribute("total", cart.amountTotal());
+        }
         mm.addAttribute("parent", parentCategoryService.getAll());
         return "cart";
     }
 
     @ResponseBody
     @RequestMapping("/getCart")
-    public ResponseEntity<List<Item>> getCart(HttpSession session) {
-        List<Item> cart = (List<Item>) session.getAttribute("cart");
+    public ResponseEntity<List<Item>> getCart(@SessionAttribute(required = false) Cart cart) {
         if (cart == null) {
             return new ResponseEntity<>(null, HttpStatus.ACCEPTED);
         }
-        return new ResponseEntity<>(cart, HttpStatus.OK);
+        return new ResponseEntity<>(cart.getItems(), HttpStatus.OK);
     }
 
     @RequestMapping("/addCart")
@@ -51,20 +52,15 @@ public class CardController {
     public Book addCart(@RequestParam(required = false) Integer id,
                         HttpSession session) {
         Book book = bookService.getBookById(id);
+        System.out.println(book.toString());
+        Cart cart = (Cart) session.getAttribute("cart");
         if (session.getAttribute("cart") == null) {
-            this.cart.add(new Item(book, 1));
-            session.setAttribute("cart", cart);
+            cart = new Cart();
+            cart.addItem(book);
         } else {
-            this.cart = (List<Item>) session.getAttribute("cart");
-            int index = this.exists(id, cart);
-            if (index == -1) {
-                cart.add(new Item(book, 1));
-            } else {
-                int quantityNew = this.cart.get(index).getQuantity() + 1;
-                this.cart.get(index).setQuantity(quantityNew);
-            }
-            session.setAttribute("cart", this.cart);
+            cart.addItem(book);
         }
+        session.setAttribute("cart", cart);
         return book;
     }
 
@@ -76,64 +72,66 @@ public class CardController {
                                            @RequestParam Integer type) {
         System.out.println(value + " - " + id + " - " + type);
         Map<String, Integer> data = new HashMap<>();
-        cart = (List<Item>) session.getAttribute("cart");
-        int index = exists(id, cart);
+        Cart cart = (Cart) session.getAttribute("cart");
         if ((type == 1 || type == 2) && null != value) {
-            cart.get(index).setQuantity(value);
-            data.put("quantity", cart.get(index).getQuantity());
-            data.put("subtotal", cart.get(index).getQuantity() * cart.get(index).getBook().getPriceNew());
-            data.put("total", amountTotal());
+            cart.updateItem(id, value);
+            data.put("quantity", cart.getItems().get(cart.exists(id)).getQuantity());
+            data.put("subtotal", cart.subTotal(id));
+            data.put("total", cart.amountTotal());
+            session.setAttribute("cart", cart);
         }
         if (type == 1 && null == value) {
-            cart.get(index).setQuantity(0);
+            cart.updateItem(id, 0);
             data.put("quantity", 0);
             data.put("subtotal", 0);
-            data.put("total", amountTotal());
+            data.put("total", cart.amountTotal());
+            session.setAttribute("cart", cart);
         }
         if (type == 2 && (null == value || value == 0)) {
-            cart = removeItem(id);
-            if (cart.size() == 0) {
+            cart.removeItem(id);
+            if (cart.quantityTotal() == 0) {
                 session.removeAttribute("cart");
             }
+            data.put("quantity", 0);
             data.put("del", 1);
-            data.put("total", amountTotal());
+            data.put("total", cart.amountTotal());
         }
         return data;
     }
 
     @RequestMapping("/total")
     @ResponseBody
-    public int totalAmount() {
-        return amountTotal();
+    public int totalAmount(@SessionAttribute(required = false) Cart cart) {
+        return cart.amountTotal();
     }
-
-    public int exists(int id, List<Item> cart) {
-        for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getBook().getId() == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public List<Item> removeItem(Integer id) {
-        for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getBook().getId() == id) {
-                this.cart.remove(i);
-            }
-        }
-        return this.cart;
-    }
-
-    public Integer quantityTotal() {
-        return this.cart.size();
-    }
-
-    public Integer amountTotal() {
-        int sum = 0;
-        for (Item item : cart) {
-            sum += item.getBook().getPriceNew() * item.getQuantity();
-        }
-        return sum;
-    }
+//
+//    public int exists(int id, List<Item> items) {
+//        for (int i = 0; i < items.size(); i++) {
+//            if (items.get(i).getBook().getId() == id) {
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
+//
+//    public List<Item> removeItem(Integer id) {
+//        for (int i = 0; i < items.size(); i++) {
+//            if (items.get(i).getBook().getId() == id) {
+//                this.items.remove(i);
+//            }
+//        }
+//        return this.items;
+//    }
+//
+//    public Integer quantityTotal() {
+//        return this.items.size();
+//    }
+//
+//    public Integer amountTotal() {
+//        int sum = 0;
+//        for (Item item : items) {
+//            sum += item.getBook().getPriceNew() * item.getQuantity();
+//        }
+//        return sum;
+//    }
 }
