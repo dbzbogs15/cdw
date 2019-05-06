@@ -6,13 +6,13 @@
     <p>
                         <span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:12px;">Ra đời từ năm 2011, đến nay <strong>Nobita.vn</strong> đ&atilde; trở th&agrave;nh địa chỉ <a
                                 href="/"><strong>mua s&aacute;ch online</strong></a> quen thuộc của h&agrave;ng ng&agrave;n độc giả tr&ecirc;n cả nước. Với đầu s&aacute;ch phong ph&uacute;, thuộc c&aacute;c thể loại: <strong><a
-                                href="/danh-muc/2/van-hoc-nuoc-ngoai.html">Văn học nước ngoại</a>, <a
-                                href="/danh-muc/3/van-hoc-trong-nuoc.html">Văn học trong nước</a>, <a
-                                href="/danh-muc/1/sach-kinh-te.html">Kinh tế</a>, <a
-                                href="/danh-muc/4/sach-ki-nang-song.html">Kỹ năng sống</a>, <a
-                                href="/danh-muc/7/sach-thieu-nhi.html">Thiếu nhi</a>, <a
-                                href="/danh-muc/6/hoc-ngoai-ngu.html">S&aacute;ch học ngoại ngữ</a>, <a
-                                href="/danh-muc/9/sach-chuyen-nganh.html">S&aacute;ch chuy&ecirc;n ng&agrave;nh</a></strong>,... được cập nhật li&ecirc;n tục từ c&aacute;c nh&agrave; xuất bản uy t&iacute;n trong nước.&nbsp;</span></span>
+                                href="#">Văn học nước ngoại</a>, <a
+                                href="#">Văn học trong nước</a>, <a
+                                href="#">Kinh tế</a>, <a
+                                href="#">Kỹ năng sống</a>, <a
+                                href="#">Thiếu nhi</a>, <a
+                                href="#">S&aacute;ch học ngoại ngữ</a>, <a
+                                href="#">S&aacute;ch chuy&ecirc;n ng&agrave;nh</a></strong>,... được cập nhật li&ecirc;n tục từ c&aacute;c nh&agrave; xuất bản uy t&iacute;n trong nước.&nbsp;</span></span>
     </p>
     <p>
         <span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:12px;">Khi mua s&aacute;ch online tại Nobita.vn, Qu&yacute; kh&aacute;ch được <strong>Bọc plastic miễn ph&iacute; đến 99%</strong> (trừ s&aacute;ch b&igrave;a cứng, s&aacute;ch dạng hộp - dạng đặc biệt, s&aacute;ch khổ qu&aacute; to, ...)</span></span>

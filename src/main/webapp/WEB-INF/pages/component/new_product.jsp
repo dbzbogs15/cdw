@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <h2>
-    <a class="title" href="/sach-moi.html" title="Sách mới">Sách mới<span
+    <a class="title" href="#" title="Sách mới">Sách mới<span
             class="b-main__category-arrow"></span></a>
-    <a class="more" href="/sach-moi.html" title="Xem tất cả">Xem tất cả</a>
+    <a class="more" href="#" title="Xem tất cả">Xem tất cả</a>
 </h2>
 <div class="blockcontent">
     <div style="position:relative; padding:0 20px; overflow:hidden; height:340px;">

@@ -8,129 +8,37 @@
 <div class="blockcontent">
     <div style="position:relative; padding:0 20px; overflow:hidden; height:340px">
         <div id="bajaxcontainer">
-            <div class="product_contener">
-                <div class="products">
-                    <div class="image"><a
-                            href="#"
-                            title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) "><img
-                            src="/resources/stores/uploads/v/doc-gia-tap-2__26886_thum_135.jpg"
-                            alt="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) "
-                            title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) "/></a>
-                        <span class="saleprice">-22%</span>
-                    </div>
-                    <div class="productname">
-                        <a href="#"
-                           title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - Tập 2 ( tái bản tặng kèm bookmak) ">Độc
-                            Giả Và Nhân Vật Chính Đích Thị...</a>
-                    </div>
-                    <div class="fields"><span><a href="#"
-                                                 title="Đồi">Đồi</a></span></div>
+            <c:forEach var="book" items="${bestSeller}">
+                <div class="product_contener">
+                    <div class="products">
+                        <div class="image">
+                            <a href="/product?bookid=${book.id}"
+                               title="${book.name}">
+                                <img src="/resources/${book.image}"
+                                     alt="${book.name}"
+                                     title="${book.name}"/>
+                            </a>
+                            <span class="saleprice">-${book.saleoff}%</span>
+                        </div>
+                        <div class="productname">
+                            <a href="/product?bookid=${book.id}"
+                               title="${book.name}">
+                                    ${book.name}
+                            </a>
+                        </div>
+                        <div class="fields">
+                                        <span>
+                                        <a href="/product?bookid=${book.id}"
+                                           title="${book.author}">${book.author}
+                                        </a>
+                                        </span>
+                        </div>
 
-
-                    <div class="prices">69.420 ₫</div>
-                    <div class="rootprice">89.000 ₫</div>
+                        <div class="prices">${book.priceNew} ₫</div>
+                        <div class="rootprice">${book.priceOld} ₫</div>
+                    </div>
                 </div>
-            </div>
-            <div class="product_contener">
-                <div class="products">
-                    <div class="image"><a
-                            href="#"
-                            title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, "><img
-                            src="#"
-                            alt="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, "
-                            title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, "/></a>
-                        <span class="saleprice">-25%</span>
-                    </div>
-                    <div class="productname">
-                        <a href="#"
-                           title="Độc Giả Và Nhân Vật Chính Đích Thị Là Chân Tình - tập 3-4-5 (tặng kèm 7 bookmak, ">Độc
-                            Giả Và Nhân Vật Chính Đích Thị...</a>
-                    </div>
-                    <div class="fields"><span><a href="#"
-                                                 title="Đồi">Đồi</a></span></div>
-                    <div class="stars">
-                        <div class="starsvote" style="width:95%"></div>
-                    </div>
-                    <span class="numvote">(4 Nhận xét)</span>
-                    <div class="clear"></div>
-
-                    <div class="prices">247.500 ₫</div>
-                    <div class="rootprice">330.000 ₫</div>
-                </div>
-            </div>
-            <div class="product_contener">
-                <div class="products">
-                    <div class="image"><a
-                            href="#"
-                            title="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,"><img
-                            src="/resources/stores/uploads/i/doc-gia-full__22843_image2_800_thum.jpg"
-                            alt="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,"
-                            title="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,"/></a>
-                        <span class="saleprice">-22%</span>
-                    </div>
-                    <div class="productname">
-                        <a href="#"
-                           title="[Trọn Bộ] Độc Giả và Nhân vật Chính Đích THị Là Chân Tình (5tập )  tặng kèm 9 bookmak,">[Trọn
-                            Bộ] Độc Giả và Nhân vật Chính...</a>
-                    </div>
-                    <div class="fields"><span><a href="#"
-                                                 title="Đồi">Đồi</a></span></div>
-                    <div class="stars">
-                        <div class="starsvote" style="width:80%"></div>
-                    </div>
-                    <span class="numvote">(1 Nhận xét)</span>
-                    <div class="clear"></div>
-
-                    <div class="prices">404.040 ₫</div>
-                    <div class="rootprice">518.000 ₫</div>
-                </div>
-            </div>
-            <div class="product_contener">
-                <div class="products">
-                    <div class="image"><a
-                            href="#"
-                            title="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi"><img
-                            src="/resources/stores/uploads/b/amagi-cong-vien-ruc-ro-2-cover__43670_image2_800_thum.jpg"
-                            alt="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi"
-                            title="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi"/></a>
-                        <span class="saleprice">-20%</span>
-                    </div>
-                    <div class="productname">
-                        <a href="#"
-                           title="[ Bản thường] AMAGI  CÔNG VIÊN RỰC RỠ - TẬP 2 tặng 3bookmak chibi">[
-                            Bản thường] AMAGI CÔNG VIÊN RỰC RỠ...</a>
-                    </div>
-                    <div class="fields"><span><a href="#"
-                                                 title="Gatou shouji ">Gatou shouji </a></span></div>
-
-
-                    <div class="prices">84.000 ₫</div>
-                    <div class="rootprice">105.000 ₫</div>
-                </div>
-            </div>
-            <div class="product_contener">
-                <div class="products">
-                    <div class="image"><a
-                            href="#"
-                            title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"><img
-                            src="/resources/stores/uploads/c/bay-ngay-dem-nguoc-bia_1_1__38490_thum_135.jpg"
-                            alt="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"
-                            title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"/></a>
-                        <span class="saleprice">-20%</span>
-                    </div>
-                    <div class="productname">
-                        <a href="#"
-                           title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)">BẢY
-                            NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ...</a>
-                    </div>
-                    <div class="fields"><span><a href="#"
-                                                 title="Cát Bốc Lặc">Cát Bốc Lặc</a></span></div>
-
-
-                    <div class="prices">95.200 ₫</div>
-                    <div class="rootprice">119.000 ₫</div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
         <div class="clear"></div>
         <div class="list_btn">
@@ -168,28 +76,51 @@
             $("#bnext").removeClass("ndisable");
         }
 
-        address = '/home/bestseller/index.html?datetime=7';
+        address = '/api/bestseller';
         address = addQuery(address, 'page=' + pageb);
         $.ajax({
             url: address,
-            dataType: "html",
+            dataType: "json",
             type: "GET",
             cache: false,
             error: function (e) {
                 Boxy.alert('Lỗi ajax', null, {title: 'Lỗi'});
                 return false;
             },
-            success: function (data) {
+            success: function (result) {
+                console.log(result)
                 $("#bajaxcontainer").empty();
-                $("#bajaxcontainer").append(data);
+                $.each(result, function (index, data) {
+                    console.log(data)
+                    $("#bajaxcontainer").append(
+                        '<div class="product_contener">' +
+                        '<div class="products hide">' +
+                        '<div class="image">' +
+                        '<a href="/product?bookid='+data.id+'" title="' + data.name + '">' +
+                        '<img src="/resources/' + data.image + '" alt="' + data.name + '" title="' + data.name + '" />' +
+                        '</a>' +
+                        '<span class="saleprice">-' + data.saleoff + '%</span>' +
+                        '</div>' +
+                        '<div class="productname">' +
+                        '<a href="" title="' + data.name + '">' + data.name + '</a>' +
+                        '</div>' +
+                        '<div class="fields">' +
+                        '<span><a href="" title="' + data.author + '">' + data.author + '</a></span>' +
+                        '</div>' +
+                        '<div class="prices">' + data.priceNew + ' ₫</div>' +
+                        '<span class="rootprice">' + data.priceOld + ' ₫</span>' +
+                        '</div>' +
+                        '</div>'
+                    );
+                })
                 i = 0;
                 if (step == 1) {
-                    $(".hide").each(function (index) {
+                    $(".hide").each(function () {
                         $(this).delay(50 * i).fadeIn(100);
                         i++;
                     });
                 } else {
-                    $($(".hide").get().reverse()).each(function (index) {
+                    $($(".hide").get().reverse()).each(function () {
                         $(this).delay(50 * i).fadeIn(100);
                         i++;
                     });

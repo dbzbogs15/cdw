@@ -16,30 +16,30 @@
                     </li>
                     <li class="group">Giới thiệu
                         <ul>
-                            <li><a href="/gioi-thieu-nobita.html" title="Về nobita" target="_self">Về nobita</a>
+                            <li><a href="#" title="Về nobita" target="_self">Về nobita</a>
                             </li>
-                            <li><a href="/tuyen-dung.html" title="Tuyển dụng" target="_self">Tuyển dụng</a></li>
+                            <li><a href="#" title="Tuyển dụng" target="_self">Tuyển dụng</a></li>
                         </ul>
                     </li>
                     <li class="group">Tài khoản
                         <ul>
-                            <li><a href="/users/login/index.html" title="Tài khoản" target="_self">Tài khoản</a>
+                            <li><a href="#" title="Tài khoản" target="_self">Tài khoản</a>
                             </li>
-                            <li><a href="/users/login/index.html" title="Danh sách đơn hàng" target="_self">Danh
+                            <li><a href="#" title="Danh sách đơn hàng" target="_self">Danh
                                 sách đơn hàng</a></li>
-                            <li><a href="/users/login/index.html" title="Thông báo" target="_self">Thông báo</a>
+                            <li><a href="#" title="Thông báo" target="_self">Thông báo</a>
                             </li>
                         </ul>
                     </li>
                     <li class="group">Hướng dẫn
                         <ul>
-                            <li><a href="/huong-dan-mua-hang.html" title="Hướng dẫn mua hàng" target="_self">Hướng
+                            <li><a href="#" title="Hướng dẫn mua hàng" target="_self">Hướng
                                 dẫn mua hàng</a></li>
-                            <li><a href="/phuong-thuc-thanh-toan.html" title="Phương thức thanh toán"
+                            <li><a href="#" title="Phương thức thanh toán"
                                    target="_self">Phương thức thanh toán</a></li>
-                            <li><a href="/contents/danh-muc/2/cau-hoi-thuong-gap.html"
+                            <li><a href="#"
                                    title="Câu hỏi thường gặp" target="_self">Câu hỏi thường gặp</a></li>
-                            <li><a href="/phuong-thuc-van-chuyen.html" title="Phương thức vận chuyển"
+                            <li><a href="#" title="Phương thức vận chuyển"
                                    target="_self">Phương thức vận chuyển</a></li>
                         </ul>
                     </li>
@@ -69,8 +69,8 @@
                     &nbsp;
                 </div>
                 <div style="text-align: center;">
-                    <a href="http://online.gov.vn/PersonalWebsiteDisplay.aspx?DocId=9916" target="_blank"><img
-                            alt="" src="/resources/stores/images/dathongbao-1.png"
+                    <a href="#" target="_blank"><img
+                            alt="" src="#"
                             style="width: 220px; height: 83px;"/></a></div>
                 <div style="text-align: center;">
                     &nbsp;
@@ -88,7 +88,7 @@
         <div class="fright"><span onclick="showdialog(0)">-</span></div>
         <div class="clear"></div>
     </div>
-    <form action="/newsletters/submit/index.html" onsubmit="updateemail(this); return false;" id="homecoupon">
+    <form action="#" onsubmit="updateemail(this); return false;" id="homecoupon">
         <div align="center" style="margin:5px">
             <input placeholder="Nhập email của bạn vào đây" type="email" value="" id="newemail"
                    class="homeemail" name="newemail" required="">

@@ -18,4 +18,8 @@ public class OrderDetails {
     private Integer quantity;
     @Column(name = "unit_price")
     private Integer unitPrice;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id", insertable = false, updatable = false)
+    private Book book;
 }

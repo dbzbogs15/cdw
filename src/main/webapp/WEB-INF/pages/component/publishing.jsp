@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <h2>
-    <a class="title" href="/sach-sap-phat-hanh.html" title="Sắp phát hành">Sắp phát hành<span
-            class="b-main__category-arrow"></span></a><a class="more" href="/sach-sap-phat-hanh.html"
+    <a class="title" href="#" title="Sắp phát hành">Sắp phát hành<span
+            class="b-main__category-arrow"></span></a><a class="more" href="#"
                                                          title="Xem tất cả">Xem tất cả</a>
 </h2>
 <div class="blockcontent">
@@ -11,7 +11,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2881/anh-la-tat-ca-nhung-gi-em-ghet-nhat-tang-kem-5-postcard-1-thiep-to-tinh-de-thuong-so-luong-co-han-.html"
+                            href="#"
                             title="ANH LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT - TẶNG KÈM 5 POSTCARD + 1 THIỆP TỎ TÌNH DỄ THƯƠNG (SỐ LƯỢNG CÓ HẠN)"><img
                             src="/resources/stores/uploads/n/anhlatatca-cover-01_2_2__42060_thum_135.jpg"
                             alt="ANH LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT - TẶNG KÈM 5 POSTCARD + 1 THIỆP TỎ TÌNH DỄ THƯƠNG (SỐ LƯỢNG CÓ HẠN)"
@@ -19,7 +19,7 @@
                         <span class="saleprice">-18%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2881/anh-la-tat-ca-nhung-gi-em-ghet-nhat-tang-kem-5-postcard-1-thiep-to-tinh-de-thuong-so-luong-co-han-.html"
+                        <a href="#"
                            title="ANH LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT - TẶNG KÈM 5 POSTCARD + 1 THIỆP TỎ TÌNH DỄ THƯƠNG (SỐ LƯỢNG CÓ HẠN)">ANH
                             LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT -...</a>
                     </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="product_contener">
                 <div class="products">
-                    <div class="image"><a href="/2880/boxset-anohana-doa-hoa-ngay-ay-bo-3-tap-.html"
+                    <div class="image"><a href="#"
                                           title="BOXSET ANOHANA - ĐOÁ HOA NGÀY ẤY (BỘ 3 TẬP)"><img
                             src="/resources/stores/uploads/g/untitled-1_41_1__77457_thum_135.jpg"
                             alt="BOXSET ANOHANA - ĐOÁ HOA NGÀY ẤY (BỘ 3 TẬP)"
@@ -43,12 +43,12 @@
                         <span class="saleprice">-10%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2880/boxset-anohana-doa-hoa-ngay-ay-bo-3-tap-.html"
+                        <a href="#"
                            title="BOXSET ANOHANA - ĐOÁ HOA NGÀY ẤY (BỘ 3 TẬP)">BOXSET ANOHANA - ĐOÁ HOA
                             NGÀY ẤY (BỘ 3...</a>
                     </div>
                     <div class="fields"><span><a
-                            href="/thuong-hieu/1553/cho-heiwa-busters-mitsu-izumi.html"
+                            href="#"
                             title="Cho Heiwa Busters, Mitsu Izumi">Cho Heiwa Busters, Mitsu Izumi</a></span>
                     </div>
 
@@ -60,7 +60,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2877/date-a-live-tap-3-tang-kem-bookmark-so-luong-co-han-.html"
+                            href="#"
                             title="DATE A LIVE - TẬP 3 - TẶNG KÈM BOOKMARK (SỐ LƯỢNG CÓ HẠN)"><img
                             src="/resources/stores/uploads/g/date_a_live_3_1__68389_thum_135.jpg"
                             alt="DATE A LIVE - TẬP 3 - TẶNG KÈM BOOKMARK (SỐ LƯỢNG CÓ HẠN)"
@@ -68,11 +68,11 @@
                         <span class="saleprice">-15%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2877/date-a-live-tap-3-tang-kem-bookmark-so-luong-co-han-.html"
+                        <a href="#"
                            title="DATE A LIVE - TẬP 3 - TẶNG KÈM BOOKMARK (SỐ LƯỢNG CÓ HẠN)">DATE A LIVE
                             - TẬP 3 - TẶNG KÈM BOOKMARK...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/1382/tachibana-koushi.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Tachibana Koushi">Tachibana Koushi</a></span>
                     </div>
 
@@ -84,7 +84,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2876/bay-ngay-dem-nguoc-tang-kem-bo-the-uoc-nguyen-7-ngay-so-luong-co-han-.html"
+                            href="#"
                             title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"><img
                             src="/resources/stores/uploads/c/bay-ngay-dem-nguoc-bia_1_1__38490_thum_135.jpg"
                             alt="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)"
@@ -92,11 +92,11 @@
                         <span class="saleprice">-20%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2876/bay-ngay-dem-nguoc-tang-kem-bo-the-uoc-nguyen-7-ngay-so-luong-co-han-.html"
+                        <a href="#"
                            title="BẢY NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ THẺ ƯỚC NGUYỆN 7 NGÀY (SỐ LƯỢNG CÓ HẠN)">BẢY
                             NGÀY ĐẾM NGƯỢC - TẶNG KÈM BỘ...</a>
                     </div>
-                    <div class="fields"><span><a href="/thuong-hieu/1551/cat-boc-lac.html"
+                    <div class="fields"><span><a href="#"
                                                  title="Cát Bốc Lặc">Cát Bốc Lặc</a></span></div>
 
 
@@ -107,7 +107,7 @@
             <div class="product_contener">
                 <div class="products">
                     <div class="image"><a
-                            href="/2881/anh-la-tat-ca-nhung-gi-em-ghet-nhat-tang-kem-5-postcard-1-thiep-to-tinh-de-thuong-so-luong-co-han-.html"
+                            href="#"
                             title="ANH LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT - TẶNG KÈM 5 POSTCARD + 1 THIỆP TỎ TÌNH DỄ THƯƠNG (SỐ LƯỢNG CÓ HẠN)"><img
                             src="/resources/stores/uploads/n/anhlatatca-cover-01_2_2__42060_thum_135.jpg"
                             alt="ANH LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT - TẶNG KÈM 5 POSTCARD + 1 THIỆP TỎ TÌNH DỄ THƯƠNG (SỐ LƯỢNG CÓ HẠN)"
@@ -115,12 +115,12 @@
                         <span class="saleprice">-18%</span>
                     </div>
                     <div class="productname">
-                        <a href="/2881/anh-la-tat-ca-nhung-gi-em-ghet-nhat-tang-kem-5-postcard-1-thiep-to-tinh-de-thuong-so-luong-co-han-.html"
+                        <a href="#"
                            title="ANH LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT - TẶNG KÈM 5 POSTCARD + 1 THIỆP TỎ TÌNH DỄ THƯƠNG (SỐ LƯỢNG CÓ HẠN)">ANH
                             LÀ TẤT CẢ NHỮNG GÌ EM GHÉT NHẤT -...</a>
                     </div>
                     <div class="fields"><span><a
-                            href="/thuong-hieu/1554/tieu-bo-thich-an-banh-trung.html"
+                            href="#"
                             title="Tiểu Bố Thích Ăn Bánh Trứng">Tiểu Bố Thích Ăn Bánh Trứng</a></span>
                     </div>
 

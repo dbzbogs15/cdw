@@ -42,10 +42,10 @@
             </div>
 
             <div class="block" id="module_publishing">
-                <%@include file="component/publishing.jsp"%>
+                <%@include file="component/best_seller.jsp"%>
             </div>
             <div class="block" id="module_bestseller">
-                <%@include file="component/best_seller.jsp"%>
+                <%@include file="component/publishing.jsp"%>
             </div>
             <div class="block" id="module_topcategories">
                 <%@include file="component/top_categories.jsp"%>

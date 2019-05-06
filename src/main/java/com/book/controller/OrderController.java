@@ -75,10 +75,10 @@ public class OrderController {
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom("dbzbogs15@gmail.com");
-            helper.setTo("15130169@st.hcmuaf.edu.vn");
+            helper.setTo(order.getEmail());
             helper.setSubject("Order Book");
             String text = "Đơn hàng của bạn đã được xác nhận với Mã đơn hàng: " + trackingNumber;
-            helper.setText(text + "<table><th>STT</th><th>Tên</th><tr><td>1</td><td>May mắn lần sau</td></tr></table>", true);
+            helper.setText(text + "<table><th>STT</th><th>Tên</th><tr><td>1</td><td>May mắn lần sau</td></tr><tr><td>2</td><td>May mắn lần sau</td></tr></table>", true);
             javaMailSender.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
