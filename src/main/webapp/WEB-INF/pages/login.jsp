@@ -2,14 +2,14 @@
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
     <%@include file="component/header.jsp" %>
     <script type="text/javascript" src="/resources/layouts/fontpage/js/jquery.elevatezoom.js"></script>
     <script type="text/javascript" src="/resources//layouts/fontpage/js/gohome.js"></script>
     <link href="/resources/layouts/fontpage/css/draggable.css" type="text/css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/resources/layouts/fontpage/css/users.css" type="text/css" />
+    <link rel="stylesheet" href="/resources/layouts/fontpage/css/users.css" type="text/css"/>
 </head>
 <body>
 <div id="main_contener">
@@ -28,40 +28,34 @@
             <div class="block" id="module_Login">
                 <h1>
                     Đăng nhập <span>hoặc</span>
-                    <a href="/users/register/index.html" title="Đăng ký">Đăng ký</a>
+                    <a href="/account/register" title="Đăng ký">Đăng ký</a>
                 </h1>
                 <div class="blockcontent">
                     <div class="loginsocial">
                         <h3>Đăng nhập bằng</h3>
-                        <div class="buttom">
-                            <div><a href="javascript:" class="btn_face" onclick="checkLoginState();"></a></div>
-                            <div style="display:none">
-                                <a href="javascript:" class="btn_google" onclick="google_login();"></a>
-                            </div>
-                            <div style="display:none">
-                                <a href="javascript:" class="btn_yahoo" onclick="yahoo_login();"></a>
-                            </div>
-                        </div>
                     </div>
                     <div class="loginform">
                         <h3>Đăng nhập bằng tài khoản nobita</h3>
-                        <form method="post" name="fgf" id="fgf" action="/users/processLogin/index.html"
-                              onSubmit="return ValidateForm(CheckForm);">
+                        <form method="post" name="fgf" id="fgf" action="/account/login"
+                        >
+                            <div class="textlabel">
+                            </div>
+                            <span class="error">${message}</span>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label for="idemail">Email</label> <span class="Required">*</span>:
+                                    <label>Email</label> <span class="Required">*</span>:
                                 </div>
-                                <input type="text" name="email" id="idemail" onfocus="showhelp(1)" value=""
+                                <input type="text" name="email"
+                                       value=""
                                        autocomplete="off">
-                                <span class="help" id="help1">Nhập email của bạn</span>
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label for="idpassword">Mật khẩu</label> <span class="Required">*</span>:
+                                    <label>Mật khẩu</label> <span class="Required">*</span>:
                                 </div>
-                                <input id="idpassword" autocomplete="off" onfocus="showhelp(2)" type="password"
+                                <input autocomplete="off"
+                                       type="password"
                                        name="password">
-                                <span class="help" id="help2">Nhập mật khẩu của bạn</span>
                             </div>
                             <div class="field">
                                 <div class="textlabel"></div>
@@ -73,10 +67,9 @@
                                 <div class="textlabel">
                                     &nbsp;
                                 </div>
-                                <input type="hidden" name="redirect" value="" />
-                                <input type="submit" align="absmiddle" class="loginbuton" value="Đăng nhập" />
+                                <input type="submit" align="absmiddle" class="loginbuton" value="Đăng nhập"/>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="/users/register/index.html" title="Đăng ký" class="link_register">Tạo tài
+                                <a href="/account/register" title="Đăng ký" class="link_register">Tạo tài
                                     khoản</a>
                             </div>
                         </form>
@@ -88,9 +81,27 @@
         <div class="clear"></div>
     </div>
 </div>
-    <div id="footer">
-        <%@include file="component/footer.jsp" %>
-    </div>
+<div id="footer">
+    <%@include file="component/footer.jsp" %>
 </div>
+<script src="/resources/js/dist/jquery.validate.js"></script>
+<script>
+    $('#fgf').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: "required"
+        },
+        messages: {
+            email: {
+                required: 'Email không được để trống',
+                email: 'Email không đúng định dạng'
+            },
+            password: "Mật khẩu không được để trống"
+        }
+    })
+</script>
 </body>
 </html>

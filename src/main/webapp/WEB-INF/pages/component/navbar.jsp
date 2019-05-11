@@ -160,60 +160,46 @@
             <div class="shoptool">
                 <ul class="right_topbar">
                     <li>
-                        <div class="textlable" title="Tài khoản của bạn">
-                            Tài khoản của bạn<i class="fa fa-sort-desc"></i>
-                        </div>
-                        <div class="subcontent">
-                            <div class="buttom">
-                                <div>
-                                    <a href="javascript:" class="btn_face" onclick="checkLoginState();"></a>
+                        <c:choose>
+                            <c:when test="${sessionScope.account == null}">
+                                <div class="textlable" title="Tài khoản của bạn">
+                                    Tài khoản của bạn<i class="fa fa-sort-desc"></i>
                                 </div>
-                                <div>
-                                    <a class="btn_login" href="/login">
-                                        Đăng nhập
-                                    </a>
+                                <div class="subcontent">
+                                    <div class="buttom">
+                                        <div>
+                                            <a class="btn_login" href="/account/login">
+                                                Đăng nhập
+                                            </a>
+                                        </div>
+                                        <div align="center" class="loginlink">
+                                            Khách hàng mới? <a href="/account/register">Tạo tài khoản</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div align="center" class="loginlink">
-                                    Khách hàng mới? <a href="/users/register/index.html">Tạo tài khoản</a>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="textlable" title="${sessionScope.account.name}">
+                                        ${sessionScope.account.name}<i class="fa fa-sort-desc"></i>
                                 </div>
-                            </div>
-                            <script>
-                                function testAPI(response) {
-                                    var accessToken = response.authResponse.accessToken;
-                                    FB.api('/me', function (response) {
-                                        url = '/users/loginopenid/1/index.html';
-                                        url = addQuery(url, 'fid=' + response.id);
-                                        url = addQuery(url, 'access_token=' + accessToken);
-                                        document.location.href = url;
-                                    });
-                                }
-
-                                function checkLoginState() {
-                                    FB.getLoginStatus(function (response) {
-                                        if (response.status === 'connected') {
-                                            testAPI(response);
-                                        } else {
-                                            FB.login(function (response) {
-                                                if (response.authResponse) {
-                                                    if (response.status) {
-                                                        testAPI(response);
-                                                    }
-                                                }
-                                            }, {scope: 'public_profile,email'});
-                                        }
-                                    });
-                                }
-
-                                window.fbAsyncInit = function () {
-                                    FB.init({
-                                        appId: '368970956612542',
-                                        cookie: true,
-                                        xfbml: true,
-                                        version: 'v2.1'
-                                    });
-                                };
-                            </script>
-                        </div>
+                                <div class="subcontent">
+                                    <div class="meminfo">
+                                        <div><a href="/customers/index.html">Quản lý tài khoản</a></div>
+                                        <div><a href="/customers/orders/index.html">Đơn hàng của tôi</a></div>
+                                        <div><a href="/customers/messages/index.html">Thông báo của tôi(0)</a></div>
+                                        <div><a class="wishlist" href="/customers/wishlist/index.html">Danh sách yêu
+                                            thích</a></div>
+                                    </div>
+                                    <div class="buttom">
+                                        <div>
+                                            <a class="btn_login" href="/account/logout">
+                                                Đăng xuất
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                     </li>
                     <li>
                         <div class="textlable" title="Giỏ hàng">
@@ -245,9 +231,9 @@
                             $.each(result, function (index, data) {
                                 $('#cartslist').append(
                                     '<div class="small_products">' +
-                                    '<a href="/product?bookid=' + data.book.id + '" title="'+data.book.name+'">' +
+                                    '<a href="/product?bookid=' + data.book.id + '" title="' + data.book.name + '">' +
                                     '<div class="image">' +
-                                    '<img width="30" src="/' + data.book.image + '" alt="'+data.book.name+'" title="'+data.book.name+'">' +
+                                    '<img width="30" src="/' + data.book.image + '" alt="' + data.book.name + '" title="' + data.book.name + '">' +
                                     '</div>' +
                                     '<div class="info">' +
                                     '<div class="title">' +

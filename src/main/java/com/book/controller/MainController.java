@@ -57,10 +57,4 @@ public class MainController {
     public List<Category> getAllCategory(@PathVariable Integer id) {
         return categoryService.getAllByParentId(id);
     }
-
-    @RequestMapping("/login")
-    public String login(ModelMap mm) {
-        mm.addAttribute("parent", parentCategoryService.getAll());
-        return "login";
-    }
 }
