@@ -8,7 +8,7 @@
             <ul class="metismenu" id="side-menu">
                 <li class="menu-title">Navigation</li>
                 <li>
-                    <a href="index.html">
+                    <a href="/admin">
                         <i class="fi-air-play"></i><span
                             class="badge badge-danger badge-pill pull-right">3</span> <span> Dashboard </span>
                     </a>
@@ -18,12 +18,12 @@
                             class="menu-arrow"></span></a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="/admin/book-manager"></i>Quản lý sách</a></li>
-                        <li><a href="page-login.html">Quản lý danh mục</a></li>
+                        <li><a href="#">Quản lý danh mục</a></li>
                     </ul>
                 </li>
-                <li><a href="calendar.html"><i class="fi-box"></i> <span>Nhà xuất bản</span> </a></li>
-                <li><a href="calendar.html"><i class="fa fa-users"></i> <span>Khách hàng</span> </a></li>
-                <li><a href="calendar.html"><i class="fi-bar-graph-2"></i> <span>Thống kê</span> </a></li>
+                <li><a href="#"><i class="fi-box"></i> <span>Nhà xuất bản</span> </a></li>
+                <li><a href="#"><i class="fa fa-users"></i> <span>Khách hàng</span> </a></li>
+                <li><a href="#"><i class="fi-bar-graph-2"></i> <span>Thống kê</span> </a></li>
             </ul>
         </div>
         <!-- Sidebar -->

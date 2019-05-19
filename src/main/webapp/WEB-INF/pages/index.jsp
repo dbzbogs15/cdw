@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE>
+<html>
 <head>
     <%@include file="component/header.jsp" %>
     <link href="/resources/layouts/fontpage/css/home.css" type="text/css" rel="stylesheet"/>
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div id="header">
-        <%@include file="component/navbar.jsp"%>
+        <%@include file="component/navbar.jsp" %>
         <div id="mainmenu">
             <div id="container">
                 <!-- Main menu -->
@@ -34,30 +34,30 @@
     <!-- note.jsp -->
     <div id="container">
         <div id="mainbanner">
-            <%@include file="component/main_banner.jsp"%>
+            <%@include file="component/main_banner.jsp" %>
         </div>
         <div class="sortable" id="layoutGroup1">
             <div class="block" id="module_newproducts">
-                <%@include file="component/new_product.jsp"%>
+                <%@include file="component/new_product.jsp" %>
             </div>
 
             <div class="block" id="module_publishing">
-                <%@include file="component/best_seller.jsp"%>
+                <%@include file="component/best_seller.jsp" %>
             </div>
-            <div class="block" id="module_bestseller">
-                <%@include file="component/publishing.jsp"%>
-            </div>
+            <%--            <div class="block" id="module_bestseller">--%>
+            <%--                <%@include file="component/publishing.jsp"%>--%>
+            <%--            </div>--%>
             <div class="block" id="module_topcategories">
-                <%@include file="component/top_categories.jsp"%>
+                <%@include file="component/top_categories.jsp" %>
             </div>
             <div class="block " id="content_seohome">
-                <%@include file="component/content_bottom.jsp"%>
+                <%@include file="component/content_bottom.jsp" %>
             </div>
         </div>
     </div>
     <div class="clear"></div>
     <div id="footer">
-        <%@include file="component/footer.jsp"%>
+        <%@include file="component/footer.jsp" %>
     </div>
 </div>
 </body>

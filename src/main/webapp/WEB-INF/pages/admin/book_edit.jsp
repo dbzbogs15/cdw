@@ -35,12 +35,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title float-left">Thêm sách</h4>
+                            <h4 class="page-title float-left">Cập nhật sách</h4>
 
                             <ol class="breadcrumb float-right">
                                 <li class="breadcrumb-item"><a href="#">NLU Book</a></li>
                                 <li class="breadcrumb-item"><a href="/admin/book-manager">Quản lý sách</a></li>
-                                <li class="breadcrumb-item active">Thêm sách</li>
+                                <li class="breadcrumb-item active">Cập nhật sách</li>
                             </ol>
 
                             <div class="clearfix"></div>
@@ -57,7 +57,7 @@
                                 <div class="col-12">
                                     <div class="p-20">
                                         <%--@elvariable id="book" type="com.book.model.Book"--%>
-                                        <form:form action="/admin/book-manager/addBook" method="post"
+                                        <form:form action="/admin/book-manager/edit-book" method="post"
                                                    modelAttribute="book"
                                                    class="form-horizontal row"
                                                    enctype="multipart/form-data"
@@ -68,7 +68,7 @@
                                                     <div class="col-11">
                                                         <img id="myImg"
                                                              class="img-thumbnail"
-                                                             src="https://www.vinabook.com/images/thumbnails/product/240x/331997_p86816mchuyenlinh.jpg"
+                                                             src="/${book.image}"
                                                              style="width: 100%; height: 460px; margin-left: auto; margin-right: auto"
                                                         />
                                                         <div class="form-group row">
@@ -94,6 +94,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-2 col-form-label">Tên sách</label>
                                                     <div class="col-10">
+                                                        <form:input path="id" type="hidden"/>
                                                         <form:input type="text"
                                                                     path="name"
                                                                     class="form-control"
@@ -186,9 +187,10 @@
                                                     <label class="col-2 col-form-label">Ngày phát hành</label>
                                                     <div class="col-10">
                                                         <form:input type="text"
-                                                               path="publishedDate"
-                                                               class="form-control"/>
-                                                        <form:errors path="publishedDate" cssClass="parsley-errors-list" />
+                                                                    path="publishedDate"
+                                                                    class="form-control"/>
+                                                        <form:errors path="publishedDate"
+                                                                     cssClass="parsley-errors-list"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -197,9 +199,8 @@
                                                     <label class="col-2 col-form-label">Danh mục cha</label>
                                                     <div class="col-10">
                                                         <select id="parent" class="form-control">
-                                                            <option value="emt">--Danh mục cha--</option>
                                                             <c:forEach items="${parent}" var="item">
-                                                                <option value="${item.id}">
+                                                                <option <c:if test="${item.id == book.category.parentId}">selected</c:if> value="${item.id}">
                                                                         ${item.name}
                                                                 </option>
                                                             </c:forEach>
@@ -212,7 +213,9 @@
                                                         <form:select
                                                                 path="categoryId"
                                                                 class="form-control">
-                                                            <option value="">--Danh mục con--</option>
+                                                            <c:forEach items="${categories}" var="item">
+                                                                <option <c:if test="${item.id == book.categoryId}">selected</c:if> value="${item.id}">${item.name}</option>
+                                                            </c:forEach>
                                                         </form:select>
                                                     </div>
                                                 </div>
@@ -223,7 +226,8 @@
                                                                 path="publisherId"
                                                                 class="form-control">
                                                             <c:forEach items="${publisher}" var="item">
-                                                                <option value="${item.id}">${item.name}</option>
+                                                                <option <c:if test="${item.id == book.publisherId}">selected</c:if>
+                                                                        value="${item.id}">${item.name}</option>
                                                             </c:forEach>
                                                         </form:select>
                                                         <form:errors path="publisherId" cssClass="parsley-errors-list"/>
@@ -233,14 +237,14 @@
                                                     <label class="col-2 col-form-label">Mô tả</label>
                                                     <div class="col-10">
                                                         <form:textarea path="description"></form:textarea>
-                                                        <form:errors path="description" cssClass="parsley-errors-list" />
+                                                        <form:errors path="description" cssClass="parsley-errors-list"/>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label class="col-2 col-form-label"></label>
                                                     <div class="col-10">
                                                         <button type="submit" id="sendData" class="btn btn-primary">
-                                                            <i class="fa fa-save"></i> Thêm sách
+                                                            <i class="fa fa-save"></i> Cập nhật
                                                         </button>
                                                         <a class="btn btn-danger" href="/admin/book-manager">
                                                             <i class="fa fa-angle-double-left"></i> Quay lại
@@ -365,10 +369,10 @@
         $('#fileUpload').validate({
             errorClass: 'parsley-errors-list',
             rules: {
-                customFile: {
-                    required: true,
-                    accept: 'image/*'
-                },
+                // customFile: {
+                //     required: true,
+                //     accept: 'image/*'
+                // },
                 name: "required",
                 author: "required",
                 saleoff: {

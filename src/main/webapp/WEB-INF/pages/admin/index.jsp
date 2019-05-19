@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,7 @@
                             <h4 class="page-title float-left">Dashboard</h4>
 
                             <ol class="breadcrumb float-right">
-                                <li class="breadcrumb-item"><a href="#">Abstack</a></li>
+                                <li class="breadcrumb-item"><a href="/admin">Abstack</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
 
@@ -46,7 +47,7 @@
                         <div class="card-box tilebox-one">
                             <i class="fi-box float-right"></i>
                             <h6 class="text-muted text-uppercase mb-3">Đơn hàng</h6>
-                            <h4 class="mb-3" data-plugin="counterup">1,587</h4>
+                            <h4 class="mb-3" data-plugin="counterup">${totalOrder}</h4>
                             <span class="badge badge-primary"> +11% </span> <span
                                 class="text-muted ml-2 vertical-middle">From previous period</span>
                         </div>
@@ -56,7 +57,11 @@
                         <div class="card-box tilebox-one">
                             <i class="fi-layers float-right"></i>
                             <h6 class="text-muted text-uppercase mb-3">Doanh thu</h6>
-                            <h4 class="mb-3">$<span data-plugin="counterup">46,782</span></h4>
+                            <h4 class="mb-3">
+<%--                                <span data-plugin="counterup">--%>
+                                   <fmt:formatNumber pattern="###,###,###" type="number" value="${revenue}"/> VNĐ
+<%--                                </span>--%>
+                            </h4>
                             <span class="badge badge-primary"> -29% </span> <span
                                 class="text-muted ml-2 vertical-middle">From previous period</span>
                         </div>
@@ -66,7 +71,7 @@
                         <div class="card-box tilebox-one">
                             <i class="fi-tag float-right"></i>
                             <h6 class="text-muted text-uppercase mb-3">Average Price</h6>
-                            <h4 class="mb-3">$<span data-plugin="counterup">15.9</span></h4>
+                            <h4 class="mb-3">$<span data-plugin="counterup">${productSold}</span></h4>
                             <span class="badge badge-primary"> 0% </span> <span
                                 class="text-muted ml-2 vertical-middle">From previous period</span>
                         </div>
@@ -76,7 +81,7 @@
                         <div class="card-box tilebox-one">
                             <i class="fi-briefcase float-right"></i>
                             <h6 class="text-muted text-uppercase mb-3">Sách đã bán</h6>
-                            <h4 class="mb-3" data-plugin="counterup">1,890</h4>
+                            <h4 class="mb-3" data-plugin="counterup">${productSold}</h4>
                             <span class="badge badge-primary"> +89% </span> <span
                                 class="text-muted ml-2 vertical-middle">Last year</span>
                         </div>

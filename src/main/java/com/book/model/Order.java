@@ -1,6 +1,7 @@
 package com.book.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,6 +25,12 @@ public class Order {
     private Integer totalPrice;
     private Integer employeeid;
     private Integer customerid;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date orderdate;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date receivedate;
+
+    @ManyToOne
+    @JoinColumn(name = "wardid", insertable = false, updatable = false)
+    private Ward ward;
 }

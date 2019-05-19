@@ -35,14 +35,14 @@ public class MainController {
 
     @RequestMapping("/")
     public String index(ModelMap mm) {
-        List<OrderDetails> list = orderDetailService.getBestsellers(0).getContent();
+        System.out.println(bookService.getBookIsActive());
+        List<OrderDetails> list = orderDetailService.getBestsellers(0, 5).getContent();
         List<Book> result = new ArrayList<>();
         for(OrderDetails orderDetails : list) {
             result.add(orderDetails.getBook());
         }
         mm.addAttribute("bestSeller", result);
-        mm.addAttribute("parent", parentCategoryService.getAll());
-        mm.addAttribute("newBook", bookService.getNewBook(0).getContent());
+        mm.addAttribute("newBook", bookService.getNewBook(0, 5).getContent());
         return "index";
     }
 

@@ -20,6 +20,7 @@ public class ParentCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private String image;
 
 //    @JsonIgnore
     @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL)

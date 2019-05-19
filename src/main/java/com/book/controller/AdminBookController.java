@@ -1,15 +1,17 @@
 package com.book.controller;
 
 import com.book.model.Book;
-import com.book.service.BookService;
-import com.book.service.ParentCategoryService;
-import com.book.service.PublisherService;
+import com.book.service.*;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +19,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletContext;
+import javax.validation.Valid;
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,119 +36,120 @@ public class AdminBookController {
     @Autowired
     PublisherService publisherService;
     @Autowired
+    CategoryService categoryService;
+    @Autowired
     ServletContext context;
 
-    @GetMapping("/add")
-    public String add(ModelMap mm) {
-        mm.addAttribute("publisher", publisherService.getAll());
-        mm.addAttribute("parent", parentCategoryService.getAll());
-        return "/admin/add_book";
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
-
     @GetMapping("/add-book")
-    public String addBook(ModelMap mm) {
+    public String add(ModelMap mm) {
+        if (!mm.containsAttribute("book")) {
+            mm.addAttribute("book", new Book());
+        }
         mm.addAttribute("publisher", publisherService.getAll());
         mm.addAttribute("parent", parentCategoryService.getAll());
         return "/admin/book_add";
     }
 
-    @PostMapping(value = "/add-book")
-    @ResponseBody
-    public ResponseEntity<Map<String, String>> addBookProc(WebRequest wr,
-                                                           MultipartHttpServletRequest req
-    ) throws ParseException {
-        MultipartFile mpf = req.getFile("image");
-        System.out.println(mpf.getOriginalFilename());
-        Map<String, String> errors = new HashMap<>();
-        String name = wr.getParameter("name");
-        String author = wr.getParameter("author");
-        String description = wr.getParameter("description");
-        String size = wr.getParameter("size");
-        Integer saleoff = NumberUtils.toInt(wr.getParameter("saleoff"));
-        Integer priceNew = NumberUtils.toInt(wr.getParameter("priceNew"));
-        Integer priceOld = NumberUtils.toInt(wr.getParameter("priceOld"));
-        Integer category = NumberUtils.toInt(wr.getParameter("category_id"));
-        Integer quantity = NumberUtils.toInt(wr.getParameter("quantity"));
-        Integer numberPage = NumberUtils.toInt(wr.getParameter("number_page"));
-        Integer weight = NumberUtils.toInt(wr.getParameter("weight"));
-        String publishedDate = wr.getParameter("published_date");
-        Integer publishiedId = NumberUtils.toInt(wr.getParameter("publisher_id"));
-        if (name.length() == 0) {
-            errors.put("name", "Trường này không được để trống!");
-        }
-        if (author.length() == 0) {
-            errors.put("author", "Trường này không được để trống!");
-        }
-        if (description.length() == 0) {
-            errors.put("description", "Trường này không được để trống!");
-        }
-        if (size.length() == 0) {
-            errors.put("size", "Trường này không được để trống!");
-        }
-        if (saleoff <= 0) {
-            errors.put("saleoff", "Dữ liệu không hợp lệ, phải là số!");
-        }
-        if (priceNew <= 0) {
-            errors.put("priceNew", "Dữ liệu không hợp lệ, phải là số!");
-        }
-        if (priceOld <= 0) {
-            errors.put("priceOld", "Dữ liệu không hợp lệ, phải là số!");
-        }
-        if (quantity <= 0) {
-            errors.put("quantity", "Dữ liệu không hợp lệ, phải là số!");
-        }
-        if (numberPage <= 0) {
-            errors.put("number_page", "Dữ liệu không hợp lệ, phải là số!");
-        }
-        if (weight <= 0) {
-            errors.put("weight", "Dữ liệu không hợp lệ, phải là số!");
-        }
-        if (publishedDate.length() <= 0) {
-            errors.put("published_date", "Trường này không được để trống!");
-        }
-        if (category <= 0) {
-            errors.put("category_id", "Dữ liệu không hợp lệ!");
-        }
-        if (!errors.isEmpty()) {
-            return new ResponseEntity<>(errors, HttpStatus.OK);
-        }
-        Book book = new Book();
-        book.setAuthor(author);
-        book.setCategoryId(category);
+    @PostMapping("/addBook")
+    public String add(@Valid @ModelAttribute("book") Book book, BindingResult bindingResult,
+                      @RequestParam MultipartFile customFile,
+                      RedirectAttributes rd) {
+        bindingResult.getFieldErrors().forEach(fieldError -> System.out.println(fieldError));
         book.setCreated(new Date());
-        book.setDescription(description);
-        book.setNumberPage(numberPage);
-        book.setPriceNew(priceNew);
-        book.setPriceOld(priceOld);
-        book.setSaleoff(saleoff);
-        System.out.println(publishedDate);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date d1 = formatter.parse(publishedDate);
-        book.setPublishedDate(d1);
-        book.setQuantity(quantity);
-        book.setWeight(weight);
-        book.setPublisherId(publishiedId);
-        book.setName(name);
-        book.setSize(size);
         bookService.addBook(book);
 
-        //Upload
+        //Upload file
         String folder_save_file = context.getRealPath("/resources/image/book");
         try {
-            mpf.transferTo(new File(folder_save_file + File.separator + book.getId() + mpf.getOriginalFilename()));
-            book.setImage("resources/image/book/" + book.getId() + mpf.getOriginalFilename());
+            customFile.transferTo(new File(folder_save_file + File.separator + book.getId() + customFile.getOriginalFilename()));
+            book.setImage("resources/image/book/" + book.getId() + customFile.getOriginalFilename());
             bookService.addBook(book);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        errors.put("none", "Thêm thành công");
-        return new ResponseEntity<>(errors, HttpStatus.OK);
+        if (bindingResult.hasErrors()) {
+            rd.addFlashAttribute("org.springframework.validation.BindingResult.book", bindingResult);
+            rd.addFlashAttribute("book", book);
+            return "redirect:/admin/book-manager/add-book";
+        }
+        return "redirect:/admin/book-manager";
     }
 
     @RequestMapping("/success")
     public String success(RedirectAttributes rd) {
         rd.addFlashAttribute("message", "Thêm sản phẩm thành công!");
         return "redirect:/admin/book-manager";
+    }
+
+    @GetMapping("/delete-book")
+    public String deleteBook(@RequestParam Integer id,
+                             RedirectAttributes rd
+    ) {
+        try {
+            bookService.deleteBook(id);
+            rd.addFlashAttribute("message", "Xóa sản phẩm thành công!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            rd.addFlashAttribute("message", "Đã có lỗi xãy ra");
+        }
+        return "redirect:/admin/book-manager";
+    }
+
+    @GetMapping("/edit-book")
+    public String edit(ModelMap mm, @RequestParam(required = false) Integer bookid) {
+        Book book = bookService.getBookById(bookid);
+        if (!mm.containsAttribute("book")) {
+
+            mm.addAttribute("book", book);
+        }
+//        mm.addAttribute("book", book);
+        mm.addAttribute("publisher", publisherService.getAll());
+        mm.addAttribute("parent", parentCategoryService.getAll());
+        mm.addAttribute("categories",
+                categoryService.getAllByParentId(book.getCategory().getParentCategory().getId()));
+        return "admin/book_edit";
+    }
+
+    @PostMapping("/edit-book")
+    public String edit(@Valid @ModelAttribute("book") Book book, BindingResult bindingResult,
+                       @RequestParam(required = false) MultipartFile customFile, RedirectAttributes rd) {
+        Book book1 = bookService.getBookById(book.getId());
+        String image = book1.getImage();
+        book.setImage(image);
+        if (bindingResult.hasErrors()) {
+            rd.addFlashAttribute("org.springframework.validation.BindingResult.book", bindingResult);
+            rd.addFlashAttribute("book", book);
+            return "redirect:/admin/book-manager/edit-book?bookid=" + book.getId();
+        }
+        if (customFile.getSize() == 0) {
+            rd.addFlashAttribute("message", "Cập nhật sản phẩm thành công");
+            bookService.addBook(book);
+        } else {
+            String oldFile = context.getRealPath(book.getImage());
+            System.out.println(new File(oldFile).delete());
+            String link = "resources/image/book/" + book.getId() + customFile.getOriginalFilename();
+            String newFile = context.getRealPath(link);
+            try {
+                customFile.transferTo(new File(newFile));
+                book.setImage(link);
+                bookService.addBook(book);
+                rd.addFlashAttribute("message", "Cập nhật sản phẩm thành công");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "redirect:/admin/book-manager";
+    }
+    @GetMapping("/getbook")
+    @ResponseBody
+    public Book book(@RequestParam Integer id) {
+        return bookService.getBookById(id);
     }
 }

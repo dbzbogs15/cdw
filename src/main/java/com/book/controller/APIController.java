@@ -27,12 +27,12 @@ public class APIController {
     OrderDetailService orderDetailService;
     @RequestMapping("/api/newbook")
     public ResponseEntity<List<Book>> getNewBook(@RequestParam int page) {
-        List<Book> list = bookService.getNewBook(page-1).getContent();
+        List<Book> list = bookService.getNewBook(page-1, 5).getContent();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
     @RequestMapping("/api/bestseller")
     public ResponseEntity<List<Book>> getBestSeller(@RequestParam int page) {
-        List<OrderDetails> list = orderDetailService.getBestsellers(page-1).getContent();
+        List<OrderDetails> list = orderDetailService.getBestsellers(page-1, 5).getContent();
         List<Book> result = new ArrayList<>();
         for(OrderDetails orderDetails : list) {
             result.add(orderDetails.getBook());

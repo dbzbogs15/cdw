@@ -93,14 +93,18 @@
 												miễn ph&iacute; to&agrave;n quốc với đơn h&agrave;ng <span
                                                 style="color:#33cc33;"><strong>&ge; 250.000 đ</strong></span></span>
                                     </p>
+                                    <div class="fb-like" data-href="http://asyyye.net/product?bookid=${book.id}"
+                                         data-width=""
+                                         data-layout="button_count"
+                                         data-action="like"
+                                         data-size="small"
+                                         data-show-faces="true"
+                                         data-share="true">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="clear"></div>
-                        <div class="fb-like"
-                             data-href="http://nobita.vn/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html"
-                             data-layout="standard" data-action="like" data-show-faces="false" data-share="false">
-                        </div>
                     </div>
                 </div>
                 <div class="image_contenner">
@@ -125,32 +129,7 @@
                 <div class="intro" id="contentid">
                     ${book.description}
                 </div>
-                <div class="viewmore" id="viewmore"><span>Xem thêm nội dung <i class="fa fa-sort-desc"></i></span>
-                </div>
             </div>
-            <script>
-                var contentid = $('#contentid');
-                var hieght = contentid.height();
-                $('#viewmore').hide();
-                if (hieght > 400) {
-                    contentid.addClass('collapse');
-                    $('#viewmore').show();
-                }
-
-                $('.viewmore').click(function () {
-                    if (contentid.hasClass('collapse')) {
-                        contentid.removeClass('collapse');
-                        $('#viewmore span').empty();
-                        $('#viewmore span').append(
-                            'Thu gọn <i class="fa fa-sort-asc"></i>'
-                        );
-                    } else {
-                        contentid.addClass('collapse');
-                        $('#viewmore span').empty();
-                        $('#viewmore span').append('Xem thêm nội dung <i class="fa fa-sort-desc"></i>');
-                    }
-                });
-            </script>
             <div class="block" id="module_ProductFieds">
                 <a name="fieldlist"></a>
                 <h3>Thông tin chi tiết</h3>
@@ -215,18 +194,18 @@
                     </tr>
                 </table>
                 <div class="goshop cfields">
-                    <a href="javascript:" onclick="addCart();">Mua ngay</a>
+                    <a onclick="addCart(${book.id})">Mua ngay</a>
                 </div>
             </div>
             <div class="block" id="module_sameAuthor">
-                <h3>Sách cùng tác giả</h3>
+                <h3>Sách cùng thể loại</h3>
                 <div class="blockcontent">
                     <div style="position:relative; padding:0 0; overflow:hidden; height:320px;">
-                        <c:forEach items="${quanTam}" var="item">
+                        <c:forEach items="${sameCategory}" var="item">
                             <div class="product_contener">
                                 <div class="products">
                                     <div class="image"><a
-                                            href="#"
+                                            href="/product?bookid=${item.id}"
                                             title="${item.name}"><img
                                             src="/resources/${item.image}"
                                             alt="${item.name}"
@@ -234,7 +213,7 @@
                                         <span class="saleprice">-${item.saleoff}%</span>
                                     </div>
                                     <div class="productname">
-                                        <a href="#"
+                                        <a href="/product?bookid=${item.id}"
                                            title="${item.name}">${item.name}</a>
                                     </div>
                                     <div class="fields"> <span><a href="/thuong-hieu/983/doi.html"
@@ -253,10 +232,10 @@
                 <h3>Có thể bạn quan tâm</h3>
                 <div class="blockcontent">
                     <div style="position:relative; padding:0 0; overflow:hidden; height:320px;">
-                        <c:forEach var="item" items="${quanTam}">
+                        <c:forEach var="item" items="${recommend}">
                             <div class="product_contener">
                                 <div class="products">
-                                    <div class="image"><a href="#"
+                                    <div class="image"><a href="/product?bookid=${item.id}"
                                                           title="${item.name}"><img
                                             src="/resources/${item.image}"
                                             alt="${item.name}"
@@ -264,17 +243,17 @@
                                         <span class="saleprice">-${item.saleoff}%</span>
                                     </div>
                                     <div class="productname">
-                                        <a href="#"
+                                        <a href="/product?bookid=${item.id}"
                                            title="${item.name}">
                                                 ${item.name}
                                         </a>
                                     </div>
                                     <div class="fields">
                                     <span>
-                                        <a href="#" title="${item.author}">
+                                        <a href="/product?bookid=${item.id}" title="${item.author}">
                                                 ${item.author}
                                         </a>
-                                                              </span>
+                                    </span>
                                     </div>
 
 
@@ -288,38 +267,22 @@
                 </div>
             </div>
             <div class="block" id="module_Comments">
-                <script src="/resources/layouts/fontpage/js/jquery.elastic.source.js"
-                        charset="utf-8"></script>
                 <h3>Gửi nhật xét của bạn</h3>
-                <div class="comment_form">
-                    <div>
-                        Vui lòng <a
-                            href='#'
-                            title='đăng nhập'>đăng nhập</a> để viết nhận xét
-                    </div>
-                </div>
                 <h3>
                     <ul id="tabnav">
-                        <li><a href="javascript:" class="active" id="tab0" onclick="ShowTab(0)">Nhận xét của khách
+                        <li><a href="javascript:" class="active" id="tab0">Nhận xét của khách
                             hàng</a></li>
                         <li><a href="javascript:" id="tab1" onclick="ShowTab(1)"><i
                                 class="fa fa-facebook-square"></i> Thảo luận(<fb:comments-count
-                                href="http://nobita.vn/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html">
+                                href="${url_like}">
                         </fb:comments-count>) </a></li>
                     </ul>
                 </h3>
                 <a name="comment"></a>
                 <div class="blockcontent">
-                    <div id="div0">
-                        <div class="comment_list">
-                            <div id="comment_contener">
-                                Không tìm thấy nhận xét nào cho sản phẩm này
-                            </div>
-                        </div>
-                    </div>
                     <div id="div1">
                         <div class="fb-comments"
-                             data-href="http://nobita.vn/1848/doc-gia-va-nhan-vat-chinh-dich-thi-la-chan-tinh-tap-2-tai-ban-tang-kem-bookmak-.html"
+                             data-href="${url_like}"
                              data-width="100%" data-numposts="5" data-colorscheme="light"></div>
                     </div>
                 </div>
@@ -354,9 +317,9 @@
                                 $.each(result, function (index, data) {
                                     $('#cartslist').append(
                                         '<div class="small_products">' +
-                                        '<a href="/product?bookid=' + data.book.id + '" title="'+data.book.name+'">' +
+                                        '<a href="/product?bookid=' + data.book.id + '" title="' + data.book.name + '">' +
                                         '<div class="image">' +
-                                        '<img width="30" src="/' + data.book.image + '" alt="'+data.book.name+'" title="'+data.book.name+'">' +
+                                        '<img width="30" src="/' + data.book.image + '" alt="' + data.book.name + '" title="' + data.book.name + '">' +
                                         '</div>' +
                                         '<div class="info">' +
                                         '<div class="title">' +
@@ -377,4 +340,7 @@
             })
         }
     </script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous"
+            src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=205308183714279&autoLogAppEvents=1"></script>
 </div>

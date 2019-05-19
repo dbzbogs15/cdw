@@ -16,3 +16,6 @@
 <link href="/resources/admin/assets/css/style.css" rel="stylesheet" type="text/css"/>
 
 <script src="/resources/admin/assets/js/modernizr.min.js"></script>
+<c:if test="${sessionScope.admin == null}">
+    <c:redirect url="/admin" />
+</c:if>

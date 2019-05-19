@@ -15,50 +15,18 @@
                 </a>
                 <ul class="submenu1" id="submenu1">
                     <li>
-                        <a href="/sach-ban-chay.html" target="_self">
+                        <a href="/category/bestseller" target="_self">
                             Sách bán chạy
                         </a>
                     </li>
                     <li>
-                        <a href="/sach-moi.html" target="_self">
+                        <a href="/category/newbook" target="_self">
                             Sách mới
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/sach-sap-phat-hanh.html" target="_self">
-                            Sắp phát hành
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/sach-giam-gia.html" target="_self">
-                            Sách giảm giá
                         </a>
                     </li>
                 </ul>
             </li>
             <div id="loadCategory">
-                <c:forEach var="parent" items="${parent}">
-                    <li
-                            <c:if test="${book ne null}">
-                                <c:if test="${book.category.parentCategory.id == parent.id}">
-                                    class="active"
-                                </c:if>
-                            </c:if>
-                    >
-                        <a href="/category/${parent.id}" class="havechild" target="_self">
-                                ${parent.name}
-                        </a>
-                        <ul class="submenu1" id="submenu1">
-                            <c:forEach var="cate" items="${parent.categories}">
-                                <li>
-                                    <a href="/category/${parent.id}/sub/${cate.id}/" target="_self">
-                                            ${cate.name}
-                                    </a>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                    </li>
-                </c:forEach>
             </div>
             <li class="-bold"><a href="/Cong-ty-phat-hanh.html" class="havechild" 0 target="_self">Công
                 ty phát hành</a>
@@ -103,4 +71,34 @@
             </div>
         </div>
     </div>
+    <script>
+        $.ajax({
+            url: '/loadCategory',
+            dataType: 'json',
+            success: function (parentCategories) {
+                var html = '';
+                $.each(parentCategories, function (index, parentCategory) {
+                        html =
+                        '<li>' +
+                            '<a href="/category/'+parentCategory.id+'" class="havechild" target="_self">' +
+                                ''+parentCategory.name+'' +
+                            '</a>' +
+                            '<ul class="submenu1" id="submenu1">'
+
+                    $.each(parentCategory.categories, function (index, category) {
+                        html +=
+                            '<li>' +
+                                '<a href="/category/'+parentCategory.id+'/sub/'+category.id+'/" target="_self">' +
+                                    ''+category.name+'' +
+                                '</a>' +
+                            '</li>'
+
+                    })
+                    html +=
+                        '</ul></li>';
+                    $('#loadCategory').append(html)
+                })
+            }
+        })
+    </script>
 </div>

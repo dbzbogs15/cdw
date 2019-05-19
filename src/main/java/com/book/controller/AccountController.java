@@ -2,9 +2,13 @@ package com.book.controller;
 
 import com.book.model.Account;
 import com.book.model.MD5;
+import com.book.model.Order;
 import com.book.service.AccountService;
+import com.book.service.OrderService;
 import com.book.service.ParentCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -13,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/account")
@@ -23,6 +28,9 @@ public class AccountController {
     @Autowired
     ParentCategoryService parentCategoryService;
 
+    @Autowired
+    OrderService orderService;
+
     @GetMapping("/login")
     public String login(ModelMap mm) {
         mm.addAttribute("parent", parentCategoryService.getAll());
@@ -32,7 +40,7 @@ public class AccountController {
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password,
                         HttpSession session, RedirectAttributes rd) {
-        Account account = accountService.getAccount(email, password);
+        Account account = accountService.getAccount(email, MD5.md5(password));
         System.out.println(account);
         if(account != null) {
             session.setAttribute("account", account);
@@ -76,5 +84,20 @@ public class AccountController {
             return true;
         }
         return false;
+    }
+
+    @GetMapping("/order")
+    public String customerOder() {
+        return "customer_order";
+    }
+
+    @GetMapping("/my-order")
+    @ResponseBody
+    public ResponseEntity<Object> myOrders(@SessionAttribute(required = false) Account account) {
+        if(account == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        List<Order> result = orderService.getOrderByEmail(account.getEmail());
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

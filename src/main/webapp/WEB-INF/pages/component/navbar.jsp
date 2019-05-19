@@ -185,10 +185,7 @@
                                 <div class="subcontent">
                                     <div class="meminfo">
                                         <div><a href="/customers/index.html">Quản lý tài khoản</a></div>
-                                        <div><a href="/customers/orders/index.html">Đơn hàng của tôi</a></div>
-                                        <div><a href="/customers/messages/index.html">Thông báo của tôi(0)</a></div>
-                                        <div><a class="wishlist" href="/customers/wishlist/index.html">Danh sách yêu
-                                            thích</a></div>
+                                        <div><a href="/account/order">Đơn hàng của tôi</a></div>
                                     </div>
                                     <div class="buttom">
                                         <div>
@@ -254,7 +251,6 @@
                     }
                 })
             }
-
             loadCart()
         </script>
         <div class="clear"></div>

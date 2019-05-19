@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AccountConstraint {
-    String message() default "Invalid phone number";
+    String message() default "Email đã có người đăng ký";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

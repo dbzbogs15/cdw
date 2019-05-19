@@ -9,4 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 public interface OrderDetaisRepository extends JpaRepository<OrderDetails, Integer> {
     @Query("from OrderDetails o group by o.bookId order by sum(o.quantity) desc")
     Page<OrderDetails> getBestsellers(Pageable pageable);
+
+    //Sách đã bán
+    @Query("select sum(quantity) from OrderDetails")
+    int productSold();
 }

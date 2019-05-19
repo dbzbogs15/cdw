@@ -5,6 +5,8 @@ import com.book.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class OrderService {
     @Autowired
@@ -13,4 +15,11 @@ public class OrderService {
     public Order addOrder(Order order) {
         return orderRepository.save(order);
     }
+    public List<Order> getOrderByEmail(String email) {
+        return orderRepository.findAllByEmail(email);
+    }
+    public long totalOrder() {
+        return orderRepository.count();
+    }
+    public int getRevenue() { return orderRepository.revenue(); }
 }

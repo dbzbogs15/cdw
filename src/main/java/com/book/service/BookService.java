@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Service
@@ -15,13 +16,20 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    EntityManager entityManager;
+
     public List<Book> getAllBook() {
         return bookRepository.findAll();
     }
 
-    public Page<Book> getNewBook(int page) {
+//    public List<Book> getAllBook() {
+//        return entityManager.createQuery("select b from Book b where b.isActive = true", Book.class).getResultList();
+//    }
+
+    public Page<Book> getNewBook(int page, int size) {
         return bookRepository.findAll(
-                PageRequest.of(page, 5, Sort.by(
+                PageRequest.of(page, size, Sort.by(
                         Sort.Direction.DESC, "created")
                 )
         );
@@ -30,6 +38,7 @@ public class BookService {
     public Book getBookById(int id) {
         return bookRepository.getOne(id);
     }
+    //Chức năng tìm kiếm
     public List<Book> getBookByName(String name) {
         return bookRepository.findByNameContainingIgnoreCase(name);
     }
@@ -39,7 +48,13 @@ public class BookService {
     public List<Book> getBookByCategory(int id) {
         return bookRepository.findAllByCategoryId(id);
     }
+    public List<Book> getBookIsActive() {
+        return bookRepository.findAllByIsActiveIsTrue();
+    }
     public Book addBook(Book book) {
         return bookRepository.save(book);
+    }
+    public void deleteBook(Integer id) {
+        bookRepository.deleteById(id);
     }
 }

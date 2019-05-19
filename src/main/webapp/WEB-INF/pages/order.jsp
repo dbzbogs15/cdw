@@ -33,16 +33,7 @@
                         <div class="notlogin">
                             <div class="addform" id="addform">
                                 <form method="post" name="rgt" id="rgt" action="/order/checkout"
-<%--                                      onSubmit="return ValidateForm(CheckForm);"--%>
                                 >
-                                    <div class="field">
-                                        <div class="textlabel">
-                                            <label>Email</label> <span class="Required">*</span>:
-                                        </div>
-                                        <input autocomplete="off"
-                                               id="email" type="text" name="email"/>
-                                        <span class="help" id="help5"></span>
-                                    </div>
                                     <div class="field">
                                         <div class="textlabel">
                                             <label>Họ và tên</label> <span class="Required">*</span>:
@@ -237,10 +228,6 @@
     })
     $('#rgt').validate({
         rules: {
-            email: {
-                required: true,
-                email: true
-            },
             fullname: "required",
             phone: {
                 required: true,
@@ -254,10 +241,6 @@
             address: "required"
         },
         messages: {
-            email: {
-                required: 'Vui lòng nhập vào Email',
-                email: 'Email không hợp lệ'
-            },
             fullname: 'Vui lòng nhập vào họ tên',
             phone: {
                 required: 'Vui lòng nhập số điện thoại',

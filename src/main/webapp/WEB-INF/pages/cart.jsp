@@ -81,7 +81,7 @@
                                                                    autocomplete="off">
                                                             <div style="padding-right:15px">
                                                                 <a href="javascript:"
-                                                                   onclick="changequantity(2, 2897, 0, 178374);">Xóa</a>
+                                                                   onclick="changequantity(2, ${cart.book.id}, 0);">Xóa</a>
                                                             </div>
                                                         </td>
 

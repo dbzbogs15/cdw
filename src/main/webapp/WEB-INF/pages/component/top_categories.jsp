@@ -6,112 +6,32 @@
     <a class="more" href="#" title="Xem tất cả">Xem tất cả</a>
 </h2>
 <div class="blockcontent">
-    <div style="position:relative; padding:0; overflow:hidden; margin-left:-4%">
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="@" title=""><img
-                        src="#" alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Sách kinh tế</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Văn học nước ngoài</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt=""
-                        title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Văn học trong nước</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="# alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Sách kĩ năng sống</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Sách tuổi teen</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Học ngoại ngữ - Từ...</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt=""
-                        title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Sách thiếu nhi</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt=""
-                        title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Thường thức đời sống</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Sách chuyên ngành</a>
-                </div>
-            </div>
-        </div>
-        <div class="category_contener">
-            <div class="categories">
-                <div class="image"><a href="#" title=""><img
-                        src="#" alt="" title=""/></a>
-                </div>
-                <div class="catname">
-                    <a href="#" title="">Văn Phòng Phẩm -
-                        Quà...</a>
-                </div>
-            </div>
-        </div>
-        <div class="clear"></div>
+    <div id="topCate" style="position:relative; padding:0; overflow:hidden; margin-left:-4%">
     </div>
 </div>
+<script>
+    $.ajax({
+        url: '/loadCategory',
+        dataType: 'json',
+        success: function (result) {
+            $.each(result, function (index, data) {
+                $('#topCate').append(
+                    '<div class="category_contener">' +
+                        '<div class="categories">' +
+                            '<div class="image">' +
+                                '<a href="/category/'+data.id+'" title="'+data.name+'">' +
+                                    '<img src="'+data.image+'" alt="'+data.name+'" title="'+data.name+'"/>' +
+                                '</a>' +
+                            '</div>' +
+                            '<div class="catname">' +
+                                '<a href="/category'+data.id+'" title="'+data.name+'">'+data.name+'</a>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>'
+                )
+            })
+            $('#topCate').append('<div class="clear"></div>');
+        }
+    })
+</script>
 <div class="clear"></div>
