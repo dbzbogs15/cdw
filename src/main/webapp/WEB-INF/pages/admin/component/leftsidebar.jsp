@@ -21,6 +21,7 @@
                         <li><a href="#">Quản lý danh mục</a></li>
                     </ul>
                 </li>
+                <li><a href="/admin/order-manager"><i class="fa fa-file-text-o"></i> <span>Đơn hàng</span> </a></li>
                 <li><a href="#"><i class="fi-box"></i> <span>Nhà xuất bản</span> </a></li>
                 <li><a href="#"><i class="fa fa-users"></i> <span>Khách hàng</span> </a></li>
                 <li><a href="#"><i class="fi-bar-graph-2"></i> <span>Thống kê</span> </a></li>

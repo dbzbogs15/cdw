@@ -45,12 +45,12 @@
                                 <h6 class="text-uppercase text-center font-bold mt-4">Sign In</h6>
                             </div>
                             <div class="account-content">
-                                <form class="form-horizontal" action="#">
+                                <form class="form-horizontal" method="post" action="/j_spring_security_check">
 
                                     <div class="form-group m-b-20 row">
                                         <div class="col-12">
                                             <label for="emailaddress">Email address</label>
-                                            <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                            <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Enter your email">
                                         </div>
                                     </div>
 
@@ -58,7 +58,7 @@
                                         <div class="col-12">
                                             <a href="page-recoverpw.html" class="text-muted pull-right"><small>Forgot your password?</small></a>
                                             <label for="password">Password</label>
-                                            <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                            <input class="form-control" name="password" type="password" required="" id="password" placeholder="Enter your password">
                                         </div>
                                     </div>
 

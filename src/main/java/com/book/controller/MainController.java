@@ -1,9 +1,6 @@
 package com.book.controller;
 
-import com.book.model.Book;
-import com.book.model.Category;
-import com.book.model.OrderDetails;
-import com.book.model.ParentCategory;
+import com.book.model.*;
 import com.book.service.BookService;
 import com.book.service.CategoryService;
 import com.book.service.OrderDetailService;
@@ -11,10 +8,7 @@ import com.book.service.ParentCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;

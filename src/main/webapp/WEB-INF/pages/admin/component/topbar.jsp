@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div class="topbar">
     <!-- LOGO -->
     <div class="topbar-left">
@@ -206,8 +207,9 @@
                 <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown"
                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <img src="/resources/admin/assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle">
-                    <span
-                            class="ml-1">Samuel <i class="mdi mdi-chevron-down"></i> </span>
+                    <span class="ml-1">
+                        ${sessionScope.accountAdmin.name} <i class="mdi mdi-chevron-down"></i>
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                     <!-- item-->
@@ -236,7 +238,7 @@
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                    <a href="/admin/logout" class="dropdown-item notify-item">
                         <i class="fi-power"></i> <span>Logout</span>
                     </a>
                 </div>

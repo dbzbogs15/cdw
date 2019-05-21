@@ -28,4 +28,5 @@ public class Account {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date birthDate;
     private Integer gender;
+    private String role;
 }

@@ -44,7 +44,7 @@
 
                             <ol class="breadcrumb float-right">
                                 <li class="breadcrumb-item"><a href="/admin">NLU Book</a></li>
-                                <li class="breadcrumb-item active">Quản lý sách</li>
+                                <li class="breadcrumb-item active">Quản lý đơn hàng</li>
                             </ol>
 
                             <div class="clearfix"></div>
@@ -57,7 +57,7 @@
                             <h4 style="margin-left: 15px" class="m-t-0 header-title"><b>
                                 <a href="/admin/book-manager/add-book"
                                    class="btn btn-success waves-light waves-effect w-md">
-                                    <i class="fa fa-plus"></i> Thêm sách
+                                    <i class="fa fa-plus"></i> Thêm hóa đơn
                                 </a>
                                 <div class="text-center text-danger">${message}</div>
                             </b></h4>
@@ -65,35 +65,44 @@
                                    width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Tên sách</th>
-                                    <th>Tác giả</th>
-                                    <th>Danh mục</th>
-                                    <th>Ngày đăng</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng</th>
+                                    <th>Mã hóa đơn</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Nơi nhận</th>
+                                    <th>Tổng đơn hàng</th>
+                                    <th>Trạng thái</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach items="${books}" var="book">
+                                <c:forEach items="${orderList}" var="order">
                                     <tr>
+                                        <td width="10%">${order.trackingNumber}</td>
+                                        <td width="10%">${order.fullname}</td>
+                                        <td>${order.email}</td>
+                                        <td>${order.phone}</td>
+                                        <td>    ${order.address},
+                                                ${order.ward.name},
+                                                ${order.ward.district.name},
+                                                ${order.ward.district.province.name}</td>
+<%--                                        <td width="20%">--%>
+<%--                                            <fmt:formatDate value="${book.totalPrice}" pattern="HH:mm | dd/MM/yyyy"/>--%>
+<%--                                        </td>--%>
                                         <td width="10%">
-                                            <img src="/resources/${book.image}"
-                                                 width="100%"
-                                                 style="margin-right: auto; margin-left: auto; height: 139px"
-                                                 class="img-thumbnail">
+                                            <fmt:formatNumber value="${order.totalPrice}" pattern="###,###"/>đ
                                         </td>
-                                        <td width="20%">${book.name}</td>
-                                        <td width="10%">${book.author}</td>
-                                        <td>${book.category.name}</td>
-                                        <td width="20%">
-                                            <fmt:formatDate value="${book.created}" pattern="HH:mm | dd/MM/yyyy"/>
+                                        <td width="15%">
+                                            <select class="form-control btn-success"
+                                                    onchange="changeStatus(${order.id})"
+                                                    id="changeStatus${order.id}">
+                                                <option>Đã giao hàng</option>
+                                                <option>Đã hủy</option>
+                                                <option>Đang giao hàng</option>
+                                                <option>Đang đóng gói</option>
+                                            </select>
                                         </td>
-                                        <td width="10%">
-                                            <fmt:formatNumber value="${book.priceNew}" pattern="###,###"/>
-                                        </td>
-                                        <td width="5%">${book.quantity}</td>
+<%--                                        <td width="5%">${book.quantity}</td>--%>
                                         <td>
                                             <div class="btn-group mb-2">
                                                 <a class="btn btn-light waves-effect" onclick="show(${book.id})">
@@ -174,6 +183,12 @@
 <script src="/resources/admin/plugins/sweet-alert/sweetalert2.min.js"></script>
 
 <script type="text/javascript">
+    $('#changeStatus').change(function () {
+        console.log($('#changeStatus').val())
+        if($('#changeStatus').val() == 'Đã hủy') {
+            $('#changeStatus').addClass("btn-danger")
+        }
+    })
     function deleteBook(id, name, image) {
         console.log(id, name, image)
         sweetAlert({
@@ -211,93 +226,93 @@
             success: function (book) {
                 $('#details').html(
                     '<div class="col-4">' +
-                        '<img src="/'+book.image+'" class="img-thumbnail" />' +
+                    '<img src="/'+book.image+'" class="img-thumbnail" />' +
                     '</div>' +
                     '<div class="col-8">' +
-                        '<table class="table-bordered table text-muted m-b-30">' +
-                            '<tbody>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Tên sách' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.name+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Tác giả' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.author+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Nhà xuất bản' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.publisher.name+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Thể loại' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.category.name+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Trọng lượng' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.weight+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Kích thước' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.size+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Số lượng' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.quantity+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Ngày phát hành' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.publishedDate+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Giá góc' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.priceOld+'' +
-                                    '</td>' +
-                                '</tr>' +
-                                '<tr>' +
-                                    '<td>' +
-                                        'Tên sách' +
-                                    '</td>' +
-                                    '<td>' +
-                                        ''+book.name+'' +
-                                    '</td>' +
-                                '</tr>' +
-                            '</tbody>' +
-                        '</table>'+
+                    '<table class="table-bordered table text-muted m-b-30">' +
+                    '<tbody>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Tên sách' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.name+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Tác giả' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.author+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Nhà xuất bản' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.publisher.name+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Thể loại' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.category.name+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Trọng lượng' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.weight+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Kích thước' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.size+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Số lượng' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.quantity+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Ngày phát hành' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.publishedDate+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Giá góc' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.priceOld+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '<tr>' +
+                    '<td>' +
+                    'Tên sách' +
+                    '</td>' +
+                    '<td>' +
+                    ''+book.name+'' +
+                    '</td>' +
+                    '</tr>' +
+                    '</tbody>' +
+                    '</table>'+
                     '</div>' +
                     '<span class="card-body"><h5>Giới thiệu</h5>' + book.description + '</span>'
 
@@ -306,6 +321,7 @@
         })
         $('#myModal').modal();
     }
+
 </script>
 </body>
 </html>

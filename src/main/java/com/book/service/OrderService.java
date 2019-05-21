@@ -12,6 +12,9 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
+    public List<Order> getAll() {
+        return orderRepository.findAll();
+    }
     public Order addOrder(Order order) {
         return orderRepository.save(order);
     }
@@ -21,5 +24,5 @@ public class OrderService {
     public long totalOrder() {
         return orderRepository.count();
     }
-    public int getRevenue() { return orderRepository.revenue(); }
+    public int getRevenue(String status) { return orderRepository.revenue(status); }
 }

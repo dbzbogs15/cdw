@@ -66,7 +66,6 @@ public class AccountController {
     @GetMapping("/register")
     public String register(ModelMap mm) {
         mm.addAttribute("account", new Account());
-        mm.addAttribute("parent", parentCategoryService.getAll());
         return "/register";
     }
 
