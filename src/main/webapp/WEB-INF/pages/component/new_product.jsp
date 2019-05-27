@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <h2>
@@ -34,8 +35,8 @@
                                         </span>
                         </div>
 
-                        <div class="prices">${newBook.priceNew} ₫</div>
-                        <div class="rootprice">${newBook.priceOld} ₫</div>
+                        <div class="prices"><fmt:formatNumber value="${newBook.priceNew}" pattern="###,###" /> ₫</div>
+                        <div class="rootprice"><fmt:formatNumber value="${newBook.priceNew}" pattern="###,###" /> ₫</div>
                     </div>
                 </div>
             </c:forEach>
@@ -106,8 +107,8 @@
                         '<div class="fields">' +
                         '<span><a href="" title="' + data.author + '">' + data.author + '</a></span>' +
                         '</div>' +
-                        '<div class="prices">' + data.priceNew + ' ₫</div>' +
-                        '<span class="rootprice">' + data.priceOld + ' ₫</span>' +
+                        '<div class="prices">' + data.priceNew.toLocaleString().replace(',','.') + ' ₫</div>' +
+                        '<span class="rootprice">' + data.priceOld.toLocaleString().replace(',','.') + ' ₫</span>' +
                         '</div>' +
                         '</div>'
                     );

@@ -21,4 +21,8 @@ public class AccountService {
     public Account addAccount(Account account) {
         return accountRepository.save(account);
     }
+
+    public Account findByResetToken(String resetToken) {
+        return accountRepository.findByResetToken(resetToken);
+    }
 }

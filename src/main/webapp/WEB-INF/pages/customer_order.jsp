@@ -25,25 +25,11 @@
     <div class="clear"></div>
     <div id="container">
         <div class="sortable" id="layoutGroup3">
-            <div class="block" id="module_customerMenu">
-                <h2>Tài khoản của bạn</h2>
-                <div class="blockcontent">
-                    <ul>
-                        <li><a href="/customers/index.html">Quản lý tài khoản</a></li>
-                        <li><a href="/customers/edit/index.html">Thông tin tài khoản</a></li>
-                        <li><a href="/customers/address/index.html">Sổ địa chỉ</a></li>
-                        <li><a href="/customers/messages/index.html">Thông báo của tôi</a></li>
-                        <li class="bold"><a href="/customers/orders/index.html">Đơn hàng của tôi</a></li>
-                        <li><a href="/customers/review/index.html">Sản phẩm tôi đánh giá</a></li>
-                        <li><a href="/customers/wishlist/index.html">Danh sách yêu thích</a></li>
-                        <li><a href="/customers/coupon/index.html">Phiếu giảm giá</a></li>
-                    </ul>
-                </div>
-            </div>
+            <%@include file="component/customer_panel.jsp"%>
         </div>
         <div class="sortable" id="layoutGroup4">
             <div class="block" id="module_customersorders">
-                <h3>Đơn hàng của tôi</h3>
+                <h3 id="titleCustomer">Đơn hàng của tôi</h3>
                 <div class="blockcontent">
                     <table id="ordertable" cellpadding="0" cellspacing="0" width="100%" class="ordertable">
                         <tr>
@@ -89,6 +75,11 @@
                     )
                 })
             }
+        }
+    })
+    $("#accountPanel li").each(function() {
+        if($(this).text()==$('#titleCustomer').text()) {
+            $(this).attr("class", "bold")
         }
     })
 </script>

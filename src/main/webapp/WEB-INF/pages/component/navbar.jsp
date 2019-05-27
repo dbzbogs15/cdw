@@ -140,7 +140,7 @@
                                                 '</div>' +
                                                 '<div class="info">' +
                                                 '<div class="title">' + data.name + '</div>' +
-                                                '<span class="prices">' + data.priceNew + ' ₫</span>' +
+                                                '<span class="prices">' + data.priceNew.toLocaleString().replace(',','.') + ' ₫</span>' +
                                                 '</div>' +
                                                 '<div class="clear"></div>' +
                                                 '</a>' +
@@ -237,7 +237,7 @@
                                     '' + data.book.name + '' +
                                     '</div>' +
                                     '<div class="prices">' +
-                                    '116.450 ₫' +
+                                    ''+data.book.priceNew.toLocaleString().replace(',', ".")+' ₫' +
                                     '</div>' +
                                     '</div>' +
                                     '<div class="clear"></div>' +

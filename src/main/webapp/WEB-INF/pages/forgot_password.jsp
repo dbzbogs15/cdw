@@ -18,7 +18,7 @@
         <div class="pathway">
             <ul>
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-                <li>Đăng nhập</li>
+                <li>Quên mật khẩu</li>
             </ul>
         </div>
     </div>
@@ -27,17 +27,16 @@
         <div class="sortable" id="layoutGroup1">
             <div class="block" id="module_Login">
                 <h1>
-                    Đăng nhập <span>hoặc</span>
+                    <a href="/account/login" title="Đăng Nhập">Đăng nhập</a> <span>hoặc</span>
                     <a href="/account/register" title="Đăng ký">Đăng ký</a>
                 </h1>
                 <div class="blockcontent">
                     <div class="loginsocial">
                         <h3>Đăng nhập bằng</h3>
                     </div>
-                    <div class="loginform">
-                        <h3>Đăng nhập bằng tài khoản nobita</h3>
-                        <form method="post" name="fgf" id="fgf" action="/account/login"
-                        >
+                    <div class="loginform" id="forgotSuccess">
+                        <h3>Nhập email đã đăng ký tài khoản</h3>
+                        <form method="post" name="fgf" id="fgf" action="/account/forgot-password">
                             <div class="textlabel">
                             </div>
                             <span class="error">${message}</span>
@@ -46,31 +45,18 @@
                                     <label>Email</label> <span class="Required">*</span>:
                                 </div>
                                 <input type="text" name="email"
+                                       id="email"
                                        value=""
                                        autocomplete="off">
-                            </div>
-                            <div class="field">
-                                <div class="textlabel">
-                                    <label>Mật khẩu</label> <span class="Required">*</span>:
-                                </div>
-                                <input autocomplete="off"
-                                       type="password"
-                                       name="password">
-                            </div>
-                            <div class="field">
-                                <div class="textlabel"></div>
-                                <a href="/account/forgot-password" title="Quên mật khẩu?">Quên mật
-                                    khẩu?</a>
                             </div>
                             <div class="clear"></div>
                             <div class="field">
                                 <div class="textlabel">
                                     &nbsp;
                                 </div>
-                                <input type="submit" align="absmiddle" class="loginbuton" value="Đăng nhập"/>
+                                <input type="submit" align="absmiddle" class="loginbuton" value="Xác nhận"/>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="/account/register" title="Đăng ký" class="link_register">Tạo tài
-                                    khoản</a>
+                                <a href="/account/login" title="Đăng ký" class="link_register">Đăng nhập</a>
                             </div>
                         </form>
                     </div>
@@ -91,16 +77,43 @@
             email: {
                 required: true,
                 email: true
-            },
-            password: "required"
+            }
         },
         messages: {
             email: {
                 required: 'Email không được để trống',
                 email: 'Email không đúng định dạng'
-            },
-            password: "Mật khẩu không được để trống"
+            }
         }
+    })
+    $('#fgf').submit(function () {
+        if($('#fgf').valid() == true) {
+            $.ajax({
+                url: '/account/forgot-password',
+                dataType: 'json',
+                method: 'POST',
+                data: {
+                    email: $('#email').val()
+                },
+                beforeSend: function() {
+                    swal('Đang sử lí')
+                  // $('#forgotSuccess h3').append(
+                  //     '<br><span style="color:red; font-size: 14px">Đang xử lí vui lòng đợi</span>'
+                  // )
+                },
+                success: function (result) {
+                    if (result == true) {
+                        $('#forgotSuccess').html(
+                            '<span style="color:red">' +
+                            'Một liên kết vừa gửi vào hộp thư của bạn, vui lòng kiểm tra smail để reset mật khẩu!' +
+                            '</span>'
+                        )
+                        swal.close();
+                    }
+                }
+            })
+        }
+        return false;
     })
 </script>
 </body>

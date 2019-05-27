@@ -18,7 +18,7 @@
         <div class="pathway">
             <ul>
                 <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-                <li>Đăng nhập</li>
+                <li>Quên mật khẩu</li>
             </ul>
         </div>
     </div>
@@ -27,50 +27,46 @@
         <div class="sortable" id="layoutGroup1">
             <div class="block" id="module_Login">
                 <h1>
-                    Đăng nhập <span>hoặc</span>
+                    <a href="/account/login" title="Đăng Nhập">Đăng nhập</a> <span>hoặc</span>
                     <a href="/account/register" title="Đăng ký">Đăng ký</a>
                 </h1>
                 <div class="blockcontent">
                     <div class="loginsocial">
                         <h3>Đăng nhập bằng</h3>
                     </div>
-                    <div class="loginform">
-                        <h3>Đăng nhập bằng tài khoản nobita</h3>
-                        <form method="post" name="fgf" id="fgf" action="/account/login"
-                        >
+                    <div class="loginform" id="forgotSuccess">
+                        <h3>Đặt lại mật khẩu</h3>
+                        <form method="post" name="fgf" id="fgf" action="/account/reset">
+                            <input type="hidden" name="token" value="${token}">
                             <div class="textlabel">
                             </div>
                             <span class="error">${message}</span>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Email</label> <span class="Required">*</span>:
+                                    <label>Mật khẩu mới</label> <span class="Required">*</span>:
                                 </div>
-                                <input type="text" name="email"
+                                <input type="text" name="password"
+                                       id="password"
                                        value=""
                                        autocomplete="off">
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Mật khẩu</label> <span class="Required">*</span>:
+                                    <label>Xác nhận mật khẩu mới</label> <span class="Required">*</span>:
                                 </div>
-                                <input autocomplete="off"
-                                       type="password"
-                                       name="password">
-                            </div>
-                            <div class="field">
-                                <div class="textlabel"></div>
-                                <a href="/account/forgot-password" title="Quên mật khẩu?">Quên mật
-                                    khẩu?</a>
+                                <input type="text" name="cpassword"
+                                       id="cpassword"
+                                       value=""
+                                       autocomplete="off">
                             </div>
                             <div class="clear"></div>
                             <div class="field">
                                 <div class="textlabel">
                                     &nbsp;
                                 </div>
-                                <input type="submit" align="absmiddle" class="loginbuton" value="Đăng nhập"/>
+                                <input type="submit" align="absmiddle" class="loginbuton" value="Xác nhận"/>
                                 &nbsp;&nbsp;&nbsp;
-                                <a href="/account/register" title="Đăng ký" class="link_register">Tạo tài
-                                    khoản</a>
+                                <a href="/account/login" title="Đăng ký" class="link_register">Đăng nhập</a>
                             </div>
                         </form>
                     </div>
@@ -88,18 +84,24 @@
 <script>
     $('#fgf').validate({
         rules: {
-            email: {
+            password: {
                 required: true,
-                email: true
+                minlength: 6
             },
-            password: "required"
+            cpassword: {
+                required: true,
+                equalTo: '#password'
+            }
         },
         messages: {
-            email: {
-                required: 'Email không được để trống',
-                email: 'Email không đúng định dạng'
+            password: {
+                required: 'Vui lòng nhập mật khẩu mới',
+                minlength: 'Mật khẩu tối thiểu 6 kí tự'
             },
-            password: "Mật khẩu không được để trống"
+            cpassword: {
+                required: 'Vui lòng xác nhận mật khẩu',
+                equalTo: 'Xác nhận mật khẩu không trùng khớp'
+            }
         }
     })
 </script>
