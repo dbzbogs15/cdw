@@ -11,4 +11,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     //doanh thu
     @Query("select sum(totalPrice) from Order where status =:status")
     int revenue(String status);
+    //find item by status
+    List<Order> findAllByStatus(String status);
 }

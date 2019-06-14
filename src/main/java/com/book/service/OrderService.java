@@ -12,6 +12,9 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
+    public Order getOrder(int id) {
+        return orderRepository.getOne(id);
+    }
     public List<Order> getAll() {
         return orderRepository.findAll();
     }
@@ -25,4 +28,7 @@ public class OrderService {
         return orderRepository.count();
     }
     public int getRevenue(String status) { return orderRepository.revenue(status); }
+    public List<Order> findByStatus(String status) {
+        return orderRepository.findAllByStatus(status);
+    }
 }

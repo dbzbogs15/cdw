@@ -96,7 +96,7 @@
                     email: $('#email').val()
                 },
                 beforeSend: function() {
-                    swal('Đang sử lí')
+                    swal('Đang xử lí')
                   // $('#forgotSuccess h3').append(
                   //     '<br><span style="color:red; font-size: 14px">Đang xử lí vui lòng đợi</span>'
                   // )

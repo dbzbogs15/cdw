@@ -75,7 +75,7 @@
                                     <th>Action</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="findByStatus">
                                 <c:forEach items="${orderList}" var="order">
                                     <tr>
                                         <td width="10%">${order.trackingNumber}</td>
@@ -89,17 +89,25 @@
 <%--                                        <td width="20%">--%>
 <%--                                            <fmt:formatDate value="${book.totalPrice}" pattern="HH:mm | dd/MM/yyyy"/>--%>
 <%--                                        </td>--%>
-                                        <td width="10%">
+                                        <td width="10%" style="text-align: right">
                                             <fmt:formatNumber value="${order.totalPrice}" pattern="###,###"/>đ
                                         </td>
                                         <td width="15%">
                                             <select class="form-control btn-success"
-                                                    onchange="changeStatus(${order.id})"
-                                                    id="changeStatus${order.id}">
-                                                <option>Đã giao hàng</option>
-                                                <option>Đã hủy</option>
-                                                <option>Đang giao hàng</option>
-                                                <option>Đang đóng gói</option>
+                                                    id="changeStatus"
+                                                    onchange="changeStatus(${order.id}, this)">
+                                                <option <c:if test="${order.status eq 'Đã giao hàng'}">
+                                                    selected
+                                                </c:if>>Đã giao hàng</option>
+                                                <option <c:if test="${order.status eq 'Đã hủy'}">
+                                                    selected
+                                                </c:if>>Đã hủy</option>
+                                                <option <c:if test="${order.status eq 'Đang giao hàng'}">
+                                                    selected
+                                                </c:if>>Đang giao hàng</option>
+                                                <option <c:if test="${order.status eq 'Đang đóng gói'}">
+                                                    selected
+                                                </c:if>>Đang đóng gói</option>
                                             </select>
                                         </td>
 <%--                                        <td width="5%">${book.quantity}</td>--%>
@@ -183,12 +191,23 @@
 <script src="/resources/admin/plugins/sweet-alert/sweetalert2.min.js"></script>
 
 <script type="text/javascript">
-    $('#changeStatus').change(function () {
-        console.log($('#changeStatus').val())
-        if($('#changeStatus').val() == 'Đã hủy') {
-            $('#changeStatus').addClass("btn-danger")
-        }
-    })
+    function changeStatus(id, status) {
+        $.ajax({
+            url: '/admin/order',
+            method: 'POST',
+            data: {
+                id: id,
+                status: status.value
+            },
+            success: function (result) {
+                if(result == true) {
+                    swal('Thay đổi trạng thái thành công')
+                } else {
+                    swal('Đã có lỗi xảy ra')
+                }
+            }
+        })
+    }
     function deleteBook(id, name, image) {
         console.log(id, name, image)
         sweetAlert({
@@ -226,7 +245,7 @@
             success: function (book) {
                 $('#details').html(
                     '<div class="col-4">' +
-                    '<img src="/'+book.image+'" class="img-thumbnail" />' +
+                    '<img src="/' + book.image + '" class="img-thumbnail" />' +
                     '</div>' +
                     '<div class="col-8">' +
                     '<table class="table-bordered table text-muted m-b-30">' +
@@ -236,7 +255,7 @@
                     'Tên sách' +
                     '</td>' +
                     '<td>' +
-                    ''+book.name+'' +
+                    '' + book.name + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -244,7 +263,7 @@
                     'Tác giả' +
                     '</td>' +
                     '<td>' +
-                    ''+book.author+'' +
+                    '' + book.author + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -252,7 +271,7 @@
                     'Nhà xuất bản' +
                     '</td>' +
                     '<td>' +
-                    ''+book.publisher.name+'' +
+                    '' + book.publisher.name + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -260,7 +279,7 @@
                     'Thể loại' +
                     '</td>' +
                     '<td>' +
-                    ''+book.category.name+'' +
+                    '' + book.category.name + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -268,7 +287,7 @@
                     'Trọng lượng' +
                     '</td>' +
                     '<td>' +
-                    ''+book.weight+'' +
+                    '' + book.weight + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -276,7 +295,7 @@
                     'Kích thước' +
                     '</td>' +
                     '<td>' +
-                    ''+book.size+'' +
+                    '' + book.size + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -284,7 +303,7 @@
                     'Số lượng' +
                     '</td>' +
                     '<td>' +
-                    ''+book.quantity+'' +
+                    '' + book.quantity + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -292,7 +311,7 @@
                     'Ngày phát hành' +
                     '</td>' +
                     '<td>' +
-                    ''+book.publishedDate+'' +
+                    '' + book.publishedDate + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -300,7 +319,7 @@
                     'Giá góc' +
                     '</td>' +
                     '<td>' +
-                    ''+book.priceOld+'' +
+                    '' + book.priceOld + '' +
                     '</td>' +
                     '</tr>' +
                     '<tr>' +
@@ -308,20 +327,58 @@
                     'Tên sách' +
                     '</td>' +
                     '<td>' +
-                    ''+book.name+'' +
+                    '' + book.name + '' +
                     '</td>' +
                     '</tr>' +
                     '</tbody>' +
-                    '</table>'+
+                    '</table>' +
                     '</div>' +
                     '<span class="card-body"><h5>Giới thiệu</h5>' + book.description + '</span>'
-
                 )
             }
         })
         $('#myModal').modal();
     }
-
+    $(document).ready(function () {
+        $('.dt-buttons').after('<select id="changeCategory" class="btn btn-success waves-light waves-effect w-md" style="height: 36.4px; margin-left: 5px">' +
+            '<option>Chọn trạng thái</option>' +
+            '<option>Đã hủy</option>' +
+            '<option>Đang đóng gói</option>' +
+            '<option>Đang giao hàng</option>' +
+            '<option>Đã giao hàng</option>' +
+            '</select>')
+        $('#changeCategory').change(function () {
+            var status = $('#changeCategory').val();
+            $.ajax({
+                url: '/admin/order/status',
+                dataType: 'json',
+                method: 'POST',
+                data: {
+                    status: status
+                },
+                success: function (data) {
+                    console.log(data)
+                    $('#findByStatus').empty();
+                    $.each(data, function (index, item) {
+                        $('#findByStatus').append(
+                            '<tr>' +
+                                '<td width="10%">'+item.trackingNumber+'</td>' +
+                                '<td width="10%">'+item.fullname+'</td>' +
+                                '<td>'+item.email+'</td>' +
+                                '<td>'+item.phone+'</td>' +
+                                '<td>'+item.address+', '+item.ward.name+', '+item.ward.district.name+', '+item.ward.district.province.name+'</td>' +
+                                '<td width="10%" style="text-align: right">' +
+                                ''+item.totalPrice.toLocaleString().replace(',','.')+'' +
+                                '</td>' +
+                                '<td></td>' +
+                                '<td></td>' +
+                            '</tr>'
+                        )
+                    })
+                }
+            })
+        })
+    })
 </script>
 </body>
 </html>

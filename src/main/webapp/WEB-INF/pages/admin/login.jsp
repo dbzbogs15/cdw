@@ -31,9 +31,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-
                 <div class="wrapper-page">
-
                     <div class="account-pages">
                         <div class="account-box">
                             <div class="account-logo-box">
@@ -46,7 +44,6 @@
                             </div>
                             <div class="account-content">
                                 <form class="form-horizontal" method="post" action="/j_spring_security_check">
-
                                     <div class="form-group m-b-20 row">
                                         <div class="col-12">
                                             <label for="emailaddress">Email address</label>
@@ -93,11 +90,8 @@
                         </div>
                     </div>
                     <!-- end card-box-->
-
-
                 </div>
                 <!-- end wrapper -->
-
             </div>
         </div>
     </div>

@@ -106,6 +106,25 @@ public class AccountController {
         return "customer_info";
     }
 
+    @PostMapping("/info")
+    @ResponseBody
+    public boolean customerChangeInfo(Account account, @SessionAttribute("account") Account accountS,
+                                     HttpSession session) {
+        System.out.println(account.toString());
+        Account accountCurrent = accountService.findByEmail(accountS.getEmail());
+        accountCurrent.setBirthDate(account.getBirthDate());
+        accountCurrent.setPhone(account.getPhone());
+        accountCurrent.setGender(account.getGender());
+        try {
+            accountService.addAccount(accountCurrent);
+            session.setAttribute("account", accountCurrent);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     @GetMapping("/change-password")
     public String changePass() {
         return "customer_password";
@@ -147,7 +166,7 @@ public class AccountController {
     public boolean processForgotPassword(@RequestParam String email) {
         Account account = accountService.findByEmail(email);
         System.out.println(account.toString());
-        if(account == null) {
+        if (account == null) {
             return false;
         }
         account.setResetToken(UUID.randomUUID().toString());
@@ -164,9 +183,9 @@ public class AccountController {
     }
 
     @GetMapping("/reset")
-    public String displayResetPasswordPage(@RequestParam String token, ModelMap mm){
+    public String displayResetPasswordPage(@RequestParam String token, ModelMap mm) {
         Account account = accountService.findByResetToken(token);
-        if(account == null) {
+        if (account == null) {
             mm.addAttribute("message", "Đây là một liên kết đặt lại mật khẩu không hợp lệ");
         } else {
             mm.addAttribute("token", token);
@@ -179,7 +198,7 @@ public class AccountController {
                                  @RequestParam String password,
                                  RedirectAttributes rd) {
         Account account = accountService.findByResetToken(token);
-        if(account != null) {
+        if (account != null) {
             account.setPassword(MD5.md5(password));
             account.setResetToken(null);
             accountService.addAccount(account);
@@ -188,7 +207,7 @@ public class AccountController {
             rd.addFlashAttribute("message", "Liên kết xác nhận không hợp lệ");
         }
         return "redirect:/account/login";
-     }
+    }
 
     @GetMapping("/my-order")
     @ResponseBody

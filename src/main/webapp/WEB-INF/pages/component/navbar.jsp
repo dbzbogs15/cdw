@@ -184,8 +184,10 @@
                                 </div>
                                 <div class="subcontent">
                                     <div class="meminfo">
-                                        <div><a href="/customers/index.html">Quản lý tài khoản</a></div>
+                                        <div><a href="/account/manager">Quản lý tài khoản</a></div>
+                                        <div><a href="/account/info">Thông tin tài khoản</a></div>
                                         <div><a href="/account/order">Đơn hàng của tôi</a></div>
+                                        <div><a href="/account/change-password">Đổi mật khẩu</a></div>
                                     </div>
                                     <div class="buttom">
                                         <div>

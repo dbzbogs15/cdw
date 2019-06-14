@@ -84,13 +84,13 @@ public class OrderController {
             helper.setTo(order.getEmail());
             helper.setSubject("Order Book");
             String text = "Đơn hàng của bạn đã được xác nhận với Mã đơn hàng: " + trackingNumber;
-            helper.setText(text + "<table><th>STT</th><th>Tên</th><tr><td>1</td><td>May mắn lần sau</td></tr><tr><td>2</td><td>May mắn lần sau</td></tr></table>", true);
+            helper.setText(text + "<br> Vui lòng đăng nhập để kiểm tra tình trạng đơn hàng", true);
             javaMailSender.send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
         }
         session.removeAttribute("cart");
-        mm.addAttribute("message", "Bạn đã đặt hàng thành công vui lòng kiểm tra Email");
+        mm.addAttribute("message", "Bạn đã đặt hàng thành công vui lòng kiểm tra Email: " +order.getEmail());
         return "checkout_success";
     }
 }
