@@ -71,7 +71,8 @@
     width: 100%;
   }
 }
-.progress-vertical-bottom{
+
+.progress-vertical-bottom {
   min-height: 250px;
   height: 250px;
   position: relative;
@@ -87,24 +88,27 @@
   }
 }
 
-.progress-vertical.progress-sm,.progress-vertical-bottom.progress-sm {
+.progress-vertical.progress-sm, .progress-vertical-bottom.progress-sm {
   width: 5px;
+
   .progress-bar {
     font-size: 8px;
     line-height: 5px;
   }
 }
 
-.progress-vertical.progress-md,.progress-vertical-bottom.progress-md {
+.progress-vertical.progress-md, .progress-vertical-bottom.progress-md {
   width: 15px;
+
   .progress-bar {
     font-size: 10.8px;
     line-height: 14.4px;
   }
 }
 
-.progress-vertical.progress-lg,.progress-vertical-bottom.progress-lg {
+.progress-vertical.progress-lg, .progress-vertical-bottom.progress-lg {
   width: 20px;
+
   .progress-bar {
     font-size: 12px;
     line-height: 20px;

@@ -34,7 +34,7 @@ jQuery(document).ready(function () {
         format: 'hex'
     });
     $('.colorpicker-rgba').colorpicker();
-    
+
 
     //Clock Picker
     $('.clockpicker').clockpicker({

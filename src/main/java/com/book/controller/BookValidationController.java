@@ -27,60 +27,61 @@ public class BookValidationController {
         System.out.println(list.get(0));
         String result = "";
         String param = list.get(0);
-        if(param.equalsIgnoreCase("name")) {
+        if (param.equalsIgnoreCase("name")) {
             String name = wr.getParameter(param);
-            if(name.length()==0) {
+            if (name.length() == 0) {
                 System.out.println("ahdhahda");
                 return "Tên sách không được để trống!";
             }
         }
-        if(param.equalsIgnoreCase("author")) {
+        if (param.equalsIgnoreCase("author")) {
             String author = wr.getParameter(param);
-            if(author.length()==0) {
+            if (author.length() == 0) {
                 return "Tác giả không được để trống!";
             }
         }
-        if(param.equalsIgnoreCase("priceNew")) {
+        if (param.equalsIgnoreCase("priceNew")) {
             String priceNew = wr.getParameter("priceNew");
-            if(priceNew.length()==0) {
+            if (priceNew.length() == 0) {
                 return "Giá sản phẩm không được để trống";
             }
-            if(!NumberUtils.isNumber(priceNew) || NumberUtils.toInt(priceNew)<0) {
-                return "Giá sản phẩm phải không hợp lệ";
-            }
-        }if(param.equalsIgnoreCase("priceOld")) {
-            String priceOld = wr.getParameter("priceOld");
-            if(priceOld.length()==0) {
-                return "Giá sản phẩm không được để trống";
-            }
-            if(!NumberUtils.isNumber(priceOld) || NumberUtils.toInt(priceOld)<0) {
+            if (!NumberUtils.isNumber(priceNew) || NumberUtils.toInt(priceNew) < 0) {
                 return "Giá sản phẩm phải không hợp lệ";
             }
         }
-        if(param.equalsIgnoreCase("quantity")) {
+        if (param.equalsIgnoreCase("priceOld")) {
+            String priceOld = wr.getParameter("priceOld");
+            if (priceOld.length() == 0) {
+                return "Giá sản phẩm không được để trống";
+            }
+            if (!NumberUtils.isNumber(priceOld) || NumberUtils.toInt(priceOld) < 0) {
+                return "Giá sản phẩm phải không hợp lệ";
+            }
+        }
+        if (param.equalsIgnoreCase("quantity")) {
             String quantity = wr.getParameter("quantity");
-            if(quantity.length()==0) {
+            if (quantity.length() == 0) {
                 return "Số lượng không được để trống";
             }
-            if(!NumberUtils.isNumber(quantity) || NumberUtils.toInt(quantity)<0) {
+            if (!NumberUtils.isNumber(quantity) || NumberUtils.toInt(quantity) < 0) {
                 return "Số lượng không hợp lệ!";
             }
         }
-        if(param.equalsIgnoreCase("saleoff")) {
+        if (param.equalsIgnoreCase("saleoff")) {
             String saleoff = wr.getParameter("saleoff");
-            if(saleoff.length()==0) {
+            if (saleoff.length() == 0) {
                 return "Khuyến mãi không được để trống";
             }
-            if(!NumberUtils.isNumber(saleoff)) {
+            if (!NumberUtils.isNumber(saleoff)) {
                 return "Khuyến mãi không hợp lệ!";
             }
         }
-        if(param.equalsIgnoreCase("number_page")) {
+        if (param.equalsIgnoreCase("number_page")) {
             String number_page = wr.getParameter("number_page");
-            if(number_page.length()==0) {
+            if (number_page.length() == 0) {
                 return "Số trang không được để trống";
             }
-            if(!NumberUtils.isNumber(number_page) || NumberUtils.toInt(number_page)<0) {
+            if (!NumberUtils.isNumber(number_page) || NumberUtils.toInt(number_page) < 0) {
                 return "Số trang không hợp lệ!";
             }
         }
@@ -91,8 +92,8 @@ public class BookValidationController {
     public ResponseEntity<Map<String, String>> ex(@Valid Book book, BindingResult result) {
         Map<String, String> errors = new HashMap<>();
         List<FieldError> e = result.getFieldErrors();
-        for (FieldError error : e ) {
-            System.out.println (error.getField() + " - " + error.getDefaultMessage());
+        for (FieldError error : e) {
+            System.out.println(error.getField() + " - " + error.getDefaultMessage());
             errors.put(error.getField(), error.getDefaultMessage());
         }
         return new ResponseEntity<>(errors, HttpStatus.OK);

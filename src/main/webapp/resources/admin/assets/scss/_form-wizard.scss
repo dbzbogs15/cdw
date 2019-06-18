@@ -17,11 +17,13 @@
     display: block;
     line-height: 30px;
   }
+
   label.error {
     color: $danger;
     margin-left: 0;
 
   }
+
   label {
     display: inline-block;
     margin-top: 10px;
@@ -31,13 +33,14 @@
 .wizard > .steps {
   .number {
     border-radius: 50%;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     display: inline-block;
     line-height: 30px;
     margin-right: 10px;
     width: 30px;
     text-align: center;
   }
+
   .disabled {
     a {
       background: $white;
@@ -45,7 +48,7 @@
       cursor: default;
       border: 1px solid $light;
 
-      &:hover,&:active {
+      &:hover, &:active {
         background: $white;
         color: $dark;
         cursor: default;
@@ -53,28 +56,33 @@
       }
     }
   }
+
   .current {
     a {
       background: $custom;
       background: $bg-gradient;
-      &:hover,&:active {
+
+      &:hover, &:active {
         background: $custom;
         background: $bg-gradient;
+
         .number {
           color: $white;
         }
       }
+
       .number {
         color: $white;
       }
     }
   }
+
   .done {
     a {
-      background: lighten($custom,20%);
+      background: lighten($custom, 20%);
 
-      &:hover,&:active {
-        background: lighten($custom,20%);
+      &:hover, &:active {
+        background: lighten($custom, 20%);
       }
     }
   }
@@ -90,12 +98,14 @@
     background: $bg-gradient;
     border-radius: 2px;
     color: $white;
-    &:hover,&:active {
+
+    &:hover, &:active {
       background: $custom;
       border-radius: 2px;
       color: $white;
     }
   }
+
   .disabled {
     a {
       background: $white;
@@ -103,7 +113,7 @@
       cursor: default;
       border: 1px solid $light;
 
-      &:hover,&:active {
+      &:hover, &:active {
         background: $white;
         color: $dark;
         cursor: default;

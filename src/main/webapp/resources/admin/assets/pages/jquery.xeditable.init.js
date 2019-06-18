@@ -5,7 +5,7 @@
  */
 
 
-$(function(){
+$(function () {
 
     //modify buttons style
     $.fn.editableform.buttons =
@@ -22,8 +22,8 @@ $(function(){
     });
 
     $('#inline-firstname').editable({
-        validate: function(value) {
-            if($.trim(value) == '') return 'This field is required';
+        validate: function (value) {
+            if ($.trim(value) == '') return 'This field is required';
         },
         mode: 'inline'
     });
@@ -32,14 +32,26 @@ $(function(){
         prepend: "not selected",
         mode: 'inline',
         source: [
-            {value: 1, text: 'Male'},
-            {value: 2, text: 'Female'}
+            {
+                value: 1,
+                text: 'Male'
+            },
+            {
+                value: 2,
+                text: 'Female'
+            }
         ],
-        display: function(value, sourceData) {
-            var colors = {"": "gray", 1: "green", 2: "blue"},
-                elem = $.grep(sourceData, function(o){return o.value == value;});
+        display: function (value, sourceData) {
+            var colors = {
+                    "": "gray",
+                    1: "green",
+                    2: "blue"
+                },
+                elem = $.grep(sourceData, function (o) {
+                    return o.value == value;
+                });
 
-            if(elem.length) {
+            if (elem.length) {
                 $(this).text(elem[0].text).css("color", colors[value]);
             } else {
                 $(this).empty();
@@ -78,11 +90,26 @@ $(function(){
         limit: 3,
         mode: 'inline',
         source: [
-            {value: 1, text: 'Banana'},
-            {value: 2, text: 'Peach'},
-            {value: 3, text: 'Apple'},
-            {value: 4, text: 'Watermelon'},
-            {value: 5, text: 'Orange'}
+            {
+                value: 1,
+                text: 'Banana'
+            },
+            {
+                value: 2,
+                text: 'Peach'
+            },
+            {
+                value: 3,
+                text: 'Apple'
+            },
+            {
+                value: 4,
+                text: 'Watermelon'
+            },
+            {
+                value: 5,
+                text: 'Orange'
+            }
         ]
     });
 

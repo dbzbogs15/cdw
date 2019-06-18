@@ -5,29 +5,29 @@
  */
 
 
-$(function(){
+$(function () {
 
-	//USA Map
+    //USA Map
 
-	$mapusa = $(".map-usa");
+    $mapusa = $(".map-usa");
 
- 	$mapusa.mapael({
-		map : {
-			name : "usa_states",
-             defaultArea: {
+    $mapusa.mapael({
+        map: {
+            name: "usa_states",
+            defaultArea: {
                 attrs: {
                     fill: "#36404e",
                     stroke: "#aaa"
                 },
-                 attrsHover: {
+                attrsHover: {
                     fill: "#4489e4"
                 }
             },
-			zoom: {
-				enabled: true,
-				maxLevel : 10
-			}
-		},
+            zoom: {
+                enabled: true,
+                maxLevel: 10
+            }
+        },
         legend: {
             plot: {
                 title: "American cities",
@@ -55,8 +55,8 @@ $(function(){
                 }]
             }
         },
-		plots: {
-			'ny': {
+        plots: {
+            'ny': {
                 latitude: 40.717079,
                 longitude: -74.00116,
                 tooltip: {content: "New York"},
@@ -110,20 +110,20 @@ $(function(){
                 tooltip: {content: "Seattle"},
                 value: "Value 1"
             }
-		}
-	});
+        }
+    });
 
-	// Zoom on mousewheel with mousewheel jQuery plugin
-	$mapusa.on("mousewheel", function(e) {
-		if (e.deltaY > 0) {
-			$mapusa.trigger("zoom", $mapusa.data("zoomLevel") + 1);
-			console.log("zoom");
-		} else {
-			$mapusa.trigger("zoom", $mapusa.data("zoomLevel") - 1);
-		}
+    // Zoom on mousewheel with mousewheel jQuery plugin
+    $mapusa.on("mousewheel", function (e) {
+        if (e.deltaY > 0) {
+            $mapusa.trigger("zoom", $mapusa.data("zoomLevel") + 1);
+            console.log("zoom");
+        } else {
+            $mapusa.trigger("zoom", $mapusa.data("zoomLevel") - 1);
+        }
 
-		return false;
-	});
+        return false;
+    });
 
 
     $(".mapcontainer").mapael({
@@ -132,20 +132,24 @@ $(function(){
             defaultArea: {
                 attrs: {
                     fill: "#36404e"
-                    , stroke: "#aaa"
+                    ,
+                    stroke: "#aaa"
                 },
                 attrsHover: {
                     fill: "#ff9800"
                 }
             }
             // Default attributes can be set for all links
-            , defaultLink: {
+            ,
+            defaultLink: {
                 factor: 0.4
-                , attrsHover: {
+                ,
+                attrsHover: {
                     stroke: "#f06292"
                 }
             }
-            , defaultPlot: {
+            ,
+            defaultPlot: {
                 text: {
                     attrs: {
                         fill: "#ddd"
@@ -205,7 +209,11 @@ $(function(){
                 latitude: 22.906561,
                 longitude: 86.840170,
                 size: 0,
-                text: {content: 'Plot1', position: 'left', margin: 5}
+                text: {
+                    content: 'Plot1',
+                    position: 'left',
+                    margin: 5
+                }
             },
             'plot2': {
                 latitude: -0.390553,
@@ -225,89 +233,130 @@ $(function(){
             'link1': {
                 factor: -0.3
                 // The source and the destination of the link can be set with a latitude and a longitude or a x and a y ...
-                , between: [{latitude: 24.708785, longitude: -5.402427}, {x: 560, y: 280}]
-                , attrs: {
+                ,
+                between: [{
+                    latitude: 24.708785,
+                    longitude: -5.402427
+                }, {
+                    x: 560,
+                    y: 280
+                }]
+                ,
+                attrs: {
                     "stroke-width": 2
                 }
-                , tooltip: {content: "Link"}
+                ,
+                tooltip: {content: "Link"}
             }
-            , 'parisnewyork': {
+            ,
+            'parisnewyork': {
                 // ... Or with IDs of plotted points
                 factor: -0.3
-                , between: ['paris', 'newyork']
-                , attrs: {
+                ,
+                between: ['paris', 'newyork']
+                ,
+                attrs: {
                     "stroke-width": 2
                 }
-                , tooltip: {content: "Paris - New-York"}
+                ,
+                tooltip: {content: "Paris - New-York"}
             }
-            , 'parissanfrancisco': {
+            ,
+            'parissanfrancisco': {
                 // The curve can be inverted by setting a negative factor
                 factor: -0.5
-                , between: ['paris', 'sanfrancisco']
-                , attrs: {
+                ,
+                between: ['paris', 'sanfrancisco']
+                ,
+                attrs: {
                     "stroke-width": 4
                 }
-                , tooltip: {content: "Paris - San - Francisco"}
+                ,
+                tooltip: {content: "Paris - San - Francisco"}
             }
-            , 'parisbrasilia': {
+            ,
+            'parisbrasilia': {
                 factor: -0.8
-                , between: ['paris', 'brasilia']
-                , attrs: {
+                ,
+                between: ['paris', 'brasilia']
+                ,
+                attrs: {
                     "stroke-width": 1
                 }
-                , tooltip: {content: "Paris - Brasilia"}
+                ,
+                tooltip: {content: "Paris - Brasilia"}
             }
-            , 'romamiami': {
+            ,
+            'romamiami': {
                 factor: 0.2
-                , between: ['roma', 'miami']
-                , attrs: {
+                ,
+                between: ['roma', 'miami']
+                ,
+                attrs: {
                     "stroke-width": 4
                 }
-                , tooltip: {content: "Roma - Miami"}
+                ,
+                tooltip: {content: "Roma - Miami"}
             }
-            , 'sydneyplot1': {
+            ,
+            'sydneyplot1': {
                 factor: -0.2
-                , between: ['sydney', 'plot1']
-                , attrs: {
+                ,
+                between: ['sydney', 'plot1']
+                ,
+                attrs: {
                     stroke: "#4489e4",
                     "stroke-width": 3,
                     "stroke-linecap": "round",
                     opacity: 0.6
                 }
-                , tooltip: {content: "Sydney - Plot1"}
+                ,
+                tooltip: {content: "Sydney - Plot1"}
             }
-            , 'sydneyplot2': {
+            ,
+            'sydneyplot2': {
                 factor: -0.1
-                , between: ['sydney', 'plot2']
-                , attrs: {
+                ,
+                between: ['sydney', 'plot2']
+                ,
+                attrs: {
                     stroke: "#4489e4",
                     "stroke-width": 8,
                     "stroke-linecap": "round",
                     opacity: 0.6
                 }
-                , tooltip: {content: "Sydney - Plot2"}
+                ,
+                tooltip: {content: "Sydney - Plot2"}
             }
-            , 'sydneyplot3': {
+            ,
+            'sydneyplot3': {
                 factor: 0.2
-                , between: ['sydney', 'plot3']
-                , attrs: {
+                ,
+                between: ['sydney', 'plot3']
+                ,
+                attrs: {
                     stroke: "#4489e4",
                     "stroke-width": 4,
                     "stroke-linecap": "round",
                     opacity: 0.6
                 }
-                , tooltip: {content: "Sydney - Plot3"}
+                ,
+                tooltip: {content: "Sydney - Plot3"}
             }
-            , 'sydneytokyo': {
+            ,
+            'sydneytokyo': {
                 factor: 0.2
-                , between: ['sydney', 'tokyo']
-                , attrs: {
+                ,
+                between: ['sydney', 'tokyo']
+                ,
+                attrs: {
                     stroke: "#4489e4",
                     "stroke-width": 6,
                     "stroke-linecap": "round",
                     opacity: 0.6
                 }
-                , tooltip: {content: "Sydney - Plot2"}
+                ,
+                tooltip: {content: "Sydney - Plot2"}
             }
         }
     });

@@ -34,6 +34,7 @@ public class AddressController {
     public List<District> districts(@PathVariable String provinceid) {
         return districtService.getByProvinceid(provinceid);
     }
+
     @GetMapping("/address/district/{id}")
     public List<Ward> wards(@PathVariable String id) {
         return wardService.getByDistrictid(id);

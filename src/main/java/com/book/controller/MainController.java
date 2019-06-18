@@ -32,7 +32,7 @@ public class MainController {
         System.out.println(bookService.getBookIsActive());
         List<OrderDetails> list = orderDetailService.getBestsellers(0, 5).getContent();
         List<Book> result = new ArrayList<>();
-        for(OrderDetails orderDetails : list) {
+        for (OrderDetails orderDetails : list) {
             result.add(orderDetails.getBook());
         }
         mm.addAttribute("bestSeller", result);

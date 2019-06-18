@@ -11,6 +11,7 @@ import java.util.List;
 public class DistrictService {
     @Autowired
     DistrictRepository districtRepository;
+
     public List<District> getByProvinceid(String provinceid) {
         return districtRepository.findAllByProvinceid(provinceid);
     }

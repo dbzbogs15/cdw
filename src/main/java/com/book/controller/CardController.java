@@ -28,7 +28,7 @@ public class CardController {
     @RequestMapping("")
     public String cart(ModelMap mm, HttpSession session) {
         Cart cart = (Cart) session.getAttribute("cart");
-        if(cart == null) {
+        if (cart == null) {
             mm.addAttribute("cart", null);
         } else {
             mm.addAttribute("cart", cart.getItems());

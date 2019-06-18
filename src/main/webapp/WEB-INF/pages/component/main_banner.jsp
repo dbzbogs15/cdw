@@ -1,8 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page
+        language="java"
+        contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" %>
 <div class="mainbaner">
-    <link rel="stylesheet" href="/resources/layouts/fontpage/css/jquery.bxslider.css" type="text/css"/>
-    <script type="text/javascript" src="/resources/layouts/fontpage/js/jquery.bxslider.js"></script>
+    <link rel="stylesheet"
+          href="/resources/layouts/fontpage/css/jquery.bxslider.css"
+          type="text/css"/>
+    <script type="text/javascript"
+            src="/resources/layouts/fontpage/js/jquery.bxslider.js"></script>
     <style>
         .bx-wrapper .bx-controls-direction a {
             z-index: 1;
@@ -11,14 +16,16 @@
     <div id="slider-wrapper">
         <ul class="bxslider">
             <li>
-                <a href="/resources/banners/view/122/doc-gia.html" target="_self">
+                <a href="/resources/banners/view/122/doc-gia.html"
+                   target="_self">
                     <img height="397"
                          src="/resources/stores/banners/doc-gia-2019.jpg"
                          title="độc giả">
                 </a>
             </li>
             <li>
-                <a href="/resources/banners/view/121/sci-tap-4.html" target="_self">
+                <a href="/resources/banners/view/121/sci-tap-4.html"
+                   target="_self">
                     <img height="397"
                          src="/resources/stores/banners/sci-tap-4.jpg"
                          title="sci tap 4">
@@ -33,7 +40,8 @@
                 </a>
             </li>
             <li>
-                <a href="/resources/banners/view/119/luc-xu.html" target="_self">
+                <a href="/resources/banners/view/119/luc-xu.html"
+                   target="_self">
                     <img height="397"
                          src="/resources/stores/banners/luc-xu-qc.jpg"
                          title="luc xu">
@@ -48,7 +56,8 @@
                 </a>
             </li>
             <li>
-                <a href="/resources/banners/view/117/song-ngam.html" target="_self">
+                <a href="/resources/banners/view/117/song-ngam.html"
+                   target="_self">
                     <img height="397"
                          src="/resources/stores/banners/song-ngam.jpg"
                          title="song ngam">
@@ -57,7 +66,7 @@
         </ul>
     </div>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('.bxslider').bxSlider({
                 auto: true,
                 mode: 'fade',

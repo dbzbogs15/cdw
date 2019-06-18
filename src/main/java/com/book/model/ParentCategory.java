@@ -22,7 +22,7 @@ public class ParentCategory {
     private String name;
     private String image;
 
-//    @JsonIgnore
+    //    @JsonIgnore
     @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL)
     private List<Category> categories;
 }

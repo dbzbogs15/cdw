@@ -1,94 +1,82 @@
-#draggable
-{
-    margin:auto !important;
-    width:100%;
-    display:block;
-    font-size:11px;
-    cursor:pointer;
+#draggable {
+    margin: auto !important;
+    width: 100%;
+    display: block;
+    font-size: 11px;
+    cursor: pointer;
 }
 
-.pageimage
-{
-    border:1px solid #cccccc;
-    background:#FFFFFF;
-    margin:10px auto;
-    padding:5px 5px 0 5px;
-    width:660px;
+.pageimage {
+    border: 1px solid #cccccc;
+    background: #FFFFFF;
+    margin: 10px auto;
+    padding: 5px 5px 0 5px;
+    width: 660px;
 }
 
-.mainpanel
-{
-    margin:auto;
-    padding:0;
-    display:block;
-    width:900px;
+.mainpanel {
+    margin: auto;
+    padding: 0;
+    display: block;
+    width: 900px;
 }
 
-.bookpage
-{
-    margin:5px 0;
+.bookpage {
+    margin: 5px 0;
 }
 
-.left_panel
-{
-    float:left;
-    padding:0;
-    background:#fff;
-    width:200px !important;
+.left_panel {
+    float: left;
+    padding: 0;
+    background: #fff;
+    width: 200px !important;
 }
 
-.main_panel
-{
-    float:left;
-    width:700px;
-    padding:0;
-    margin:auto;
-    background:#ffffff;
+.main_panel {
+    float: left;
+    width: 700px;
+    padding: 0;
+    margin: auto;
+    background: #ffffff;
     position: relative;
-    border-left:1px solid #f2f2f2;
+    border-left: 1px solid #f2f2f2;
 }
 
-.mainpanel .block
-{
-    margin:0;
-    padding:0;
+.mainpanel .block {
+    margin: 0;
+    padding: 0;
 }
 
-.mainpanel .block h2
-{
-    font-size:12px;
-    margin:0;
-    font-weight:bold;
-    color:#00cc66;
-    border-bottom:1px solid #f2f2f2;
-    padding:5px 10px 5px 10px;
-    text-transform:uppercase;
-    background:#f2f2f2;
+.mainpanel .block h2 {
+    font-size: 12px;
+    margin: 0;
+    font-weight: bold;
+    color: #00cc66;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 5px 10px 5px 10px;
+    text-transform: uppercase;
+    background: #f2f2f2;
 }
 
-.mainpanel .block .blockcontent
-{
-    padding:10px;
+.mainpanel .block .blockcontent {
+    padding: 10px;
 }
 
-.pageimage img
-{
-    margin:0;
-    padding:0;
-    border:0;
-    width:650px;
+.pageimage img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 650px;
 }
 
-.prepage
-{
+.prepage {
     position: absolute;
     width: 33px;
     left: 0px;
     top: 200px;
 }
 
-.nextpage
-{
+.nextpage {
     position: absolute;
     right: 18px;
     width: 33px;

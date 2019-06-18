@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -18,89 +17,136 @@
     <div id="container">
         <div class="pathway">
             <ul>
-                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li>
+                    <a href="/" title="Trang chủ">Trang chủ</a>
+                </li>
                 <li>Đăng ký</li>
             </ul>
         </div>
     </div>
     <div class="clear"></div>
     <div id="container">
-        <div class="sortable" id="layoutGroup1">
-            <div class="block" id="module_Login">
-                <h1>
-                    Đăng ký <span>hoặc</span>
+        <div class="sortable"
+             id="layoutGroup1">
+            <div class="block"
+                 id="module_Login">
+                <h1>Đăng ký
+                    <span>hoặc</span>
                     <a href="/account/login" title="Đăng nhập">Đăng nhập</a>
                 </h1>
                 <div class="blockcontent">
                     <div class="loginsocial">
                         <h3>Đăng nhập bằng</h3>
-                        <div><a href="javascript:" class="btn_face" onclick="checkLoginState();"></a></div>
+                        <div>
+                            <a href="javascript:" class="btn_face" onclick="checkLoginState();"></a>
+                        </div>
                     </div>
                     <div class="registerform">
                         <%--@elvariable id="account" type="com.book.model.Account"--%>
-                        <form:form modelAttribute="account" method="post" name="rgt" id="rgt" action="/account/register">
+                        <form:form
+                                modelAttribute="account"
+                                method="post"
+                                name="rgt"
+                                id="rgt"
+                                action="/account/register">
                             <h3>Thông tin đăng nhập</h3>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Email</label> <span class="Required">*</span>:
+                                    <label>Email</label>
+                                    <span class="Required">*</span>:
                                 </div>
-                                <form:input path="email" type="text" autocomplete="off" value=""/>
-                                <form:errors path="email" cssClass="error" />
+                                <form:input
+                                        path="email"
+                                        type="text"
+                                        autocomplete="off"
+                                        value=""/>
+                                <form:errors
+                                        path="email"
+                                        cssClass="error"/>
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Mật khẩu</label> <span class="Required">*</span>:
+                                    <label>Mật khẩu</label>
+                                    <span class="Required">*</span>:
                                 </div>
-                                <form:input autocomplete="off"
-                                            type="password"
-                                            path="password"
+                                <form:input
+                                        autocomplete="off"
+                                        type="password"
+                                        path="password"
                                 />
-                                <form:errors path="password" cssClass="error" />
+                                <form:errors
+                                        path="password"
+                                        cssClass="error"/>
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label for="repassword">Xác nhận mật khẩu</label> <span
-                                        class="Required">*</span>:
+                                    <label for="repassword">Xác nhận mật khẩu</label>
+                                    <span class="Required">*</span>:
                                 </div>
-                                <input autocomplete="off" id="repassword"
-                                       type="password" name="repassword"/>
+                                <input autocomplete="off"
+                                       id="repassword"
+                                       type="password"
+                                       name="repassword"/>
                             </div>
                             <div class="clear"></div>
                             <h3>Thông tin cá nhân</h3>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Họ và tên</label> <span class="Required">*</span>:
+                                    <label>Họ và tên</label>
+                                    <span class="Required">*</span>:
                                 </div>
                                 <form:select path="gender" class="selectfield Field70">
-                                    <option value="0">Chị</option>
-                                    <option value="1" selected="selected">Anh</option>
+                                    <option value="0">
+                                        Chị
+                                    </option>
+                                    <option value="1" selected="selected">
+                                        Anh
+                                    </option>
                                 </form:select>
-                                <form:errors path="gender" cssClass="error" />
-                                <form:input autocomplete="off"
-                                       type="text" path="name" class="Field197" value=""/>
+                                <form:errors
+                                        path="gender"
+                                        cssClass="error"/>
+                                <form:input
+                                        autocomplete="off"
+                                        type="text"
+                                        path="name"
+                                        class="Field197"
+                                        value=""/>
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label for="phone">Điện thoại</label> <span class="Required">*</span>:
+                                    <label for="phone">Điện
+                                        thoại</label>
+                                    <span class="Required">*</span>:
                                 </div>
                                 <form:input autocomplete="off"
-                                       path="phone"
-                                       type="text" value=""/>
-                                <form:errors path="phone" cssClass="error" />
+                                        path="phone"
+                                        type="text"
+                                        value=""/>
+                                <form:errors
+                                        path="phone"
+                                        cssClass="error"/>
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Ngày sinh</label>:
+                                    <label>Ngày
+                                        sinh</label>:
                                 </div>
-                                <form:input type="text" class="Field50"
-                                       path="birthDate"
-                                       autocomplete="off"/>
-                                <form:errors path="birthDate" cssClass="error" />
+                                <form:input
+                                        type="text"
+                                        class="Field50"
+                                        path="birthDate"
+                                        autocomplete="off"/>
+                                <form:errors
+                                        path="birthDate"
+                                        cssClass="error"/>
                             </div>
-                            <div class="clear">&nbsp;&nbsp;</div>
-                            <div class="field" style="padding-left:200px">
-                                <input type="submit" align="absmiddle" class="loginbuton"
-                                       value="Đăng ký"/>
+                            <div class="clear">
+                                &nbsp;&nbsp;
+                            </div>
+                            <div class="field"
+                                 style="padding-left:200px">
+                                <input type="submit" align="absmiddle" class="loginbuton" value="Đăng ký"/>
                             </div>
                         </form:form>
                     </div>
@@ -115,7 +161,8 @@
     <%@include file="component/footer.jsp" %>
 </div>
 <script src="/resources/js/dist/jquery.validate.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
     $("#birthDate").datepicker({
@@ -130,7 +177,7 @@
                     url: '/account/checkEmail',
                     type: 'POST',
                     data: {
-                        'email' : function () {
+                        'email': function () {
                             return $('#email').val()
                         }
                     }

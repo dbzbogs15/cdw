@@ -1,14 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page
+        language="java"
+        contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" %>
 <h2>
-    <a class="title" href="/sach-ban-chay.html" title="Sách bán chạy">Sách bán chạy<span
-            class="b-main__category-arrow"></span></a>
-    <a class="more" href="/sach-ban-chay.html" title="Xem tất cả">Xem tất cả</a>
+    <a class="title" href="/sach-ban-chay.html" title="Sách bán chạy">
+        Sách bán chạy<span class="b-main__category-arrow"></span></a>
+    <a class="more" href="/sach-ban-chay.html" title="Xem tất cả">
+        Xem tất cả
+    </a>
 </h2>
 <div class="blockcontent">
     <div style="position:relative; padding:0 20px; overflow:hidden; height:340px">
         <div id="bajaxcontainer">
-            <c:forEach var="book" items="${bestSeller}">
+            <c:forEach
+                    var="book"
+                    items="${bestSeller}">
                 <div class="product_contener">
                     <div class="products">
                         <div class="image">
@@ -27,24 +33,40 @@
                             </a>
                         </div>
                         <div class="fields">
-                                        <span>
-                                        <a href="/product?bookid=${book.id}"
-                                           title="${book.author}">${book.author}
-                                        </a>
-                                        </span>
+                            <span>
+                                <a href="/product?bookid=${book.id}"
+                                   title="${book.author}">${book.author}
+                                </a>
+                            </span>
                         </div>
 
-                        <div class="prices">${book.priceNew} ₫</div>
-                        <div class="rootprice">${book.priceOld} ₫</div>
+                        <div class="prices">
+                            <fmt:formatNumber
+                                    pattern="###,###"
+                                    value="${book.priceNew}"/>
+                            ₫
+                        </div>
+                        <div class="rootprice">
+                            <fmt:formatNumber
+                                    pattern="###,###"
+                                    value="${book.priceOld}"/>
+                            ₫
+                        </div>
                     </div>
                 </div>
             </c:forEach>
         </div>
         <div class="clear"></div>
         <div class="list_btn">
-            <a onclick="bestproduct(-1);" class="prev" id="bprev" href="javascript:"><i
+            <a onclick="bestproduct(-1);"
+               class="prev"
+               id="bprev"
+               href="javascript:"><i
                     class="fa fa-chevron-left"></i></a>
-            <a onclick="bestproduct(1);" class="next" id="bnext" href="javascript:"><i
+            <a onclick="bestproduct(1);"
+               class="next"
+               id="bnext"
+               href="javascript:"><i
                     class="fa fa-chevron-right"></i></a>
         </div>
     </div>
@@ -96,7 +118,7 @@
                         '<div class="product_contener">' +
                         '<div class="products hide">' +
                         '<div class="image">' +
-                        '<a href="/product?bookid='+data.id+'" title="' + data.name + '">' +
+                        '<a href="/product?bookid=' + data.id + '" title="' + data.name + '">' +
                         '<img src="/resources/' + data.image + '" alt="' + data.name + '" title="' + data.name + '" />' +
                         '</a>' +
                         '<span class="saleprice">-' + data.saleoff + '%</span>' +
@@ -107,8 +129,8 @@
                         '<div class="fields">' +
                         '<span><a href="" title="' + data.author + '">' + data.author + '</a></span>' +
                         '</div>' +
-                        '<div class="prices">' + data.priceNew + ' ₫</div>' +
-                        '<span class="rootprice">' + data.priceOld + ' ₫</span>' +
+                        '<div class="prices">' + data.priceNew.toLocaleString().replace(",", ".") + ' ₫</div>' +
+                        '<span class="rootprice">' + data.priceOld.toLocaleString().replace(",", ".") + ' ₫</span>' +
                         '</div>' +
                         '</div>'
                     );

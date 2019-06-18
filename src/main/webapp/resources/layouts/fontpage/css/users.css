@@ -1,5 +1,4 @@
-#layoutGroup1 .block h1, #layoutGroup4 .block h1
-{
+#layoutGroup1 .block h1, #layoutGroup4 .block h1 {
     margin: 0px auto;
     overflow: hidden;
     clear: both;
@@ -12,15 +11,13 @@
     border-bottom: 1px solid #eeeeee;
 }
 
-.Field50
-{
-    width:91px !important;
+.Field50 {
+    width: 91px !important;
 }
 
-#layoutGroup1 .block h1 span
-{
-    font-size:18px;
-    font-weight:normal;
+#layoutGroup1 .block h1 span {
+    font-size: 18px;
+    font-weight: normal;
 }
 
 .link_register {
@@ -31,8 +28,7 @@
     margin-right: 15px;
 }
 
-.field input[type=text], .field input[type=password]
-{
+.field input[type=text], .field input[type=password] {
     font-size: 13px;
     border: 1px solid #D8D3D0;
     border-radius: 2px 2px 2px 2px;
@@ -43,20 +39,17 @@
     width: 280px;
 }
 
-.preorder
-{
-    padding-left:5px;
-    color:#00cc66;
+.preorder {
+    padding-left: 5px;
+    color: #00cc66;
 }
 
-input[type="checkbox"], input[type="radio"]
-{
+input[type="checkbox"], input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
 }
 
-.field select
-{
+.field select {
     border: 1px solid #D8D3D0;
     border-radius: 2px 2px 2px 2px;
     margin: 0;
@@ -68,13 +61,11 @@ input[type="checkbox"], input[type="radio"]
     width: 280px;
 }
 
-#layoutGroup5 .notlogin select
-{
-    width:350px;
+#layoutGroup5 .notlogin select {
+    width: 350px;
 }
 
-.notlogin .field input[type=text],.notlogin .field input[type=password]
-{
+.notlogin .field input[type=text], .notlogin .field input[type=password] {
     font-size: 13px;
     border: 1px solid #D8D3D0;
     border-radius: 2px 2px 2px 2px;
@@ -85,61 +76,51 @@ input[type="checkbox"], input[type="radio"]
     width: 350px;
 }
 
-.Field247
-{
-    width:277px !important;
+.Field247 {
+    width: 277px !important;
 }
 
-#module_loginspecial .blockcontent, #module_notlogin .blockcontent
-{
-    border:1px solid #f2f2f2;
-    padding:10px;
+#module_loginspecial .blockcontent, #module_notlogin .blockcontent {
+    border: 1px solid #f2f2f2;
+    padding: 10px;
 }
 
-.notlogin
-{
-    width:700px;
-    margin:auto;
+.notlogin {
+    width: 700px;
+    margin: auto;
 }
 
-.notlogin .textlabel
-{
-    text-align:right;
+.notlogin .textlabel {
+    text-align: right;
 }
 
-#module_Login
-{
-    margin-bottom:120px;
+#module_Login {
+    margin-bottom: 120px;
 }
 
-#module_Login a, #module_Register a, #module_forgotPassword a
-{
-    color:#00cc66;
+#module_Login a, #module_Register a, #module_forgotPassword a {
+    color: #00cc66;
 }
 
-#module_Login a:hover, #module_Register a:hover, #module_forgotPassword a:hover
-{
-    text-decoration:underline;
+#module_Login a:hover, #module_Register a:hover, #module_forgotPassword a:hover {
+    text-decoration: underline;
 }
 
-#layoutGroup1 .loginsocial
-{
-    width:30%;
-    float:left;
-    background:#fff url(../images/bg_h.png) right 69px  no-repeat;
-    margin-right:2%;
+#layoutGroup1 .loginsocial {
+    width: 30%;
+    float: left;
+    background: #fff url(../images/bg_h.png) right 69px no-repeat;
+    margin-right: 2%;
 }
 
-#layoutGroup1 .loginform, #layoutGroup1 .registerform, #layoutGroup1 .fogotpasswordform
-{
-    width:68%;
-    float:left;
+#layoutGroup1 .loginform, #layoutGroup1 .registerform, #layoutGroup1 .fogotpasswordform {
+    width: 68%;
+    float: left;
 }
 
-.loginbuton
-{
+.loginbuton {
     display: block;
-    float:left;
+    float: left;
     background: #00cc66;
     border: 1px solid #00cc66;
     color: #fff;
@@ -151,8 +132,7 @@ input[type="checkbox"], input[type="radio"]
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.textlabel
-{
+.textlabel {
     display: block;
     float: left;
     text-align: left;
@@ -163,125 +143,107 @@ input[type="checkbox"], input[type="radio"]
 }
 
 
-.field
-{
+.field {
     display: block;
     padding: 7px 0 0 0;
     width: 100%;
     overflow: hidden;
 }
 
-.Required
-{
-    color:#FF0000;
+.Required {
+    color: #FF0000;
 }
 
-.help
-{
-    padding-left:10px;
-    font-size:11px;
-    color:#808080;
+.help {
+    padding-left: 10px;
+    font-size: 11px;
+    color: #808080;
 }
 
-#content_left_contener
-{
-    padding:0;
-    float:left;
-    margin-right:-300px;
-    width:100%;
-    overflow:hidden;
+#content_left_contener {
+    padding: 0;
+    float: left;
+    margin-right: -300px;
+    width: 100%;
+    overflow: hidden;
 }
 
-#layoutGroup5
-{
-    padding:0;
-    margin-right:300px;
-    overflow:hidden;
+#layoutGroup5 {
+    padding: 0;
+    margin-right: 300px;
+    overflow: hidden;
 }
 
-#layoutGroup6
-{
-    padding:0;
-    margin:0;
-    float:right;
-    width:280px;
+#layoutGroup6 {
+    padding: 0;
+    margin: 0;
+    float: right;
+    width: 280px;
 }
 
-#layoutGroup5 .loginsocial
-{
-    width:40%;
-    margin-top:40px;
-    float:left;
-    background:#fff url(../images/bg_h.png) right 69px  no-repeat;
+#layoutGroup5 .loginsocial {
+    width: 40%;
+    margin-top: 40px;
+    float: left;
+    background: #fff url(../images/bg_h.png) right 69px no-repeat;
 }
 
-#module_loginspecial .loginsocial
-{
-    background:#fff url(../images/bg_h.png) right 10px  no-repeat !important;
+#module_loginspecial .loginsocial {
+    background: #fff url(../images/bg_h.png) right 10px no-repeat !important;
 }
 
-#layoutGroup5 .loginform
-{
-    width:60%;
-    float:left;
+#layoutGroup5 .loginform {
+    width: 60%;
+    float: left;
 }
 
-#layoutGroup5 .help
-{
-    display:block;
-    padding-top:5px;
-    padding-left:150px !important;
+#layoutGroup5 .help {
+    display: block;
+    padding-top: 5px;
+    padding-left: 150px !important;
 }
 
-#module_ordercart, #module_loginspecial, #module_notlogin
-{
-    margin-top:50px;
+#module_ordercart, #module_loginspecial, #module_notlogin {
+    margin-top: 50px;
 }
 
-.orderproducts
-{
-    border:1px solid #f2f2f2;
+.orderproducts {
+    border: 1px solid #f2f2f2;
 }
 
-.orderproducts .mtitle
-{
-    font-weight:normal;
-    text-align:left;
-    padding:10px 5px;
+.orderproducts .mtitle {
+    font-weight: normal;
+    text-align: left;
+    padding: 10px 5px;
 }
 
-.orderproducts .mtitle span
-{
-    font-weight:bold;
+.orderproducts .mtitle span {
+    font-weight: bold;
     font-size: 18px;
     color: #303030;
 }
 
-.orderproducts .mtitle a
-{
-    float:right;
-    display:block;
-    width:40px;
-    text-align:center;
-    background-color:#f2f2f2;
-    padding:2px 5px;
+.orderproducts .mtitle a {
+    float: right;
+    display: block;
+    width: 40px;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 2px 5px;
 }
 
-.orderproducts td
-{
-    padding:10px 5px;
-    border-top:1px solid #f2f2f2;
+.orderproducts td {
+    padding: 10px 5px;
+    border-top: 1px solid #f2f2f2;
 }
 
-.subtotal td
-{
-    font-weight:bold;
+.subtotal td {
+    font-weight: bold;
 }
 
-.total td
-{
-    font-weight:bold;
-    text-transform:uppercase;
-    font-size:16px;
-    background-color:#f2f2f2;
+.total td {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 16px;
+    background-color: #f2f2f2;
 }

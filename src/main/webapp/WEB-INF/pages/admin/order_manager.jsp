@@ -1,17 +1,32 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ taglib
+        prefix="c"
+        uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib
+        prefix="fmt"
+        uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page
+        language="java"
+        contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <%@include file="component/header.jsp" %>
+    <%@include
+            file="component/header.jsp" %>
     <!-- DataTables -->
-    <link href="/resources/admin/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/resources/admin/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/resources/admin/plugins/datatables/dataTables.bootstrap4.min.css"
+          rel="stylesheet"
+          type="text/css"/>
+    <link href="/resources/admin/plugins/datatables/buttons.bootstrap4.min.css"
+          rel="stylesheet"
+          type="text/css"/>
     <!-- Responsive datatable examples -->
-    <link href="/resources/admin/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
-    <link href="/resources/admin/plugins/sweet-alert/sweetalert2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/resources/admin/plugins/datatables/responsive.bootstrap4.min.css"
+          rel="stylesheet"
+          type="text/css"/>
+    <link href="/resources/admin/plugins/sweet-alert/sweetalert2.min.css"
+          rel="stylesheet"
+          type="text/css"/>
     <style>
         .table > tbody > tr > td {
             padding: 6px 5px;
@@ -23,11 +38,13 @@
 <div id="wrapper">
 
     <!-- Top Bar Start -->
-    <%@include file="component/topbar.jsp" %>
+    <%@include
+            file="component/topbar.jsp" %>
     <!-- Top Bar End -->
 
     <!-- ========== Left Sidebar Start ========== -->
-    <%@include file="component/leftsidebar.jsp" %>
+    <%@include
+            file="component/leftsidebar.jsp" %>
     <!-- Left Sidebar End -->
 
     <!-- ============================================================== -->
@@ -40,11 +57,22 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
-                            <h4 class="page-title float-left">Quản lý sách</h4>
+                            <h4 class="page-title float-left">
+                                Quản
+                                lý
+                                sách</h4>
 
                             <ol class="breadcrumb float-right">
-                                <li class="breadcrumb-item"><a href="/admin">NLU Book</a></li>
-                                <li class="breadcrumb-item active">Quản lý đơn hàng</li>
+                                <li class="breadcrumb-item">
+                                    <a href="/admin">NLU
+                                        Book</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Quản
+                                    lý
+                                    đơn
+                                    hàng
+                                </li>
                             </ol>
 
                             <div class="clearfix"></div>
@@ -54,29 +82,65 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card-box table-responsive">
-                            <h4 style="margin-left: 15px" class="m-t-0 header-title"><b>
-                                <a href="/admin/book-manager/add-book"
-                                   class="btn btn-success waves-light waves-effect w-md">
-                                    <i class="fa fa-plus"></i> Thêm hóa đơn
-                                </a>
-                                <div class="text-center text-danger">${message}</div>
-                            </b></h4>
-                            <table id="datatable-buttons" class="table table-striped table-bordered" cellspacing="0"
+                            <h4 style="margin-left: 15px"
+                                class="m-t-0 header-title">
+                                <b>
+                                    <a href="/admin/book-manager/add-book"
+                                       class="btn btn-success waves-light waves-effect w-md">
+                                        <i class="fa fa-plus"></i>
+                                        Thêm
+                                        hóa
+                                        đơn
+                                    </a>
+                                    <div class="text-center text-danger">${message}</div>
+                                </b>
+                            </h4>
+                            <table id="datatable-buttons"
+                                   class="table table-striped table-bordered"
+                                   cellspacing="0"
                                    width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Mã hóa đơn</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Nơi nhận</th>
-                                    <th>Tổng đơn hàng</th>
-                                    <th>Trạng thái</th>
-                                    <th>Action</th>
+                                    <th>
+                                        Mã
+                                        hóa
+                                        đơn
+                                    </th>
+                                    <th>
+                                        Tên
+                                        khách
+                                        hàng
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                        Số
+                                        điện
+                                        thoại
+                                    </th>
+                                    <th>
+                                        Nơi
+                                        nhận
+                                    </th>
+                                    <th>
+                                        Tổng
+                                        đơn
+                                        hàng
+                                    </th>
+                                    <th>
+                                        Trạng
+                                        thái
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
                                 </tr>
                                 </thead>
                                 <tbody id="findByStatus">
-                                <c:forEach items="${orderList}" var="order">
+                                <c:forEach
+                                        items="${orderList}"
+                                        var="order">
                                     <tr>
                                         <td width="10%">${order.trackingNumber}</td>
                                         <td width="10%">${order.fullname}</td>
@@ -86,34 +150,57 @@
                                                 ${order.ward.name},
                                                 ${order.ward.district.name},
                                                 ${order.ward.district.province.name}</td>
-<%--                                        <td width="20%">--%>
-<%--                                            <fmt:formatDate value="${book.totalPrice}" pattern="HH:mm | dd/MM/yyyy"/>--%>
-<%--                                        </td>--%>
-                                        <td width="10%" style="text-align: right">
-                                            <fmt:formatNumber value="${order.totalPrice}" pattern="###,###"/>đ
+                                            <%--                                        <td width="20%">--%>
+                                            <%--                                            <fmt:formatDate value="${book.totalPrice}" pattern="HH:mm | dd/MM/yyyy"/>--%>
+                                            <%--                                        </td>--%>
+                                        <td width="10%"
+                                            style="text-align: right">
+                                            <fmt:formatNumber
+                                                    value="${order.totalPrice}"
+                                                    pattern="###,###"/>đ
                                         </td>
                                         <td width="15%">
                                             <select class="form-control btn-success"
                                                     id="changeStatus"
                                                     onchange="changeStatus(${order.id}, this)">
-                                                <option <c:if test="${order.status eq 'Đã giao hàng'}">
-                                                    selected
-                                                </c:if>>Đã giao hàng</option>
-                                                <option <c:if test="${order.status eq 'Đã hủy'}">
-                                                    selected
-                                                </c:if>>Đã hủy</option>
-                                                <option <c:if test="${order.status eq 'Đang giao hàng'}">
-                                                    selected
-                                                </c:if>>Đang giao hàng</option>
-                                                <option <c:if test="${order.status eq 'Đang đóng gói'}">
-                                                    selected
-                                                </c:if>>Đang đóng gói</option>
+                                                <option
+                                                        <c:if test="${order.status eq 'Đã giao hàng'}">
+                                                            selected
+                                                        </c:if>>
+                                                    Đã
+                                                    giao
+                                                    hàng
+                                                </option>
+                                                <option
+                                                        <c:if test="${order.status eq 'Đã hủy'}">
+                                                            selected
+                                                        </c:if>>
+                                                    Đã
+                                                    hủy
+                                                </option>
+                                                <option
+                                                        <c:if test="${order.status eq 'Đang giao hàng'}">
+                                                            selected
+                                                        </c:if>>
+                                                    Đang
+                                                    giao
+                                                    hàng
+                                                </option>
+                                                <option
+                                                        <c:if test="${order.status eq 'Đang đóng gói'}">
+                                                            selected
+                                                        </c:if>>
+                                                    Đang
+                                                    đóng
+                                                    gói
+                                                </option>
                                             </select>
                                         </td>
-<%--                                        <td width="5%">${book.quantity}</td>--%>
+                                            <%--                                        <td width="5%">${book.quantity}</td>--%>
                                         <td>
                                             <div class="btn-group mb-2">
-                                                <a class="btn btn-light waves-effect" onclick="show(${book.id})">
+                                                <a class="btn btn-light waves-effect"
+                                                   onclick="show(${book.id})">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                                 <a href="/admin/book-manager/edit-book?bookid=${book.id}"
@@ -135,33 +222,60 @@
                 </div>
                 <!-- end row -->
 
-            </div> <!-- container -->
+            </div>
+            <!-- container -->
 
-        </div> <!-- content -->
+        </div>
+        <!-- content -->
 
         <footer class="footer text-right">
-            2017 - 2018 © Abstack. - Coderthemes.com
+            2017
+            -
+            2018
+            ©
+            Abstack.
+            -
+            Coderthemes.com
         </footer>
     </div>
     <!-- ============================================================== -->
     <!-- End Right content here -->
     <!-- ============================================================== -->
     <!--  Modal content for the above example -->
-    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
-         aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal fade bs-example-modal-lg"
+         id="myModal"
+         tabindex="-1"
+         role="dialog"
+         aria-labelledby="myLargeModalLabel"
+         aria-hidden="true"
+         style="display: none;">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h5 class="modal-title" id="myLargeModalLabel">Chi tiết sản phẩm</h5>
+                    <button type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-hidden="true">
+                        ×
+                    </button>
+                    <h5 class="modal-title"
+                        id="myLargeModalLabel">
+                        Chi
+                        tiết
+                        sản
+                        phẩm</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="row" id="details">
+                    <div class="row"
+                         id="details">
                     </div>
                 </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </div>
 <!-- jQuery  -->
 <script src="/resources/admin/assets/js/jquery.min.js"></script>
@@ -200,7 +314,7 @@
                 status: status.value
             },
             success: function (result) {
-                if(result == true) {
+                if (result == true) {
                     swal('Thay đổi trạng thái thành công')
                 } else {
                     swal('Đã có lỗi xảy ra')
@@ -208,6 +322,7 @@
             }
         })
     }
+
     function deleteBook(id, name, image) {
         console.log(id, name, image)
         sweetAlert({
@@ -339,6 +454,7 @@
         })
         $('#myModal').modal();
     }
+
     $(document).ready(function () {
         $('.dt-buttons').after('<select id="changeCategory" class="btn btn-success waves-light waves-effect w-md" style="height: 36.4px; margin-left: 5px">' +
             '<option>Chọn trạng thái</option>' +
@@ -362,16 +478,16 @@
                     $.each(data, function (index, item) {
                         $('#findByStatus').append(
                             '<tr>' +
-                                '<td width="10%">'+item.trackingNumber+'</td>' +
-                                '<td width="10%">'+item.fullname+'</td>' +
-                                '<td>'+item.email+'</td>' +
-                                '<td>'+item.phone+'</td>' +
-                                '<td>'+item.address+', '+item.ward.name+', '+item.ward.district.name+', '+item.ward.district.province.name+'</td>' +
-                                '<td width="10%" style="text-align: right">' +
-                                ''+item.totalPrice.toLocaleString().replace(',','.')+'' +
-                                '</td>' +
-                                '<td></td>' +
-                                '<td></td>' +
+                            '<td width="10%">' + item.trackingNumber + '</td>' +
+                            '<td width="10%">' + item.fullname + '</td>' +
+                            '<td>' + item.email + '</td>' +
+                            '<td>' + item.phone + '</td>' +
+                            '<td>' + item.address + ', ' + item.ward.name + ', ' + item.ward.district.name + ', ' + item.ward.district.province.name + '</td>' +
+                            '<td width="10%" style="text-align: right">' +
+                            '' + item.totalPrice.toLocaleString().replace(',', '.') + '' +
+                            '</td>' +
+                            '<td></td>' +
+                            '<td></td>' +
                             '</tr>'
                         )
                     })
