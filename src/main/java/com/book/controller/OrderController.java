@@ -36,12 +36,12 @@ public class OrderController {
                         @SessionAttribute(required = false) Account account,
                         ModelMap mm,
                         RedirectAttributes rd
-                        ) {
-        if(account == null) {
+    ) {
+        if (account == null) {
             rd.addFlashAttribute("message", "Vui lòng đăng nhập để tiếp tục");
             return "redirect:/account/login";
         }
-        if(cart == null) {
+        if (cart == null) {
             rd.addFlashAttribute("message",
                     "Bạn không có sản phẩm nào trong giỏ hàng để tiến hành thanh toán!");
             return "redirect:/cart";
@@ -49,6 +49,7 @@ public class OrderController {
         mm.addAttribute("cart", cart.getItems());
         return "order";
     }
+
     @PostMapping("/order/checkout")
     public String checkout(@Valid Order order,
                            HttpSession session,
@@ -56,7 +57,7 @@ public class OrderController {
                            RedirectAttributes rd,
                            @SessionAttribute(required = false) Account account,
                            @SessionAttribute(required = false) Cart cart) {
-        if(account == null) {
+        if (account == null) {
             rd.addFlashAttribute("message", "Vui lòng đăng nhập để tiếp tục");
             return "redirect:/account/login";
         }
@@ -69,7 +70,7 @@ public class OrderController {
         order.setOrderdate(dt);
         order.setReceivedate(new Date(dt.getTime() + (1000 * 60 * 60 * 24 * 7)));
         orderService.addOrder(order);
-        for(int i = 0; i < cart.quantityTotal(); i++) {
+        for (int i = 0; i < cart.quantityTotal(); i++) {
             OrderDetails orderDetails = new OrderDetails();
             orderDetails.setBookId(cart.getItems().get(i).getBook().getId());
             orderDetails.setOrderId(order.getId());
@@ -90,7 +91,7 @@ public class OrderController {
             e.printStackTrace();
         }
         session.removeAttribute("cart");
-        mm.addAttribute("message", "Bạn đã đặt hàng thành công vui lòng kiểm tra Email: " +order.getEmail());
+        mm.addAttribute("message", "Bạn đã đặt hàng thành công vui lòng kiểm tra Email: " + order.getEmail());
         return "checkout_success";
     }
 }

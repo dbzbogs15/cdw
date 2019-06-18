@@ -28,6 +28,7 @@ public class AdminController {
     AccountService accountService;
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
+
     @RequestMapping("")
     public String admin(ModelMap mm, Principal principal, HttpSession session) {
         session.setAttribute("accountAdmin", accountService.findByEmail(principal.getName()));
@@ -38,7 +39,7 @@ public class AdminController {
     }
 
     @RequestMapping("/book-manager")
-    public String bookManager(ModelMap mm){
+    public String bookManager(ModelMap mm) {
         mm.addAttribute("books", bookService.getAllBook());
         return "/admin/book_manager";
     }

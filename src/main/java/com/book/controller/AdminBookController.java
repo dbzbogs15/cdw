@@ -147,6 +147,7 @@ public class AdminBookController {
         }
         return "redirect:/admin/book-manager";
     }
+
     @GetMapping("/getbook")
     @ResponseBody
     public Book book(@RequestParam Integer id) {

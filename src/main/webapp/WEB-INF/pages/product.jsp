@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -18,9 +17,12 @@
     <div id="container">
         <div class="pathway">
             <ul>
-                <li><a href="http://nobita.vn" title="Trang chủ">Trang chủ</a></li>
                 <li>
-                    <a href="/category/${book.category.parentCategory.id}" title="${book.category.parentCategory.name}">
+                    <a href="http://nobita.vn" title="Trang chủ">Trang chủ</a>
+                </li>
+                <li>
+                    <a href="/category/${book.category.parentCategory.id}"
+                       title="${book.category.parentCategory.name}">
                         ${book.category.parentCategory.name}
                     </a>
                 </li>
@@ -34,7 +36,8 @@
     </div>
     <div class="clear"></div>
     <div id="container">
-        <div class="sortable" id="layoutGroup1">
+        <div class="sortable"
+             id="layoutGroup1">
             <div class="product_view_contener">
                 <div class="showleft">
                     <div class="product_info">
@@ -43,10 +46,12 @@
                         </h1>
                         <div class="groups">
                             <div class="viewfields">
-                                <span>Tác giả: <a href="#"
-                                                  title="${book.author}">${book.author}</a></span>
-                                <span>Phát hành: <a href="#"
-                                                    title="${book.publisher.name}">${book.publisher.name}</a></span>
+                                <span>Tác giả: <a
+                                        href="#"
+                                        title="${book.author}">${book.author}</a></span>
+                                <span>Phát hành: <a
+                                        href="#"
+                                        title="${book.publisher.name}">${book.publisher.name}</a></span>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -54,17 +59,23 @@
                             <div class="prices">
                                 <div class="saleprice">
                                     <span id="saleprice">
-                                       <fmt:formatNumber pattern="###,###" value="${book.priceNew}"/> ₫
+                                       <fmt:formatNumber
+                                               pattern="###,###"
+                                               value="${book.priceNew}"/> ₫
                                     </span>
                                 </div>
-                                <div class="vrootprice" id="rootprice">
-                                    Giá bìa: <span><fmt:formatNumber pattern="###,###"
-                                                                     value="${book.priceOld}"/> ₫</span>
+                                <div class="vrootprice"
+                                     id="rootprice">Giá bìa:
+                                    <span><fmt:formatNumber
+                                            pattern="###,###"
+                                            value="${book.priceOld}"/> ₫</span>
                                 </div>
-                                <div class="yousave" id="yousave">
-                                    Tiết kiệm: <span>
-                                    <fmt:formatNumber pattern="###,###"
-                                                      value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
+                                <div class="yousave"
+                                     id="yousave">Tiết kiệm:
+                                    <span>
+                                    <fmt:formatNumber
+                                            pattern="###,###"
+                                            value="${book.priceOld - book.priceNew}"/> ₫ (-${book.saleoff}%)
                                 </span>
                                 </div>
                             </div>
@@ -74,26 +85,29 @@
                             <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
-
-
                         <div class="clear"></div>
                         <div class="intro">
-                            <div class="block " id="content_ViewProducts">
+                            <div class="block "
+                                 id="content_ViewProducts">
                                 <div class="blockcontent">
                                     <p>
-                                        <i class="fa fa-check"></i><span style="font-size:14px;">Bọc Plastic miễn
-												ph&iacute;&nbsp;</span></p>
+                                        <i class="fa fa-check"></i><span
+                                            style="font-size:14px;">Bọc Plastic miễn ph&iacute;&nbsp;</span>
+                                    </p>
                                     <p>
-                                        <i class="fa fa-check"></i><span style="font-size:14px;">Giao h&agrave;ng
-												miễn ph&iacute; trong nội th&agrave;nh TP. HCM với đơn h&agrave;ng&nbsp;
+                                        <i class="fa fa-check"></i><span
+                                            style="font-size:14px;">Giao h&agrave;ng miễn ph&iacute; trong nội th&agrave;nh TP. HCM với đơn h&agrave;ng&nbsp;
 												<span style="color:#33cc33;"><strong>&ge; 150.000
-														đ</strong></span></span></p>
+														đ</strong></span></span>
+                                    </p>
                                     <p>
-                                        <i class="fa fa-check"></i><span style="font-size:14px;">Giao h&agrave;ng
+                                        <i class="fa fa-check"></i><span
+                                            style="font-size:14px;">Giao h&agrave;ng
 												miễn ph&iacute; to&agrave;n quốc với đơn h&agrave;ng <span
                                                 style="color:#33cc33;"><strong>&ge; 250.000 đ</strong></span></span>
                                     </p>
-                                    <div class="fb-like" data-href="http://asyyye.net/product?bookid=${book.id}"
+                                    <div class="fb-like"
+                                         data-href="http://asyyye.net/product?bookid=${book.id}"
                                          data-width=""
                                          data-layout="button_count"
                                          data-action="like"
@@ -111,10 +125,12 @@
                     <div class="mainimage">
                         <img src="resources/${book.image}"
                              alt="${book.name} "
-                             id="mainimage" width="250"/>
+                             id="mainimage"
+                             width="250"/>
 
                     </div>
-                    <div class="subthums" id="gallery_01">
+                    <div class="subthums"
+                         id="gallery_01">
 
                     </div>
                 </div>
@@ -124,7 +140,8 @@
                 <input type="hidden" name="colorid" id="colorid" value=""/>
             </div>
 
-            <div class="block" id="module_ProductDetail">
+            <div class="block"
+                 id="module_ProductDetail">
                 <h3>Giới thiệu sách</h3>
                 <div class="intro" id="contentid">
                     ${book.description}
@@ -151,24 +168,18 @@
                         </td>
                     </tr>
                     <tr class="field_view_contenner row1">
-                        <td class="title">
-                            Số trang
+                        <td class="title">Số trang
                         </td>
-                        <td class="values">
-                            ${book.numberPage}
-                        </td>
+                        <td class="values">${book.numberPage}</td>
                     </tr>
                     <tr class="field_view_contenner row0">
-                        <td class="title">
-                            Kích thước
+                        <td class="title">Kích thước
                         </td>
-                        <td class="values">
-                            ${book.size}
+                        <td class="values">${book.size}
                         </td>
                     </tr>
                     <tr class="field_view_contenner row1">
-                        <td class="title">
-                            Trọng lượng
+                        <td class="title">Trọng lượng
                         </td>
                         <td class="values">
                             ${book.weight}
@@ -187,7 +198,8 @@
                             Danh mục
                         </td>
                         <td class="values">
-                            <a href="#" title="${book.category.name}">
+                            <a href="#"
+                               title="${book.category.name}">
                                 ${book.category.name}
                             </a>
                         </td>
@@ -197,14 +209,17 @@
                     <a onclick="addCart(${book.id})">Mua ngay</a>
                 </div>
             </div>
-            <div class="block" id="module_sameAuthor">
-                <h3>Sách cùng thể loại</h3>
+            <div class="block"
+                 id="module_sameAuthor">
+                <h3>
+                    Sách cùng thể loại</h3>
                 <div class="blockcontent">
                     <div style="position:relative; padding:0 0; overflow:hidden; height:320px;">
                         <c:forEach items="${sameCategory}" var="item">
                             <div class="product_contener">
                                 <div class="products">
-                                    <div class="image"><a
+                                    <div class="image">
+                                        <a
                                             href="/product?bookid=${item.id}"
                                             title="${item.name}"><img
                                             src="/resources/${item.image}"
@@ -216,30 +231,40 @@
                                         <a href="/product?bookid=${item.id}"
                                            title="${item.name}">${item.name}</a>
                                     </div>
-                                    <div class="fields"> <span><a href="/thuong-hieu/983/doi.html"
-                                                                  title="${item.author}">${item.author}</a></span></div>
+                                    <div class="fields"> <span><a
+                                            href="/thuong-hieu/983/doi.html"
+                                            title="${item.author}">${item.author}</a></span>
+                                    </div>
 
 
-                                    <div class="prices">${item.priceNew} ₫</div>
-                                    <div class="rootprice">${item.priceOld} ₫</div>
+                                    <div class="prices">${item.priceNew}
+                                        ₫
+                                    </div>
+                                    <div class="rootprice">${item.priceOld}
+                                        ₫
+                                    </div>
                                 </div>
                             </div>
                         </c:forEach>
                     </div>
                 </div>
             </div>
-            <div class="block" id="module_AlsoBought">
+            <div class="block"
+                 id="module_AlsoBought">
                 <h3>Có thể bạn quan tâm</h3>
                 <div class="blockcontent">
                     <div style="position:relative; padding:0 0; overflow:hidden; height:320px;">
-                        <c:forEach var="item" items="${recommend}">
+                        <c:forEach
+                                var="item"
+                                items="${recommend}">
                             <div class="product_contener">
                                 <div class="products">
-                                    <div class="image"><a href="/product?bookid=${item.id}"
-                                                          title="${item.name}"><img
-                                            src="/resources/${item.image}"
-                                            alt="${item.name}"
-                                            title="${item.name}"/></a>
+                                    <div class="image">
+                                        <a href="/product?bookid=${item.id}"
+                                           title="${item.name}"><img
+                                                src="/resources/${item.image}"
+                                                alt="${item.name}"
+                                                title="${item.name}"/></a>
                                         <span class="saleprice">-${item.saleoff}%</span>
                                     </div>
                                     <div class="productname">
@@ -250,15 +275,20 @@
                                     </div>
                                     <div class="fields">
                                     <span>
-                                        <a href="/product?bookid=${item.id}" title="${item.author}">
+                                        <a href="/product?bookid=${item.id}"
+                                           title="${item.author}">
                                                 ${item.author}
                                         </a>
                                     </span>
                                     </div>
 
 
-                                    <div class="saleprice">${item.priceNew} ₫</div>
-                                    <div class="rootprice">${item.priceOld} ₫</div>
+                                    <div class="saleprice">${item.priceNew}
+                                        ₫
+                                    </div>
+                                    <div class="rootprice">${item.priceOld}
+                                        ₫
+                                    </div>
                                 </div>
                             </div>
                         </c:forEach>
@@ -266,16 +296,21 @@
                     </div>
                 </div>
             </div>
-            <div class="block" id="module_Comments">
+            <div class="block"
+                 id="module_Comments">
                 <h3>Gửi nhật xét của bạn</h3>
                 <h3>
                     <ul id="tabnav">
-                        <li><a href="javascript:" class="active" id="tab0">Nhận xét của khách
-                            hàng</a></li>
-                        <li><a href="javascript:" id="tab1" onclick="ShowTab(1)"><i
-                                class="fa fa-facebook-square"></i> Thảo luận(<fb:comments-count
-                                href="${url_like}">
-                        </fb:comments-count>) </a></li>
+                        <li>
+                            <a href="javascript:" class="active" id="tab0">Nhận xét của khách hàng</a>
+                        </li>
+                        <li>
+                            <a href="javascript:" id="tab1"
+                               onclick="ShowTab(1)">
+                                <i class="fa fa-facebook-square"></i>Thảo luận(<fb:comments-count href="${url_like}">
+                                </fb:comments-count>)
+                            </a>
+                        </li>
                     </ul>
                 </h3>
                 <a name="comment"></a>
@@ -283,7 +318,9 @@
                     <div id="div1">
                         <div class="fb-comments"
                              data-href="${url_like}"
-                             data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+                             data-width="100%"
+                             data-numposts="5"
+                             data-colorscheme="light"></div>
                     </div>
                 </div>
             </div>
@@ -341,6 +378,8 @@
         }
     </script>
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous"
+    <script async
+            defer
+            crossorigin="anonymous"
             src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.3&appId=205308183714279&autoLogAppEvents=1"></script>
 </div>

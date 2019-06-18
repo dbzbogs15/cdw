@@ -1,8 +1,16 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib
+        uri="http://java.sun.com/jsp/jstl/functions"
+        prefix="fn" %>
+<%@ page
+        language="java"
+        contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" %>
+<%@taglib
+        prefix="c"
+        uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib
+        prefix="fmt"
+        uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html">
 <html">
 <head>
@@ -18,7 +26,9 @@
     <div id="container">
         <div class="pathway">
             <ul>
-                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li>
+                    <a href="/" title="Trang chủ">Trang chủ</a>
+                </li>
                 <li>Giao hàng</li>
             </ul>
         </div>
@@ -26,34 +36,35 @@
     <div class="clear"></div>
     <div id="container">
         <div id="content_left_contener">
-            <div class="sortable" id="layoutGroup5">
-                <div class="block" id="module_addressorder">
+            <div class="sortable"
+                 id="layoutGroup5">
+                <div class="block"
+                     id="module_addressorder">
                     <h4>Địa chỉ giao hàng</h4>
                     <div class="blockcontent">
                         <div class="notlogin">
                             <div class="addform" id="addform">
-                                <form method="post" name="rgt" id="rgt" action="/order/checkout"
-                                >
+                                <form method="post" name="rgt" id="rgt" action="/order/checkout">
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label>Họ và tên</label> <span class="Required">*</span>:
+                                            <label>Họ và tên</label>
+                                            <span class="Required">*</span>:
                                         </div>
-                                        <input autocomplete="off"
-                                               id="fullname" type="text" name="fullname"/>
+                                        <input autocomplete="off" id="fullname" type="text" name="fullname"/>
                                         <span class="help" id="help5"></span>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label for="phone">Điện thoại</label> <span
-                                                class="Required">*</span>:
+                                            <label for="phone">Điện thoại</label>
+                                            <span class="Required">*</span>:
                                         </div>
-                                        <input autocomplete="off"
-                                               id="phone" type="text" name="phone"/>
+                                        <input autocomplete="off" id="phone" type="text" name="phone"/>
                                         <span class="help" id="help5"></span>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label>Tỉnh/Thành</label> <span class="Required">*</span>:
+                                            <label>Tỉnh/Thành</label>
+                                            <span class="Required">*</span>:
                                         </div>
                                         <select id="province" name="province" class="selectfield Field260"
                                                 onchange="checkdistrict(this.value);">
@@ -63,8 +74,8 @@
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label>Quận huyện</label> <span
-                                                class="Required">*</span>:
+                                            <label>Quận huyện</label>
+                                            <span class="Required">*</span>:
                                         </div>
                                         <select id="districts" name="districts" class="selectfield Field260"
                                                 onchange="checklocation(this.value);">
@@ -73,24 +84,27 @@
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label>Phường xã</label> <span class="Required">*</span>:
+                                            <label>Phường xã</label>
+                                            <span class="Required">*</span>:
                                         </div>
                                         <select id="wardid" name="wardid" class="selectfield Field260">
-
                                         </select>
                                         <div class="help" id="help10"></div>
                                     </div>
                                     <div class="field">
                                         <div class="textlabel">
-                                            <label>Địa chỉ</label> <span class="Required">*</span>:
+                                            <label>Địa chỉ</label>
+                                            <span class="Required">*</span>:
                                         </div>
                                         <textarea placeholder='Số nhà, tòa nhà (nếu có), tên đường…'
-                                                  name="address" id="address"
-                                                  rows="5"></textarea>
+                                                name="address"
+                                                id="address"
+                                                rows="5"></textarea>
                                         <span class="help" id="help6"></span>
                                     </div>
                                     <div class="field">
-                                        <div class="textlabel">&nbsp;
+                                        <div class="textlabel">
+                                            &nbsp;
                                         </div>
                                         <input type="submit" class="bluebuttom Field250" value="Tiếp tục"/>
                                     </div>
@@ -101,8 +115,8 @@
                 </div>
                 <div class="clear"></div>
                 <div id="oder_footer">
-                    <div class="fleft">
-                        Bạn cần hỗ trợ? Gọi HotLine: <b>097. 4941. 097</b>
+                    <div class="fleft">Bạn cần hỗ trợ? Gọi HotLine:
+                        <b>097. 4941. 097</b>
                     </div>
                     <div class="oder_footer_menu">
                         <ul>
@@ -111,17 +125,24 @@
                             </li>
                             <li class="nomal">
                                 <a href="/contents/danh-muc/2/cau-hoi-thuong-gap.html" title="Câu hỏi thường gặp"
-                                   target="_self">Câu hỏi thường gặp</a>
+                                   target="_self">
+                                    Câu hỏi thường gặp
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="sortable" id="layoutGroup6">
-            <div class="block" id="module_ordercart">
+        <div class="sortable"
+             id="layoutGroup6">
+            <div class="block"
+                 id="module_ordercart">
                 <div class="blockcontent">
-                    <table cellpadding="0" cellspacing="0" width="100%" class="orderproducts">
+                    <table cellpadding="0"
+                           cellspacing="0"
+                           width="100%"
+                           class="orderproducts">
                         <tr>
                             <th class="mtitle" width="90%">
                                 <span>Đơn hàng</span>
@@ -133,7 +154,10 @@
                         </tr>
                     </table>
                     <div class="ordercartmin">
-                        <table cellpadding="0" cellspacing="0" width="100%" class="orderproducts">
+                        <table cellpadding="0"
+                               cellspacing="0"
+                               width="100%"
+                               class="orderproducts">
                             <c:forEach var="cart" items="${cart}">
                                 <tr>
                                     <td valign="top">
@@ -141,8 +165,13 @@
                                            title="${cart.book.name}">${cart.book.name}</a>
 
                                     </td>
-                                    <td valign="top" nowrap="nowrap" align="right">
-                                        <fmt:formatNumber pattern="###,###" value="${cart.book.priceNew}"/> ₫
+                                    <td valign="top"
+                                        nowrap="nowrap"
+                                        align="right">
+                                        <fmt:formatNumber
+                                                pattern="###,###"
+                                                value="${cart.book.priceNew}"/>
+                                        ₫
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -150,13 +179,16 @@
                     </div>
                     <table cellpadding="0" cellspacing="0" width="100%" class="orderproducts">
                         <tr class="subtotal">
-                            <td>Tạm tính</td>
+                            <td>Tạm tính
+                            </td>
                             <td nowrap="nowrap" align="right" id="subtotalvl">
                             </td>
                         </tr>
                         <tr class="total">
                             <td>Tổng tiền</td>
-                            <td nowrap="nowrap" align="right" id="totalcacul">384.350 ₫</td>
+                            <td nowrap="nowrap" align="right" id="totalcacul">384.350
+                                ₫
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -193,6 +225,9 @@
             dataType: 'json',
             success: function (district) {
                 $('#districts').empty();
+                $('#districts').append(
+                    '<option value="">Chọn Quận/huyện</option>'
+                )
                 $.each(district, function (index, data) {
                     $('#districts').append(
                         '<option value="' + data.districtid + '">' + data.name + '</option>'

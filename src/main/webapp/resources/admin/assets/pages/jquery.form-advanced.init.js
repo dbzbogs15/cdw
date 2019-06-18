@@ -19,7 +19,6 @@ jQuery(document).ready(function () {
 });
 
 
-
 //Bootstrap-MaxLength
 $('input#defaultconfig').maxlength({
     warningClass: "badge badge-success",
@@ -54,8 +53,6 @@ $('input#placement').maxlength({
     warningClass: "badge badge-success",
     limitReachedClass: "badge badge-danger"
 });
-
-
 
 
 //Bootstrap-TouchSpin

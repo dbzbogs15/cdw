@@ -32,11 +32,11 @@ public class BookController {
         mm.addAttribute("parent", parentCategoryService.getAll());
         return "product";
     }
+
     public Set<Book> getRandomElement(List<Book> list,
-                                      int totalItems)
-    {
+                                      int totalItems) {
         Set<Book> newList = new HashSet<>();
-        if(list.size() <= totalItems) {
+        if (list.size() <= totalItems) {
             newList.addAll(list);
             return newList;
         }

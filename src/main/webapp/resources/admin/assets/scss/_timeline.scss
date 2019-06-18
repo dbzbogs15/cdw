@@ -15,10 +15,12 @@
     margin-right: -75px;
     margin-top: 30px;
     position: relative;
+
     a {
       color: $white;
     }
   }
+
   &:before {
     background-color: rgba($light7, 0.3);
     bottom: 0;
@@ -29,6 +31,7 @@
     width: 2px;
     z-index: 0;
   }
+
   .timeline-icon {
     -webkit-border-radius: 50%;
     background: $light7;
@@ -42,6 +45,7 @@
     text-align: center;
     top: 50%;
     width: 20px;
+
     i {
       color: $white;
       font-size: 13px;
@@ -50,6 +54,7 @@
       left: 4px;
     }
   }
+
   .time-icon {
     &:before {
       font-size: 16px;
@@ -69,15 +74,17 @@ h3.timeline-title {
 
 .timeline-item {
   display: table-row;
+
   &:before {
     content: "";
     display: block;
     width: 50%;
   }
+
   .timeline-desk {
     .arrow {
       border-bottom: 12px solid transparent;
-      border-right: 12px solid rgba($light,0.3) !important;
+      border-right: 12px solid rgba($light, 0.3) !important;
       border-top: 12px solid transparent;
       display: block;
       height: 0;
@@ -87,10 +94,12 @@ h3.timeline-title {
       top: 50%;
       width: 0;
     }
+
     .timeline-box {
       padding: 20px;
     }
   }
+
   .timeline-date {
     margin-bottom: 10px;
   }
@@ -102,10 +111,11 @@ h3.timeline-title {
     display: block;
     width: 50%;
   }
+
   .timeline-desk {
     .arrow-alt {
       border-bottom: 12px solid transparent;
-      border-left: 12px solid rgba($light,0.3) !important;
+      border-left: 12px solid rgba($light, 0.3) !important;
       border-top: 12px solid transparent;
       display: block;
       height: 0;
@@ -116,32 +126,40 @@ h3.timeline-title {
       top: 50%;
       width: 0;
     }
+
     .album {
       float: right;
       margin-top: 20px;
+
       a {
         float: right;
         margin-left: 5px;
       }
     }
   }
+
   .timeline-icon {
     left: auto;
     right: -56px;
   }
+
   &:before {
     display: none;
   }
+
   .panel {
     margin-left: 0;
     margin-right: 45px;
   }
+
   h4 {
     text-align: right;
   }
+
   p {
     text-align: right;
   }
+
   .timeline-date {
     text-align: right;
   }
@@ -152,13 +170,15 @@ h3.timeline-title {
   display: table-cell;
   vertical-align: top;
   width: 50%;
+
   h4 {
     font-size: 16px;
     font-weight: 300;
     margin: 0;
   }
+
   .panel {
-    background: rgba($light,0.25);
+    background: rgba($light, 0.25);
     display: block;
     margin-bottom: 5px;
     margin-left: 45px;
@@ -166,6 +186,7 @@ h3.timeline-title {
     text-align: left;
     border: 0;
   }
+
   h5 {
     span {
       color: $light7;
@@ -174,13 +195,16 @@ h3.timeline-title {
       margin-bottom: 4px;
     }
   }
+
   p {
     color: #999999;
     font-size: 14px;
     margin-bottom: 0;
   }
+
   .album {
     margin-top: 12px;
+
     a {
       float: left;
       margin-right: 5px;
@@ -192,6 +216,7 @@ h3.timeline-title {
       border-radius: 3px;
     }
   }
+
   .notification {
     background: none repeat scroll 0 0 $white;
     margin-top: 20px;

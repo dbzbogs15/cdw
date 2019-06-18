@@ -6,42 +6,67 @@
  */
 
 
-!function($) {
+!function ($) {
     "use strict";
 
-    var ChartJs = function() {};
+    var ChartJs = function () {
+    };
 
-    ChartJs.prototype.respChart = function(selector,type,data, options) {
+    ChartJs.prototype.respChart = function (selector, type, data, options) {
         // get selector by context
         var ctx = selector.get(0).getContext("2d");
         // pointing parent container to make chart js inherit its width
         var container = $(selector).parent();
 
         // enable resizing matter
-        $(window).resize( generateChart );
+        $(window).resize(generateChart);
 
         // this function produce the responsive Chart JS
-        function generateChart(){
+        function generateChart() {
             // make chart width fit with its container
-            var ww = selector.attr('width', $(container).width() );
-            switch(type){
+            var ww = selector.attr('width', $(container).width());
+            switch (type) {
                 case 'Line':
-                    new Chart(ctx, {type: 'line', data: data, options: options});
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: data,
+                        options: options
+                    });
                     break;
                 case 'Doughnut':
-                    new Chart(ctx, {type: 'doughnut', data: data, options: options});
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: data,
+                        options: options
+                    });
                     break;
                 case 'Pie':
-                    new Chart(ctx, {type: 'pie', data: data, options: options});
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: data,
+                        options: options
+                    });
                     break;
                 case 'Bar':
-                    new Chart(ctx, {type: 'bar', data: data, options: options});
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
                     break;
                 case 'Radar':
-                    new Chart(ctx, {type: 'radar', data: data, options: options});
+                    new Chart(ctx, {
+                        type: 'radar',
+                        data: data,
+                        options: options
+                    });
                     break;
                 case 'PolarArea':
-                    new Chart(ctx, {data: data, type: 'polarArea', options: options});
+                    new Chart(ctx, {
+                        data: data,
+                        type: 'polarArea',
+                        options: options
+                    });
                     break;
             }
             // Initiate new chart or Redraw
@@ -52,7 +77,7 @@
     },
 
         //init
-        ChartJs.prototype.init = function() {
+        ChartJs.prototype.init = function () {
             //creating lineChart
             var lineChart = {
                 labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October"],
@@ -61,14 +86,14 @@
                     fill: false,
                     backgroundColor: '#5d6dc3',
                     borderColor: '#5d6dc3',
-                    data: [44,60,-33,58,-4,57,-89,60,-33,58]
+                    data: [44, 60, -33, 58, -4, 57, -89, 60, -33, 58]
                 }, {
                     label: "Average Sale Value",
                     fill: false,
                     backgroundColor: '#3ec396',
                     borderColor: "#3ec396",
                     borderDash: [5, 5],
-                    data: [-68,41,86,-49,2,65,-64,86,-49,2]
+                    data: [-68, 41, 86, -49, 2, 65, -64, 86, -49, 2]
                 }]
             };
 
@@ -111,7 +136,7 @@
                 }
             };
 
-            this.respChart($("#transactions-chart"),'Line',lineChart, lineOpts);
+            this.respChart($("#transactions-chart"), 'Line', lineChart, lineOpts);
 
             //barchart
             var barChart = {
@@ -124,7 +149,7 @@
                         borderWidth: 1,
                         hoverBackgroundColor: "#3ec396",
                         hoverBorderColor: "#3ec396",
-                        data: [65, 59, 80, 81, 56, 89, 40,20]
+                        data: [65, 59, 80, 81, 56, 89, 40, 20]
                     }
                 ]
             };
@@ -149,14 +174,14 @@
                 }
             };
 
-            this.respChart($("#sales-history"),'Bar',barChart, barOpts);
+            this.respChart($("#sales-history"), 'Bar', barChart, barOpts);
         },
         $.ChartJs = new ChartJs, $.ChartJs.Constructor = ChartJs
 
 }(window.jQuery),
 
 //initializing
-    function($) {
+    function ($) {
         "use strict";
         $.ChartJs.init()
     }(window.jQuery);

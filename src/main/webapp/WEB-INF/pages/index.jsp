@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 <html>
@@ -10,9 +9,9 @@
 
 <body>
 <div id="main_contener">
-
     <div id="header">
-        <div class="block banner " id="banner_TopHeader">
+        <div class="block banner "
+             id="banner_TopHeader">
             <div class="blockcontent"></div>
         </div>
     </div>
@@ -36,7 +35,8 @@
         <div id="mainbanner">
             <%@include file="component/main_banner.jsp" %>
         </div>
-        <div class="sortable" id="layoutGroup1">
+        <div class="sortable"
+             id="layoutGroup1">
             <div class="block" id="module_newproducts">
                 <%@include file="component/new_product.jsp" %>
             </div>

@@ -1,37 +1,66 @@
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ taglib
+        prefix="fn"
+        uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page
+        language="java"
+        contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" %>
 <div class="top_header">
     <div id="container">
         <div class="mainlogo">
             <div class="block banner"
                  id="banner_mainlogo">
                 <div class="blockcontent">
-                    <a href="/" title="Logo chính" target="_self">
-                        <img src="/resources/stores/banners/logo.png" border="0"
-                             title="Logo chính" width="220" height="44">
+                    <a href="/"
+                       title="Logo chính"
+                       target="_self">
+                        <img src="/resources/stores/banners/logo.png"
+                             border="0"
+                             title="Logo chính"
+                             width="220"
+                             height="44">
                     </a>
                 </div>
             </div>
         </div>
         <div class="rightheader">
             <div class="search">
-                <form action="#" onsubmit="return checksearch();" method="get">
-                    <table width="100%" cellpadding="0" cellspacing="0">
+                <form action="#"
+                      onsubmit="return checksearch();"
+                      method="get">
+                    <table width="100%"
+                           cellpadding="0"
+                           cellspacing="0">
                         <tr>
-                            <td class="input" width="100%">
-                                <input type="text" value="" name="keyword" id="keyword" size="10"
-                                       class="inputfield" title="Tìm" autocomplete="off"
-                                       onfocus="clearText(this)" onblur="clearText(this)"/>
+                            <td class="input"
+                                width="100%">
+                                <input type="text"
+                                       value=""
+                                       name="keyword"
+                                       id="keyword"
+                                       size="10"
+                                       class="inputfield"
+                                       title="Tìm"
+                                       autocomplete="off"
+                                       onfocus="clearText(this)"
+                                       onblur="clearText(this)"/>
                             </td>
-                            <td class="search-submit" nowrap="nowrap" width="40">
-                                <input type="submit" value="Tìm" alt="Tìm">
-                                <input type="hidden" name="productid" id="productid" value="0"/>
+                            <td class="search-submit"
+                                nowrap="nowrap"
+                                width="40">
+                                <input type="submit"
+                                       value="Tìm"
+                                       alt="Tìm">
+                                <input type="hidden"
+                                       name="productid"
+                                       id="productid"
+                                       value="0"/>
                             </td>
                         </tr>
                     </table>
                 </form>
-                <div class="autocomplete" id="autocomplete"></div>
+                <div class="autocomplete"
+                     id="autocomplete"></div>
                 <script>
                     function checksearch() {
                         var kw = gde("keyword");
@@ -140,7 +169,7 @@
                                                 '</div>' +
                                                 '<div class="info">' +
                                                 '<div class="title">' + data.name + '</div>' +
-                                                '<span class="prices">' + data.priceNew.toLocaleString().replace(',','.') + ' ₫</span>' +
+                                                '<span class="prices">' + data.priceNew.toLocaleString().replace(',', '.') + ' ₫</span>' +
                                                 '</div>' +
                                                 '<div class="clear"></div>' +
                                                 '</a>' +
@@ -162,37 +191,73 @@
                     <li>
                         <c:choose>
                             <c:when test="${sessionScope.account == null}">
-                                <div class="textlable" title="Tài khoản của bạn">
-                                    Tài khoản của bạn<i class="fa fa-sort-desc"></i>
+                                <div class="textlable"
+                                     title="Tài khoản của bạn">
+                                    Tài
+                                    khoản
+                                    của
+                                    bạn<i
+                                        class="fa fa-sort-desc"></i>
                                 </div>
                                 <div class="subcontent">
                                     <div class="buttom">
                                         <div>
-                                            <a class="btn_login" href="/account/login">
-                                                Đăng nhập
+                                            <a class="btn_login"
+                                               href="/account/login">
+                                                Đăng
+                                                nhập
                                             </a>
                                         </div>
-                                        <div align="center" class="loginlink">
-                                            Khách hàng mới? <a href="/account/register">Tạo tài khoản</a>
+                                        <div align="center"
+                                             class="loginlink">
+                                            Khách
+                                            hàng
+                                            mới?
+                                            <a href="/account/register">Tạo
+                                                tài
+                                                khoản</a>
                                         </div>
                                     </div>
                                 </div>
                             </c:when>
                             <c:otherwise>
-                                <div class="textlable" title="${sessionScope.account.name}">
-                                        ${sessionScope.account.name}<i class="fa fa-sort-desc"></i>
+                                <div class="textlable"
+                                     title="${sessionScope.account.name}">
+                                        ${sessionScope.account.name}<i
+                                        class="fa fa-sort-desc"></i>
                                 </div>
                                 <div class="subcontent">
                                     <div class="meminfo">
-                                        <div><a href="/account/manager">Quản lý tài khoản</a></div>
-                                        <div><a href="/account/info">Thông tin tài khoản</a></div>
-                                        <div><a href="/account/order">Đơn hàng của tôi</a></div>
-                                        <div><a href="/account/change-password">Đổi mật khẩu</a></div>
+                                        <div>
+                                            <a href="/account/manager">Quản
+                                                lý
+                                                tài
+                                                khoản</a>
+                                        </div>
+                                        <div>
+                                            <a href="/account/info">Thông
+                                                tin
+                                                tài
+                                                khoản</a>
+                                        </div>
+                                        <div>
+                                            <a href="/account/order">Đơn
+                                                hàng
+                                                của
+                                                tôi</a>
+                                        </div>
+                                        <div>
+                                            <a href="/account/change-password">Đổi
+                                                mật
+                                                khẩu</a>
+                                        </div>
                                     </div>
                                     <div class="buttom">
                                         <div>
-                                            <a class="btn_login" href="/account/logout">
-                                                Đăng xuất
+                                            <a class="btn_login"
+                                               href="/account/logout">
+                                                Đăng
+                                                xuất
                                             </a>
                                         </div>
                                     </div>
@@ -201,16 +266,28 @@
                         </c:choose>
                     </li>
                     <li>
-                        <div class="textlable" title="Giỏ hàng">
-                            Giỏ hàng (<span class="shownumber">0</span>)
+                        <div class="textlable"
+                             title="Giỏ hàng">
+                            Giỏ
+                            hàng
+                            (<span
+                                class="shownumber">0</span>)
                             <i class="fa fa-sort-desc"></i>
                         </div>
                         <div class="subcontent">
-                            <h3>Giỏ hàng</h3>
+                            <h3>
+                                Giỏ
+                                hàng</h3>
                             <div id="cartslist"></div>
-                            <div class="buttom" id="showcartlink">
-                                <a class="cartlink" href="/cart" title="GIỎ HÀNG CỦA TÔI">
-                                    Xem giỏ hàng<i class="fa fa-play"></i></a>
+                            <div class="buttom"
+                                 id="showcartlink">
+                                <a class="cartlink"
+                                   href="/cart"
+                                   title="GIỎ HÀNG CỦA TÔI">
+                                    Xem
+                                    giỏ
+                                    hàng<i
+                                        class="fa fa-play"></i></a>
                             </div>
                         </div>
                     </li>
@@ -239,7 +316,7 @@
                                     '' + data.book.name + '' +
                                     '</div>' +
                                     '<div class="prices">' +
-                                    ''+data.book.priceNew.toLocaleString().replace(',', ".")+' ₫' +
+                                    '' + data.book.priceNew.toLocaleString().replace(',', ".") + ' ₫' +
                                     '</div>' +
                                     '</div>' +
                                     '<div class="clear"></div>' +
@@ -253,6 +330,7 @@
                     }
                 })
             }
+
             loadCart()
         </script>
         <div class="clear"></div>

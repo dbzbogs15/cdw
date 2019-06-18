@@ -25,16 +25,18 @@ public class APIController {
     CategoryService categoryService;
     @Autowired
     OrderDetailService orderDetailService;
+
     @RequestMapping("/api/newbook")
     public ResponseEntity<List<Book>> getNewBook(@RequestParam int page) {
-        List<Book> list = bookService.getNewBook(page-1, 5).getContent();
+        List<Book> list = bookService.getNewBook(page - 1, 5).getContent();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
     @RequestMapping("/api/bestseller")
     public ResponseEntity<List<Book>> getBestSeller(@RequestParam int page) {
-        List<OrderDetails> list = orderDetailService.getBestsellers(page-1, 5).getContent();
+        List<OrderDetails> list = orderDetailService.getBestsellers(page - 1, 5).getContent();
         List<Book> result = new ArrayList<>();
-        for(OrderDetails orderDetails : list) {
+        for (OrderDetails orderDetails : list) {
             result.add(orderDetails.getBook());
         }
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -43,11 +45,12 @@ public class APIController {
     @RequestMapping("/search/autocomplete")
     public ResponseEntity<List<Book>> searchBook(@RequestParam String keywords) {
         List<Book> list = bookService.getBookByName(keywords);
-        if(keywords.length() == 0) {
+        if (keywords.length() == 0) {
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
     @RequestMapping("/api/categories")
     public ResponseEntity<List<Category>> getCategories(@RequestParam int parentid) {
         List<Category> categories = categoryService.getAllByParentId(parentid);

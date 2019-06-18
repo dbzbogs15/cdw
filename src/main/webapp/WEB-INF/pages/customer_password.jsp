@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html">
@@ -17,49 +16,80 @@
     <div id="container">
         <div class="pathway">
             <ul>
-                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
-                <li>Quản lý tài khoản</li>
+                <li>
+                    <a href="/" title="Trang chủ">
+                        Trang chủ
+                    </a>
+                </li>
+                <li>
+                    Quản lý tài khoản
+                </li>
             </ul>
         </div>
     </div>
     <div class="clear"></div>
     <div id="container">
-        <div class="sortable" id="layoutGroup3">
+        <div class="sortable"
+             id="layoutGroup3">
             <%@include file="component/customer_panel.jsp" %>
         </div>
-        <div class="sortable" id="layoutGroup4">
-            <div class="block" id="module_customersorders">
-                <h3 id="titleCustomer">Đổi mật khẩu</h3>
+        <div class="sortable"
+             id="layoutGroup4">
+            <div class="block"
+                 id="module_customersorders">
+                <h3 id="titleCustomer">
+                    Đổi mật khẩu
+                </h3>
                 <div class="blockcontent">
                     <span class="error">${message}</span>
-                    <form method="post" id="forgotPassword" action="/account/change-password">
+                    <form method="post"
+                          id="forgotPassword"
+                          action="/account/change-password">
                         <div class="field">
                             <div class="textlabel">
-                                <label for="oldpassword">Mật khẩu cũ</label> <span class="Required">*</span>:
+                                <label for="oldpassword">Mật khẩu cũ</label>
+                                <span class="Required">*</span>:
                             </div>
-                            <input autocomplete="off" type="password" id="oldpassword" name="oldpassword">
-                            <span class="help" id="help1"></span>
+                            <input autocomplete="off"
+                                   type="password"
+                                   id="oldpassword"
+                                   name="oldpassword">
+                            <span class="help"
+                                  id="help1"></span>
                         </div>
                         <div class="field">
                             <div class="textlabel">
-                                <label>Mật khẩu mới</label> <span class="Required">*</span>:
+                                <label>Mật khẩu mới</label>
+                                <span class="Required">*</span>:
                             </div>
-                            <input autocomplete="off" type="password" id="newpassword" name="newpassword">
+                            <input autocomplete="off"
+                                   type="password"
+                                   id="newpassword"
+                                   name="newpassword">
                             <span class="help" id="help2"></span>
                         </div>
                         <div class="field">
                             <div class="textlabel">
-                                <label for="cpassword">Xác nhận mật khẩu</label> <span class="Required">*</span>:
+                                <label for="cpassword">Xác nhận mật khẩu</label>
+                                <span class="Required">*</span>:
                             </div>
-                            <input autocomplete="off" type="password" id="cpassword" name="cpassword">
+                            <input autocomplete="off"
+                                   type="password"
+                                   id="cpassword"
+                                   name="cpassword">
                             <span class="help" id="help3"></span>
                         </div>
                         <div class="field">
                             <div class="textlabel">
                                 &nbsp;
                             </div>
-                            <input type="submit" align="absmiddle" class="yellowbuttom" value="Lưu"/>
-                            <input type="hidden" name="redirect" value=""/>
+                            <input type="submit"
+                                   align="absmiddle"
+                                   class="yellowbuttom"
+                                   value="Lưu"/>
+                            <input type="hidden"
+                                   name="redirect"
+                                   value=""/>
                         </div>
                     </form>
                 </div>

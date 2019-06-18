@@ -25,6 +25,7 @@ public class CategoryController {
     OrderDetailService orderDetailService;
     @Autowired
     ServletContext context;
+
     @RequestMapping("/category/{id}")
     public String main(ModelMap mm, @PathVariable int id) {
         mm.addAttribute("tendanhmuc", parentCategoryService.getParentById(id).getName());
@@ -48,33 +49,34 @@ public class CategoryController {
                              HttpServletRequest request) {
         mm.addAttribute("path", "Sách bán chạy");
         Integer totalPage = orderDetailService.getBestsellers(0, 10).getTotalPages();
-        if(currentPage == null || currentPage <= 0 || currentPage > totalPage) {
+        if (currentPage == null || currentPage <= 0 || currentPage > totalPage) {
             currentPage = 0;
         } else {
             currentPage -= 1;
         }
         List<OrderDetails> list = orderDetailService.getBestsellers(currentPage, 10).getContent();
         List<Book> result = new ArrayList<>();
-        for(OrderDetails orderDetails : list) {
+        for (OrderDetails orderDetails : list) {
             result.add(orderDetails.getBook());
         }
-        mm.addAttribute("currentPage", currentPage + 1);
-        mm.addAttribute("currentUrl", request.getRequestURI());
-        mm.addAttribute("totalPage", totalPage);
-        mm.addAttribute("list_book", result);
-        return "list_book";
+        return getString(mm, currentPage, request, totalPage, result);
     }
+
     @GetMapping("/category/newbook")
     public String newBook(ModelMap mm, @RequestParam(required = false, name = "page") Integer currentPage,
                           HttpServletRequest request) {
         Integer totalPage = bookService.getNewBook(0, 10).getTotalPages();
-        if(currentPage == null || currentPage <= 0 || currentPage > totalPage) {
+        if (currentPage == null || currentPage <= 0 || currentPage > totalPage) {
             currentPage = 0;
         } else {
             currentPage -= 1;
         }
         mm.addAttribute("path", "Sách mới");
         List<Book> list = bookService.getNewBook(currentPage, 10).getContent();
+        return getString(mm, currentPage, request, totalPage, list);
+    }
+
+    private String getString(ModelMap mm, @RequestParam(required = false, name = "page") Integer currentPage, HttpServletRequest request, Integer totalPage, List<Book> list) {
         mm.addAttribute("currentPage", currentPage + 1);
         mm.addAttribute("currentUrl", request.getRequestURI());
         mm.addAttribute("totalPage", totalPage);

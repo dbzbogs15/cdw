@@ -16,11 +16,13 @@ public class OrderDetailService {
     public OrderDetails addOrderDetail(OrderDetails orderDetails) {
         return orderDetaisRepository.save(orderDetails);
     }
+
     public Page<OrderDetails> getBestsellers(int page, int size) {
         return orderDetaisRepository.getBestsellers(
                 PageRequest.of(page, size)
         );
     }
+
     public int productSold() {
         return orderDetaisRepository.productSold();
     }

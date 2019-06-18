@@ -109,7 +109,7 @@ public class AccountController {
     @PostMapping("/info")
     @ResponseBody
     public boolean customerChangeInfo(Account account, @SessionAttribute("account") Account accountS,
-                                     HttpSession session) {
+                                      HttpSession session) {
         System.out.println(account.toString());
         Account accountCurrent = accountService.findByEmail(accountS.getEmail());
         accountCurrent.setBirthDate(account.getBirthDate());

@@ -15,6 +15,7 @@ public class ParentCategoryService {
     public List<ParentCategory> getAll() {
         return parentCaterotyRepository.findAll();
     }
+
     public ParentCategory getParentById(int id) {
         return parentCaterotyRepository.getOne(id);
     }

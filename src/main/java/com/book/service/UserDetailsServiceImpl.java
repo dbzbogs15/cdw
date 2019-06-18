@@ -22,22 +22,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Account account = accountService.findByEmail(email);
-        if(account == null) {
+        if (account == null) {
             throw new UsernameNotFoundException("Email" + email + "không tìm thấy");
         }
         String role = account.getRole();
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        if(role != null) {
+        if (role != null) {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
             grantedAuthorities.add(authority);
         }
         UserDetails userDetails = new User(account.getEmail(), account.getPassword(), grantedAuthorities);
         return userDetails;
     }
+
     public static String encrytePassword(String password) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder.encode(password);
     }
+
     public static void main(String[] args) {
         System.out.println(encrytePassword("123456"));
     }

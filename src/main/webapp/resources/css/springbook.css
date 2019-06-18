@@ -1,24 +1,30 @@
 .product_contener {
     width: 19.73% !important;
 }
+
 #layoutGroup4 .product_contener {
     width: 19.6% !important;
 }
+
 .products .productname a {
     -webkit-line-clamp: 2;
     overflow: hidden;
     display: -webkit-box;
 }
+
 .swal2-modal .swal2-title {
     line-height: 30px;
 }
+
 .small_products {
     white-space: normal;
 }
+
 #cartslist {
     max-height: 300px;
     overflow: scroll;
 }
+
 #titleCustomer {
     margin-top: 0px;
 }

@@ -3,54 +3,55 @@
 ============= */
 .alert-custom {
   color: $custom;
-  background-color: lighten($custom,30%);
-  border-color: lighten($custom,20%);
+  background-color: lighten($custom, 30%);
+  border-color: lighten($custom, 20%);
 }
+
 .alert-primary {
   color: $primary;
-  background-color: lighten($primary,30%);
-  border-color: lighten($primary,20%);
+  background-color: lighten($primary, 30%);
+  border-color: lighten($primary, 20%);
 }
 
 .alert-secondary {
   color: $secondary;
-  background-color: lighten($secondary,30%);
-  border-color: lighten($secondary,20%);
+  background-color: lighten($secondary, 30%);
+  border-color: lighten($secondary, 20%);
 }
 
 .alert-success {
   color: $success;
-  background-color: lighten($success,35%);
-  border-color: lighten($success,20%);
+  background-color: lighten($success, 35%);
+  border-color: lighten($success, 20%);
 }
 
 .alert-danger {
   color: $danger;
-  background-color: lighten($danger,25%);
-  border-color: lighten($danger,20%);
+  background-color: lighten($danger, 25%);
+  border-color: lighten($danger, 20%);
 }
 
 .alert-warning {
   color: $warning;
-  background-color: lighten($warning,40%);
-  border-color: lighten($warning,20%);
+  background-color: lighten($warning, 40%);
+  border-color: lighten($warning, 20%);
 }
 
 .alert-info {
   color: $info;
-  background-color: lighten($info,30%);
-  border-color: lighten($info,20%);
+  background-color: lighten($info, 30%);
+  border-color: lighten($info, 20%);
 }
 
 .alert-light {
-  background-color: lighten($light,5%);
+  background-color: lighten($light, 5%);
   border-color: $light;
 }
 
 .alert-dark {
   color: $dark;
-  background-color: lighten($dark,50%);
-  border-color: lighten($dark,20%);
+  background-color: lighten($dark, 50%);
+  border-color: lighten($dark, 20%);
 }
 
 
@@ -67,8 +68,9 @@
     font-family: $font-secondary;
   }
 
-  a{
+  a {
     font-size: 14px;
+
     &:hover {
       color: $custom;
     }

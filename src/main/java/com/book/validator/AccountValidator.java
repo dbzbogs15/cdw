@@ -20,7 +20,7 @@ public class AccountValidator implements ConstraintValidator<AccountConstraint, 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
         System.out.println(value);
-        if(accountService.findByEmail(value) == null) {
+        if (accountService.findByEmail(value) == null) {
             System.out.println("Sai");
             return true;
         }

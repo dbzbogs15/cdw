@@ -1,15 +1,22 @@
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ taglib
+        prefix="fmt"
+        uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page
+        language="java"
+        contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8" %>
 <h2>
-    <a class="title" href="#" title="Sách mới">Sách mới<span
-            class="b-main__category-arrow"></span></a>
+    <a class="title" href="#" title="Sách mới">
+        Sách mới
+        <span class="b-main__category-arrow"></span></a>
     <a class="more" href="#" title="Xem tất cả">Xem tất cả</a>
 </h2>
 <div class="blockcontent">
     <div style="position:relative; padding:0 20px; overflow:hidden; height:340px;">
         <div id="ajaxncontainer">
-            <c:forEach var="newBook" items="${newBook}">
+            <c:forEach
+                    var="newBook"
+                    items="${newBook}">
                 <div class="product_contener">
                     <div class="products">
                         <div class="image">
@@ -35,17 +42,33 @@
                                         </span>
                         </div>
 
-                        <div class="prices"><fmt:formatNumber value="${newBook.priceNew}" pattern="###,###" /> ₫</div>
-                        <div class="rootprice"><fmt:formatNumber value="${newBook.priceNew}" pattern="###,###" /> ₫</div>
+                        <div class="prices">
+                            <fmt:formatNumber
+                                    value="${newBook.priceNew}"
+                                    pattern="###,###"/>
+                            ₫
+                        </div>
+                        <div class="rootprice">
+                            <fmt:formatNumber
+                                    value="${newBook.priceNew}"
+                                    pattern="###,###"/>
+                            ₫
+                        </div>
                     </div>
                 </div>
             </c:forEach>
         </div>
         <div class="clear"></div>
         <div class="list_btn">
-            <a onclick="showproduct(-1);" id="prevn" class="prev" href="javascript:"><i
+            <a onclick="showproduct(-1);"
+               id="prevn"
+               class="prev"
+               href="javascript:"><i
                     class="fa fa-chevron-left"></i></a>
-            <a onclick="showproduct(1);" id="nextn" class="next" href="javascript:"><i
+            <a onclick="showproduct(1);"
+               id="nextn"
+               class="next"
+               href="javascript:"><i
                     class="fa fa-chevron-right"></i></a>
         </div>
     </div>
@@ -96,7 +119,7 @@
                         '<div class="product_contener">' +
                         '<div class="products hide">' +
                         '<div class="image">' +
-                        '<a href="/product?bookid='+data.id+'" title="' + data.name + '">' +
+                        '<a href="/product?bookid=' + data.id + '" title="' + data.name + '">' +
                         '<img src="/resources/' + data.image + '" alt="' + data.name + '" title="' + data.name + '" />' +
                         '</a>' +
                         '<span class="saleprice">-' + data.saleoff + '%</span>' +
@@ -107,8 +130,8 @@
                         '<div class="fields">' +
                         '<span><a href="" title="' + data.author + '">' + data.author + '</a></span>' +
                         '</div>' +
-                        '<div class="prices">' + data.priceNew.toLocaleString().replace(',','.') + ' ₫</div>' +
-                        '<span class="rootprice">' + data.priceOld.toLocaleString().replace(',','.') + ' ₫</span>' +
+                        '<div class="prices">' + data.priceNew.toLocaleString().replace(',', '.') + ' ₫</div>' +
+                        '<span class="rootprice">' + data.priceOld.toLocaleString().replace(',', '.') + ' ₫</span>' +
                         '</div>' +
                         '</div>'
                     );

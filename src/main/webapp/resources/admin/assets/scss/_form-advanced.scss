@@ -7,7 +7,7 @@
   width: 100% !important;
 
   .select2-selection--single {
-    border: 1px solid darken($light3,5%);
+    border: 1px solid darken($light3, 5%);
     height: 38px;
 
     .select2-selection__rendered {
@@ -20,7 +20,7 @@
       width: 34px;
       right: 3px;
 
-      b{
+      b {
         border-color: #999 transparent transparent transparent;
         border-width: 6px 6px 0 6px;
       }
@@ -33,7 +33,7 @@
 
     .select2-selection__arrow {
 
-      b{
+      b {
         border-color: transparent transparent #999 transparent !important;
         border-width: 0 6px 6px 6px !important;
       }
@@ -45,32 +45,36 @@
   background-color: $primary;
   background: $bg-gradient;
 }
+
 .select2-results__option {
   padding: 6px 12px;
 }
 
 .select2-dropdown {
-  border: 1px solid darken($light3,5%);
+  border: 1px solid darken($light3, 5%);
   padding-top: 5px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .15);
 }
+
 .select2-search {
-  input{
-    border: 1px solid darken($light3,5%);
+  input {
+    border: 1px solid darken($light3, 5%);
   }
 }
 
 .select2-container .select2-selection--multiple {
   min-height: 38px;
-  border: 1px solid darken($light3,5%);
+  border: 1px solid darken($light3, 5%);
 
   .select2-selection__rendered {
     padding: 2px 10px;
   }
+
   .select2-search__field {
     margin-top: 7px;
     border: 0;
   }
+
   .select2-selection__choice {
     background-color: $primary;
     background: $bg-gradient;
@@ -79,12 +83,12 @@
     border-radius: 3px;
     padding: 0 7px;
   }
+
   .select2-selection__choice__remove {
     color: $white;
   }
 
 }
-
 
 
 /* AUTOCOMPLETE */
@@ -142,7 +146,7 @@
   padding: 3px 7px 5px;
   width: 100%;
   line-height: 1;
-  border: 1px solid darken($light3,5%);
+  border: 1px solid darken($light3, 5%);
 
   .label-info {
     background-color: $primary;
@@ -161,27 +165,28 @@
   width: 100% !important;
 }
 
-.bootstrap-select  {
+.bootstrap-select {
   .dropdown-toggle {
     &:focus {
       outline: none !important;
     }
   }
+
   .glyphicon {
     padding-right: 6px;
   }
 }
 
 
-.bootstrap-select.show>.dropdown-menu>.dropdown-menu {
+.bootstrap-select.show > .dropdown-menu > .dropdown-menu {
   display: block;
 }
 
-.bootstrap-select > .dropdown-menu > .dropdown-menu li.hidden{
-  display:none;
+.bootstrap-select > .dropdown-menu > .dropdown-menu li.hidden {
+  display: none;
 }
 
-.bootstrap-select > .dropdown-menu > .dropdown-menu li a{
+.bootstrap-select > .dropdown-menu > .dropdown-menu li a {
   display: block;
   width: 100%;
   padding: 3px 1.5rem;
@@ -199,6 +204,7 @@
     color: $white;
   }
 }
+
 .bootstrap-select .check-mark::after {
   content: "\F12C";
   font-family: "Material Design Icons";
@@ -208,12 +214,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
   margin-top: 0;
 }
 
 /* X Editable */
-.editable-checklist label{
+.editable-checklist label {
   display: block;
 }
 
@@ -227,18 +234,21 @@
     line-height: 1.25;
     color: $dark;
     text-align: center;
-    background-color: lighten($light,7%);
-    border: 1px solid rgba($dark,.15);
+    background-color: lighten($light, 7%);
+    border: 1px solid rgba($dark, .15);
   }
-  .input-group-btn:not(:first-child)>.btn, .input-group-btn:not(:first-child)>.btn-group {
+
+  .input-group-btn:not(:first-child) > .btn, .input-group-btn:not(:first-child) > .btn-group {
     z-index: 2;
     margin-left: -1px;
   }
-  .input-group .form-control:not(:first-child), .input-group-addon:not(:first-child), .input-group-btn:not(:first-child)>.btn, .input-group-btn:not(:first-child)>.btn-group>.btn, .input-group-btn:not(:first-child)>.dropdown-toggle, .input-group-btn:not(:last-child)>.btn-group:not(:first-child)>.btn, .input-group-btn:not(:last-child)>.btn:not(:first-child) {
+
+  .input-group .form-control:not(:first-child), .input-group-addon:not(:first-child), .input-group-btn:not(:first-child) > .btn, .input-group-btn:not(:first-child) > .btn-group > .btn, .input-group-btn:not(:first-child) > .dropdown-toggle, .input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn, .input-group-btn:not(:last-child) > .btn:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  .input-group .form-control:not(:last-child), .input-group-addon:not(:last-child), .input-group-btn:not(:first-child)>.btn-group:not(:last-child)>.btn, .input-group-btn:not(:first-child)>.btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:not(:last-child)>.btn, .input-group-btn:not(:last-child)>.btn-group>.btn, .input-group-btn:not(:last-child)>.dropdown-toggle {
+
+  .input-group .form-control:not(:last-child), .input-group-addon:not(:last-child), .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn, .input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:not(:last-child) > .btn, .input-group-btn:not(:last-child) > .btn-group > .btn, .input-group-btn:not(:last-child) > .dropdown-toggle {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }

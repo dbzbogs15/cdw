@@ -38,22 +38,28 @@ public class BookService {
     public Book getBookById(int id) {
         return bookRepository.getOne(id);
     }
+
     //Chức năng tìm kiếm
     public List<Book> getBookByName(String name) {
         return bookRepository.findByNameContainingIgnoreCase(name);
     }
+
     public List<Book> getBookByParent(int id) {
         return bookRepository.findAllByCategoryParentCategoryId(id);
     }
+
     public List<Book> getBookByCategory(int id) {
         return bookRepository.findAllByCategoryId(id);
     }
+
     public List<Book> getBookIsActive() {
         return bookRepository.findAllByIsActiveIsTrue();
     }
+
     public Book addBook(Book book) {
         return bookRepository.save(book);
     }
+
     public void deleteBook(Integer id) {
         bookRepository.deleteById(id);
     }

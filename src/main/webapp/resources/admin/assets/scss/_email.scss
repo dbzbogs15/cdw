@@ -7,6 +7,7 @@
   float: left;
   padding: 0 20px 20px 10px;
 }
+
 .inbox-rightbar {
   margin-left: 250px;
 }
@@ -23,7 +24,7 @@
     cursor: default;
     transition-duration: .3s;
 
-    a{
+    a {
       color: $light7;
     }
 
@@ -107,7 +108,8 @@
     }
 
   }
-  li.active,li.selected {
+
+  li.active, li.selected {
     background: rgba($muted, 0.15);
     transition-duration: .05s;
   }
@@ -117,9 +119,9 @@
     box-shadow: inset 3px 0 0 $custom;
   }
 
-  li.unread a{
+  li.unread a {
     font-weight: 600;
-    color: darken($dark,5%);
+    color: darken($dark, 5%);
   }
 
   li.blue-dot .col-mail-1 .dot {
@@ -147,6 +149,7 @@
       opacity: 0;
       cursor: pointer;
     }
+
     input:checked ~ label {
       opacity: 1;
     }
@@ -200,8 +203,10 @@
         left: 80px;
       }
     }
+
     .col-mail-2 {
       left: 160px;
+
       .date {
         text-align: right;
         padding-right: 10px;

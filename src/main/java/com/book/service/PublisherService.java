@@ -11,6 +11,7 @@ import java.util.List;
 public class PublisherService {
     @Autowired
     PublisherRepository publisherRepository;
+
     public List<Publisher> getAll() {
         return publisherRepository.findAll();
     }

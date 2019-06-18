@@ -30,6 +30,7 @@
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
+
 .waves-effect {
   .waves-ripple {
     position: absolute;
@@ -65,6 +66,7 @@
   -ms-transition: none !important;
   transition: none !important;
 }
+
 .waves-circle {
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -78,9 +80,11 @@
   border-radius: 50%;
   -webkit-mask-image: none;
 }
+
 .waves-input-wrapper {
   border-radius: 0.2em;
   vertical-align: bottom;
+
   .waves-button-input {
     position: relative;
     top: 0;
@@ -88,6 +92,7 @@
     z-index: 1;
   }
 }
+
 .waves-block {
   display: block;
 }
@@ -97,41 +102,49 @@
     background-color: rgba($white, 0.4);
   }
 }
+
 .waves-effect.waves-custom {
   .waves-ripple {
     background-color: rgba($custom, 0.4);
   }
 }
+
 .waves-effect.waves-primary {
   .waves-ripple {
     background-color: rgba($primary, 0.4);
   }
 }
+
 .waves-effect.waves-success {
   .waves-ripple {
     background-color: rgba($success, 0.4);
   }
 }
+
 .waves-effect.waves-info {
   .waves-ripple {
     background-color: rgba($info, 0.4);
   }
 }
+
 .waves-effect.waves-warning {
   .waves-ripple {
     background-color: rgba($warning, 0.4);
   }
 }
+
 .waves-effect.waves-danger {
   .waves-ripple {
     background-color: rgba($danger, 0.4);
   }
 }
+
 .waves-effect.waves-pink {
   .waves-ripple {
     background-color: rgba($pink, 0.4);
   }
 }
+
 .waves-effect.waves-purple {
   .waves-ripple {
     background-color: rgba($purple, 0.4);

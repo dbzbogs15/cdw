@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -17,17 +16,22 @@
     <div id="container">
         <div class="pathway">
             <ul>
-                <li><a href="/" title="Trang chủ">Trang chủ</a></li>
+                <li>
+                    <a href="/" title="Trang chủ">Trang chủ</a>
+                </li>
                 <li>Quên mật khẩu</li>
             </ul>
         </div>
     </div>
     <div class="clear"></div>
     <div id="container">
-        <div class="sortable" id="layoutGroup1">
-            <div class="block" id="module_Login">
+        <div class="sortable"
+             id="layoutGroup1">
+            <div class="block"
+                 id="module_Login">
                 <h1>
-                    <a href="/account/login" title="Đăng Nhập">Đăng nhập</a> <span>hoặc</span>
+                    <a href="/account/login" title="Đăng Nhập">Đăng nhập</a>
+                    <span>hoặc</span>
                     <a href="/account/register" title="Đăng ký">Đăng ký</a>
                 </h1>
                 <div class="blockcontent">
@@ -38,23 +42,26 @@
                         <h3>Đặt lại mật khẩu</h3>
                         <form method="post" name="fgf" id="fgf" action="/account/reset">
                             <input type="hidden" name="token" value="${token}">
-                            <div class="textlabel">
-                            </div>
+                            <div class="textlabel"></div>
                             <span class="error">${message}</span>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Mật khẩu mới</label> <span class="Required">*</span>:
+                                    <label>Mật khẩu mới</label>
+                                    <span class="Required">*</span>:
                                 </div>
-                                <input type="text" name="password"
+                                <input type="password"
+                                       name="password"
                                        id="password"
                                        value=""
                                        autocomplete="off">
                             </div>
                             <div class="field">
                                 <div class="textlabel">
-                                    <label>Xác nhận mật khẩu mới</label> <span class="Required">*</span>:
+                                    <label>Xác nhận mật khẩu mới</label>
+                                    <span class="Required">*</span>:
                                 </div>
-                                <input type="text" name="cpassword"
+                                <input type="password"
+                                       name="cpassword"
                                        id="cpassword"
                                        value=""
                                        autocomplete="off">
@@ -64,7 +71,10 @@
                                 <div class="textlabel">
                                     &nbsp;
                                 </div>
-                                <input type="submit" align="absmiddle" class="loginbuton" value="Xác nhận"/>
+                                <input type="submit"
+                                       align="absmiddle"
+                                       class="loginbuton"
+                                       value="Xác nhận"/>
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="/account/login" title="Đăng ký" class="link_register">Đăng nhập</a>
                             </div>
